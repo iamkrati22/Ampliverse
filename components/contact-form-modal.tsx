@@ -88,7 +88,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white"
+                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
                       required
                     />
                   </div>
@@ -105,7 +105,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white"
+                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
                       required
                     />
                   </div>

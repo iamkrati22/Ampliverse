@@ -69,9 +69,19 @@ export function WhoWeAre() {
               <Quote className="h-8 w-8 text-green-500 mb-2" />
               <div className="h-1 w-16 bg-green-500 rounded mb-4" />
               <blockquote className="text-xl md:text-2xl font-semibold leading-snug mb-4">
-                “We believe that it takes great people to deliver a great product.”
+                "We believe that it takes great people to deliver a great product."
               </blockquote>
-              <span className="font-signature text-lg text-muted-foreground mt-2 italic">Ampliverse Team</span>
+              <div className="flex flex-col">
+                <span className="font-signature text-lg text-muted-foreground mt-2 italic">Ampliverse Team</span>
+                <a 
+                  href="https://www.linkedin.com/in/your-linkedin-id" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors mt-1"
+                >
+                  @linkedin-id
+                </a>
+              </div>
             </div>
           </div>
         </div>

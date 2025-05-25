@@ -127,20 +127,20 @@ export function Capabilities() {
   }
 
   return (
-    <section id="expertise" ref={ref} className="py-24 bg-[#0a0a14] relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="expertise" ref={ref} className="py-24 bg-[#f8f7f4] dark:bg-[#0a0a14] relative overflow-hidden w-full">
+      <div className="w-full px-4 relative z-10 max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className="text-sm font-medium tracking-wider uppercase flex items-center justify-center text-foreground dark:text-white/60">
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Services
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Purposeful Solutions that Move the Needle</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-foreground dark:text-white">Purposeful Solutions that Move the Needle</h2>
         </motion.div>
 
         {/* Later in the JSX, update the grid layout and add colored borders */}
@@ -153,7 +153,7 @@ export function Capabilities() {
           {services.slice(0, 4).map((service, index) => (
             <motion.div
               key={index}
-              className={`relative glass-panel p-8 rounded-lg group transition-all duration-300 border ${service.borderColor} ${service.hoverColor} hover:shadow-lg ${service.shadowColor}`}
+              className={`relative glass-panel p-8 rounded-lg group transition-all duration-300 border shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_32px_rgba(0,0,0,0.32)] ${service.borderColor} ${service.hoverColor} hover:shadow-xl ${service.shadowColor}`}
               variants={itemVariants}
               whileHover={{
                 y: -10,
@@ -173,8 +173,8 @@ export function Capabilities() {
               >
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-white">{service.title}</h3>
-              <p className="text-white/70 group-hover:text-white/90 transition-colors duration-300">
+              <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-white">{service.title}</h3>
+              <p className="text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
                 {service.description}
               </p>
             </motion.div>
@@ -191,7 +191,7 @@ export function Capabilities() {
             {services.slice(4).map((service, index) => (
               <motion.div
                 key={index + 4}
-                className={`relative glass-panel p-8 rounded-lg group transition-all duration-300 border ${service.borderColor} ${service.hoverColor} hover:shadow-lg ${service.shadowColor}`}
+                className={`relative glass-panel p-8 rounded-lg group transition-all duration-300 border shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_32px_rgba(0,0,0,0.32)] ${service.borderColor} ${service.hoverColor} hover:shadow-xl ${service.shadowColor}`}
                 variants={itemVariants}
                 whileHover={{
                   y: -10,
@@ -211,8 +211,8 @@ export function Capabilities() {
                 >
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-white">{service.title}</h3>
-                <p className="text-white/70 group-hover:text-white/90 transition-colors duration-300">
+                <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-white">{service.title}</h3>
+                <p className="text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
                   {service.description}
                 </p>
               </motion.div>

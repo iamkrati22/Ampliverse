@@ -78,7 +78,7 @@ h6 {
 
 /* Add glassmorphism classes */
 .glass-panel {
-  @apply bg-white border border-gray-200;
+  @apply bg-[#f8f7f4] text-foreground border border-gray-200;
 }
 
 .dark .glass-panel {
