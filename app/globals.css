@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* pure white */
+    --foreground: 0 0% 15%; /* dark grey for main text */
+    --muted-foreground: 0 0% 40%; /* medium grey for secondary text */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 30%;
+    --muted: 0 0% 96.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 89.8%;
+    --ring: 24 95% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 60 56% 91%;
+    --primary-foreground: 38 13% 14%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 60 56% 91%;
+    --accent-foreground: 38 13% 14%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 60 56% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .text-muted {
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.025em;
+}
+
+/* Add glassmorphism classes */
+.glass-panel {
+  @apply bg-white border border-gray-200;
+}
+
+.dark .glass-panel {
+  @apply bg-black/20 backdrop-blur-sm border border-white/10;
+}
+
+.glass-card {
+  background: rgba(15, 15, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Code symbols */
+.code-symbol {
+  font-family: monospace;
+  opacity: 0.7;
+}
+
+/* Neon effect */
+.neon-border {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.neon-border:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Code brackets */
+.code-bracket::before {
+  content: "<";
+  font-family: monospace;
+  opacity: 0.6;
+  margin-right: 0.25rem;
+}
+
+.code-bracket::after {
+  content: "/>";
+  font-family: monospace;
+  opacity: 0.6;
+  margin-left: 0.25rem;
+}
+
+/* Triangle motifs */
+.triangle-motif {
+  position: relative;
+}
+
+.triangle-motif::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+}
+
+/* Button shine effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s;
+}
+
+.btn-shine:hover::after {
+  transform: rotate(30deg) translate(100%, 100%);
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-move 2s linear infinite;
+}
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animate-loader-grid {
+  animation: loader-grid-move 2.5s linear infinite;
+}
+@keyframes loader-grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.shiny-gradient-text {
+  background: linear-gradient(90deg, #fff 0%, #e0e0e0 50%, #fff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.animate-shine {
+  animation: shine-move 2.5s linear infinite;
+}
+@keyframes shine-move {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
+
+.underline-animate-parent {
+  position: relative;
+  display: inline-block;
+}
+.underline-animate {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%);
+  transform-origin: left;
+  pointer-events: none;
+}

@@ -1,0 +1,149 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Navbar } from "@/components/navbar"
+import { Triangle, ChevronDown } from "lucide-react"
+import { Inter } from "next/font/google"
+import { Playfair_Display } from "next/font/google"
+import Map, { Marker } from "react-map-gl/maplibre"
+import { DM_Serif_Display } from 'next/font/google'
+
+const inter = Inter({ subsets: ["latin"] })
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700", "900"], style: ["normal", "italic"] })
+const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: '400', style: ['italic', 'normal'] })
+
+const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+
+export function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [loaded, setLoaded] = useState(false)
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 500], [0, 250])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
+  const [titleMoved, setTitleMoved] = useState(false)
+  const [slashes, setSlashes] = useState<Array<{ width: number; rotate: number; top: number; left: number }>>([])
+  const indicatorOpacity = useTransform(scrollY, [0, 120, 200], [1, 0.3, 0])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true)
+    }, 3500)
+
+    const titleTimer = setTimeout(() => {
+      setTitleMoved(true)
+    }, 4500)
+
+    // Generate slashes only on client side
+    setSlashes(
+      Array.from({ length: 20 }).map(() => ({
+        width: Math.random() * 300 + 100,
+        rotate: Math.random() * 60 - 30,
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+      }))
+    )
+
+    return () => {
+      clearTimeout(timer)
+      clearTimeout(titleTimer)
+    }
+  }, [])
+
+  return (
+    <>
+      <Navbar />
+      <section
+        ref={containerRef}
+        className="relative w-full h-screen overflow-hidden bg-[#0a0a14] flex items-center justify-center"
+      >
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-50">
+            <source src="/1654216-hd_1920_1080_30fps.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/70 to-[#0a0a14]"></div>
+        </div>
+
+        {/* Hero Content */}
+        <motion.div className="relative z-10 container mx-auto px-4 text-center" style={{ y, opacity }}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={loaded ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className={`transition-all duration-700 ${titleMoved ? "-translate-y-16" : ""}`}
+          >
+            <div className="flex items-center justify-center mb-8">
+              {/* Removed circulating triangle for a cleaner look */}
+            </div>
+            <motion.h2
+              className={`${playfair.className} text-3xl md:text-5xl lg:text-6xl text-white/90 font-normal mt-4 leading-tight`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={loaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Making What&apos;s {" "}
+              <span
+                className={`${dmSerif.className} font-bold italic tracking-wide`}
+                style={{ color: '#f97316', fontWeight: 700, fontStyle: 'italic', letterSpacing: '0.04em' }}
+              >
+                Next
+              </span>
+              , Heard {" "}
+              <span
+                className={`${dmSerif.className} font-bold italic tracking-wide`}
+                style={{ color: '#f97316', fontWeight: 700, fontStyle: 'italic', letterSpacing: '0.04em' }}
+              >
+                Today
+              </span>
+            </motion.h2>
+          </motion.div>
+
+          <motion.p
+            className={`max-w-3xl mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic`}
+            initial={{ opacity: 0 }}
+            animate={loaded && titleMoved ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.2 }}
+            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+          >
+            Born from PR, we turn credibility into presence, and presence into momentum — for innovators building <span className="relative inline-block underline-animate-parent"><span className="relative z-10 text-white">tomorrow&apos;s solutions</span><motion.span initial={{ scaleX: 0 }} animate={loaded && titleMoved ? { scaleX: 1 } : {}} transition={{ duration: 1, delay: 1.2, ease: 'easeInOut' }} className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-white/70 to-white/30 rounded-full origin-left underline-animate"></motion.span></span>.
+          </motion.p>
+
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={loaded && titleMoved ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <motion.a
+              href="#expertise"
+              className="px-14 py-4 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 transition-colors relative overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              Explore
+            </motion.a>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center"
+          style={{ opacity: indicatorOpacity }}
+          initial={{ opacity: 0 }}
+          animate={loaded ? { opacity: 1 } : {}}
+          transition={{ delay: 2, duration: 1 }}
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, ease: "easeInOut" }}
+          >
+            <ChevronDown className="h-8 w-8 text-white/70" />
+          </motion.div>
+          <span className="mt-2 text-base text-white/70 tracking-wide font-medium">Scroll down to explore</span>
+        </motion.div>
+      </section>
+    </>
+  )
+}
