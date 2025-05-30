@@ -215,3 +215,23 @@ h6 {
   transform-origin: left;
   pointer-events: none;
 }
+
+.impact-quarter-circle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 72px;
+  height: 72px;
+  max-width: 40%;
+  max-height: 40%;
+  background: #6B7280;
+  opacity: 0.20;
+  border-radius: 0 0 100% 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(10%, 20%) rotate(180deg);
+}
+.dark .impact-quarter-circle {
+  background: #9CA3AF;
+  opacity: 0.10;
+}

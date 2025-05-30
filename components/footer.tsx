@@ -29,8 +29,7 @@ export function Footer() {
               {"}"}
             </div>
             <p className="text-white/60 mb-6 max-w-md">
-              Your partners in purpose. We breathe life into your vision through strategic brand communications, driving
-              recognition and building credibility for your sustainable growth.
+            We are a global communications advisory, fueling purposeful visibility for tomorrow’s innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results. 
             </p>
             <div className="flex space-x-4">
               <a
@@ -145,13 +144,13 @@ export function Footer() {
                 <span className="block">New Delhi, India</span>
               </li>
               <li>
-                <a href="mailto:hello@ampliverse.com" className="text-white/60 hover:text-white transition-colors">
-                  hello@ampliverse.com
+                <a href="mailto:pr@ampliverse.com" className="text-white/60 hover:text-white transition-colors">
+                 pr@ampliverse.in 
                 </a>
               </li>
               <li>
-                <a href="tel:+919876543210" className="text-white/60 hover:text-white transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919717009947" className="text-white/60 hover:text-white transition-colors">
+                  +91 9717009947
                 </a>
               </li>
             </ul>

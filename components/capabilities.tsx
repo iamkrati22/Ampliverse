@@ -78,9 +78,9 @@ export function Capabilities() {
     },
     {
       icon: <Code className="h-10 w-10" />,
-      title: "Digital Transformation",
+      title: "Workforce Talent Solutions",
       description:
-        "Helping businesses navigate the digital landscape with strategic guidance and implementation support for technology adoption.",
+        "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
       color: "from-cyan-500/20 to-cyan-600/10",
       borderColor: "border-cyan-500/30",
       hoverColor: "group-hover:border-cyan-400/50",

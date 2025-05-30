@@ -70,6 +70,8 @@ export function Testimonials() {
 
   return (
     <section ref={ref} className="min-h-screen flex flex-col justify-center items-center bg-[#0f0f1a] w-full relative overflow-hidden">
+      {/* Subtle background element: large blurred quarter circle, bottom left */}
+      <div className="hidden md:block absolute -bottom-48 -left-48 w-[500px] h-[500px] rounded-full bg-[#E5E7EB] opacity-5 blur-[80px] pointer-events-none z-0" />
       <div className="container mx-auto px-4 flex-1 flex flex-col justify-center items-center">
         <motion.div
           className="text-center mb-8"

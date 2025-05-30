@@ -102,6 +102,8 @@ export function Impact() {
                 </> : "0"}
               </motion.h3>
               <p className="text-white/70 relative z-10">{stat.description}</p>
+              {/* Decorative quarter-circle */}
+              <span className="impact-quarter-circle" />
             </motion.div>
           ))}
         </div>

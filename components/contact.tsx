@@ -55,10 +55,10 @@ export function Contact() {
                   <div className="ml-4">
                     <p className="text-white/60 text-sm">Email</p>
                     <a
-                      href="mailto:hello@ampliverse.com"
+                      href="mailto:pr@ampliverse.com"
                       className="text-white font-medium hover:text-orange-500 transition-colors"
                     >
-                      hello@ampliverse.com
+                      pr@ampliverse.com
                     </a>
                   </div>
                 </div>
@@ -70,10 +70,10 @@ export function Contact() {
                   <div className="ml-4">
                     <p className="text-white/60 text-sm">Phone</p>
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+919717009947"
                       className="text-white font-medium hover:text-orange-500 transition-colors"
                     >
-                      +91 98765 43210
+                      +91 9717009947
                     </a>
                   </div>
                 </div>

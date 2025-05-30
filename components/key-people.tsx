@@ -65,35 +65,20 @@ export function KeyPeople() {
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Zigzag Row Layout */}
+          <div className="hidden lg:flex justify-center gap-12 mb-12">
             {people.map((person, idx) => (
               <motion.div
                 key={person.id}
-                className="relative cursor-pointer group"
+                className={`relative cursor-pointer group flex flex-col items-center ${
+                  idx % 2 === 0 ? 'lg:-translate-y-8' : 'lg:translate-y-8'
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 onClick={() => setActivePersonId(person.id)}
               >
-                <div className="aspect-square rounded-lg overflow-hidden relative">
-                  {/* LinkedIn icon inside the image card, top right */}
-                  <a
-                    href={person.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-2 right-2 z-20 inline-flex items-center justify-center bg-black/60 rounded-full p-1 group"
-                    aria-label={`LinkedIn profile of ${person.name}`}
-                    onClick={e => e.stopPropagation()}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
-                        fill="white"
-                        className="transition-colors duration-200 group-hover:fill-[#f97316]"
-                      />
-                    </svg>
-                  </a>
+                <div className="aspect-square w-40 md:w-48 lg:w-52 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl">
                   <Image
                     src={person.image || "/placeholder.svg"}
                     alt={person.name}
@@ -102,7 +87,34 @@ export function KeyPeople() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="mt-4 text-center">
+                <div className="mt-4 text-center flex flex-col items-center">
+                  <h3 className="text-xl font-semibold text-white">{person.name}</h3>
+                  <p className="text-orange-500/80 font-mono text-sm mt-1">{person.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          {/* Mobile/Tablet: Stack vertically */}
+          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+            {people.map((person, idx) => (
+              <motion.div
+                key={person.id}
+                className="relative cursor-pointer group flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                onClick={() => setActivePersonId(person.id)}
+              >
+                <div className="aspect-square w-40 md:w-48 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl">
+                  <Image
+                    src={person.image || "/placeholder.svg"}
+                    alt={person.name}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="mt-4 text-center flex flex-col items-center">
                   <h3 className="text-xl font-semibold text-white">{person.name}</h3>
                   <p className="text-orange-500/80 font-mono text-sm mt-1">{person.role}</p>
                 </div>
@@ -118,14 +130,31 @@ export function KeyPeople() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="mt-8 bg-[#0f0f1a]/80 backdrop-blur-md p-8 rounded-lg border border-orange-500/20 max-w-3xl mx-auto"
+              className="mt-8 bg-[#0f0f1a]/80 backdrop-blur-md p-8 rounded-lg border border-orange-500/20 max-w-3xl mx-auto relative"
             >
-              <div className="font-mono text-orange-500/40 mb-2">{"image.png"}</div>
-              <h3 className="text-2xl font-bold mb-1 text-white">
-                <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
-                {activePerson.name}
-                <span className="text-orange-500/60 ml-1 font-mono">{">"}</span>
-              </h3>
+              {/* LinkedIn icon in top-right */}
+              <a
+                href={activePerson.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-4 right-4 w-9 h-9  rounded-lg flex items-center justify-center group"
+                aria-label={`LinkedIn profile of ${activePerson.name}`}
+              >
+                <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
+                    fill="white"
+                    className="transition-colors duration-200 group-hover:fill-[#f97316]"
+                  />
+                </svg>
+              </a>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-2xl font-bold text-white">
+                  <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
+                  {activePerson.name}
+                  <span className="text-orange-500/60 ml-1 font-mono">{">"}</span>
+                </h3>
+              </div>
               <p className="text-white/60 mb-4 font-mono">
                 {"// "}
                 {activePerson.role}

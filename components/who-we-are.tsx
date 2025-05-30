@@ -56,32 +56,27 @@ export function WhoWeAre() {
           {/* Left: Heading and paragraphs */}
           <div>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6 uppercase">Who We Are</h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-4">
-              Ampliverse is an integrated communications advisory enabling organizations worldwide to craft purposeful brand expression that drives business impact. We collaborate with our partners to power sharp perspectives that spark meaningful industry conversations and scale stakeholder trust. Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.
+            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
+              Ampliverse is an integrated communications advisory enabling organizations worldwide to craft purposeful brand expression that drives business impact.
             </p>
-            <p className="text-base md:text-lg text-muted-foreground">
-              We pride ourselves in employing the brightest talent from across the globe, covering a range of career types and communications fields.
+            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
+              We collaborate with our partners to power sharp perspectives that spark meaningful industry conversations and scale stakeholder trust.
             </p>
           </div>
           {/* Right: Quote block */}
           <div className="flex flex-col items-start md:items-center">
-            <div className="flex flex-col items-start w-full max-w-md">
-              <Quote className="h-8 w-8 text-green-500 mb-2" />
-              <div className="h-1 w-16 bg-green-500 rounded mb-4" />
-              <blockquote className="text-xl md:text-2xl font-semibold leading-snug mb-4">
-                "We believe that it takes great people to deliver a great product."
-              </blockquote>
-              <div className="flex flex-col">
-                <span className="font-signature text-lg text-muted-foreground mt-2 italic">Ampliverse Team</span>
-                <a 
-                  href="https://www.linkedin.com/in/your-linkedin-id" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-xs text-muted-foreground/60 hover:text-muted-foreground/80 transition-colors mt-1"
-                >
-                  @linkedin-id
-                </a>
+            <div className="relative flex flex-col items-start w-full max-w-2xl bg-white dark:bg-[#18181c] rounded-2xl p-6 shadow-lg border border-orange-200 dark:border-orange-900">
+              {/* Orange dot in top-right */}
+              <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-orange-500"></span>
+              <div className="flex items-center mb-4">
+                <Sparkles className="h-6 w-6 text-orange-500 mr-2" />
+                <span className="uppercase text-sm font-bold text-orange-500 tracking-wider">Our Philosophy</span>
               </div>
+              <blockquote className="text-2xl md:text-3xl font-medium leading-snug mb-6 text-foreground dark:text-white">
+                &quot;Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.&quot;
+              </blockquote>
+              <hr className="w-full border-t border-gray-200 dark:border-white/10 mb-3" />
+              <span className="text-sm text-muted-foreground italic">&mdash; Ampliverse Team</span>
             </div>
           </div>
         </div>
