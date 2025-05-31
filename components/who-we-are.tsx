@@ -25,7 +25,7 @@ export function WhoWeAre() {
             About Us
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Who We Are</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Who We Are.</h2>
           <motion.div
             className="h-1 w-32 bg-orange-500 mx-auto mt-4 mb-10"
             initial={{ scaleX: 0 }}

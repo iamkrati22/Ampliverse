@@ -235,3 +235,9 @@ h6 {
   background: #9CA3AF;
   opacity: 0.10;
 }
+.mr-0\.5 {
+  margin-right: -0.5rem;
+}
+.mr-1 {
+  margin-right: 0.1rem;
+}

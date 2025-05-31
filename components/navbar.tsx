@@ -50,26 +50,35 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <motion.div
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          >
-            <Triangle
-              ref={triangleRef}
-              className="h-6 w-6 transition-colors duration-300"
-              style={{ color: logoColor }}
-            />
-          </motion.div>
-          <span className="text-xl font-bold text-white">
-            <span className="text-white/40 font-mono mr-1">{"<"}</span>
-            Ampliverse
-            <span className="text-white/40 font-mono ml-1">{"/>"}</span>
+          <span className="text-xl text-white flex items-center">
+            {/* SVG slashes before triangle */}
+            <span className="mr-1 flex items-center">
+              <svg width="16" height="22" viewBox="0 0 16 22" className="mr-0.5" style={{ color: '#fff' }}>
+                <line x1="2" y1="20" x2="14" y2="2" stroke="currentColor" strokeWidth="2.2" />
+              </svg>
+              <svg width="16" height="22" viewBox="0 0 16 22" className="mr-0.5" style={{ color: '#fff' }}>
+                <line x1="2" y1="20" x2="14" y2="2" stroke="currentColor" strokeWidth="2.2" />
+              </svg>
+            </span>
+            {/* Sharp-corner triangle SVG */}
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 mr-1"
+              style={{ display: 'inline', verticalAlign: 'middle' }}
+            >
+              <polygon points="11,3 21,19 1,19" fill={logoColor} />
+            </svg>
+            MPLIVERSE
+            {/* SVG slash after MPLIVERSE */}
+            <span className="ml-1 flex items-center">
+              <svg width="16" height="22" viewBox="0 0 16 22" style={{ color: '#fff', opacity: 0.6 }}>
+                <line x1="2" y1="20" x2="14" y2="2" stroke="currentColor" strokeWidth="2.2" />
+              </svg>
+            </span>
           </span>
         </Link>
 

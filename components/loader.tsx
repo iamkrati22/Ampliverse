@@ -65,11 +65,9 @@ export function Loader() {
       <div className="relative flex flex-col items-center justify-center z-10">
         {/* Fun animated triangle */}
         <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
           className="mb-4"
         >
-          <Triangle className="h-10 w-10 text-orange-500 drop-shadow-lg" />
+          <Triangle className="h-10 w-10 drop-shadow-lg" style={{ fill: '#f97316', color: '#f97316' }} />
         </motion.div>
         <AnimatePresence mode="wait">
           {showFirstText && (
@@ -95,10 +93,13 @@ export function Loader() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-4xl font-normal mb-4 text-white font-sans"
+              className="text-2xl md:text-4xl font-normal mb-4 text-white font-sans flex items-center justify-center"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              Ampliverse
+              <span className="text-orange-500 mr-2">//</span>
+              <Triangle className="h-8 w-8 mr-1" style={{ fill: '#f97316', color: '#f97316' }} />
+              MPLIVERSE
+              <span className="text-white/60 ml-1">//</span>
             </motion.div>
           )}
         </AnimatePresence>
