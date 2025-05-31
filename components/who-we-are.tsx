@@ -1,84 +1,80 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { ArrowRight, Sparkles, Zap, BarChart3, Globe, Quote } from "lucide-react"
-
-const features = [
-  {
-    id: 1,
-    title: "Strategic Partnership",
-    description:
-      "We craft meaningful brand expressions and deliver performance-led collaborative models that bridge the agency-brand divide, making us your true partners in progress.",
-    icon: <Sparkles className="h-8 w-8 text-orange-500" />,
-  },
-  {
-    id: 2,
-    title: "B2B Technology Specialists",
-    description:
-      "We are the go-to trusted partner for companies in the B2B domain, especially technology, connecting tomorrow's solutions with today's audience.",
-    icon: <Zap className="h-8 w-8 text-orange-500" />,
-  },
-  {
-    id: 3,
-    title: "Performance-Driven Solutions",
-    description:
-      "Our performance-driven digital PR, global media relations and workforce talent solutions amplify credibility and discoverability for our client partners.",
-    icon: <BarChart3 className="h-8 w-8 text-orange-500" />,
-  },
-  {
-    id: 4,
-    title: "Global Reach, Local Impact",
-    description:
-      "With a worldwide network of specialists, we deliver campaigns that resonate locally while maintaining global brand consistency.",
-    icon: <Globe className="h-8 w-8 text-orange-500" />,
-  },
-]
+import { Sparkles } from "lucide-react"
 
 export function WhoWeAre() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [activeFeature, setActiveFeature] = useState(0)
-
-  useEffect(() => {
-    if (isInView) {
-      const interval = setInterval(() => {
-        setActiveFeature((prev) => (prev === features.length - 1 ? 0 : prev + 1))
-      }, 5000)
-      return () => clearInterval(interval)
-    }
-  }, [isInView])
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} className="relative py-24 w-full bg-[#f8f7f4] dark:bg-[#0a0a14] text-foreground transition-colors duration-300">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section
+      ref={ref}
+      className="relative py-24 w-full bg-[#0a0a14] dark:bg-[#0a0a14] text-white transition-colors duration-300"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+            <span className="text-orange-500/70 mr-1">{"<"}</span>
+            About Us
+            <span className="text-orange-500/70 ml-1">{">"}</span>
+          </span>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Who We Are</h2>
+          <motion.div
+            className="h-1 w-32 bg-orange-500 mx-auto mt-4 mb-10"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
+        </motion.div>
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left: Heading and paragraphs */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-6 uppercase">Who We Are</h2>
-            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
-              Ampliverse is an integrated communications advisory enabling organizations worldwide to craft purposeful brand expression that drives business impact.
-            </p>
-            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
+            <motion.p
+              className="text-lg md:text-2xl font-normal text-white mb-6 max-w-2xl mx-auto md:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <span className="font-bold text-white">Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft <span className="text-orange-500 font-semibold">purposeful brand expression</span> that drives business impact.
+            </motion.p>
+            <motion.p
+              className="text-lg md:text-2xl font-normal text-white/70 max-w-2xl mx-auto md:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
               We collaborate with our partners to power sharp perspectives that spark meaningful industry conversations and scale stakeholder trust.
-            </p>
+            </motion.p>
           </div>
-          {/* Right: Quote block */}
-          <div className="flex flex-col items-start md:items-center">
-            <div className="relative flex flex-col items-start w-full max-w-2xl bg-white dark:bg-[#18181c] rounded-2xl p-6 shadow-lg border border-orange-200 dark:border-orange-900">
-              {/* Orange dot in top-right */}
-              <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-orange-500"></span>
-              <div className="flex items-center mb-4">
-                <Sparkles className="h-6 w-6 text-orange-500 mr-2" />
-                <span className="uppercase text-sm font-bold text-orange-500 tracking-wider">Our Philosophy</span>
-              </div>
-              <blockquote className="text-2xl md:text-3xl font-medium leading-snug mb-6 text-foreground dark:text-white">
-                &quot;Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.&quot;
-              </blockquote>
-              <hr className="w-full border-t border-gray-200 dark:border-white/10 mb-3" />
-              <span className="text-sm text-muted-foreground italic">&mdash; Ampliverse Team</span>
+          {/* Right: Philosophy Card */}
+          <motion.div
+            className="relative flex flex-col items-start w-full max-w-2xl bg-[#181824] dark:bg-[#181824] rounded-2xl p-10 shadow-lg border border-orange-900"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Orange dot in top-right */}
+            <span className="absolute top-4 right-4 w-3 h-3 rounded-full bg-orange-500"></span>
+            <div className="flex items-center mb-4">
+              <Sparkles className="h-6 w-6 text-orange-500 mr-2" />
+              <span className="uppercase text-sm font-bold text-orange-500 tracking-wider">Our Philosophy</span>
             </div>
-          </div>
+            <blockquote className="text-2xl md:text-3xl font-medium leading-snug mb-6 text-white dark:text-white">
+              Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.
+            </blockquote>
+            <hr className="w-full border-t border-white/10 mb-3" />
+            <span className="text-base text-white/60 italic flex items-center gap-2">
+              <span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team
+            </span>
+          </motion.div>
         </div>
       </div>
     </section>
