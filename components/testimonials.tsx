@@ -18,7 +18,8 @@ export function Testimonials() {
       author: "Hitesh Joshi",
       role: "Lead - Strategy & Partnerships",
       company: "India Khelo Football",
-      logo: "/placeholder.svg?height=60&width=120",
+      logo: "/IKF Logo.png",
+      image: "/Hitesh Joshi Photo.jpg",
       linkedin: "hitesh-joshi"
     },
     {
@@ -28,7 +29,7 @@ export function Testimonials() {
       author: "Priya Sharma",
       role: "CMO",
       company: "TechSolutions Inc.",
-      logo: "/placeholder.svg?height=60&width=120",
+      logo: "/AGL Logo.png",
       linkedin: "priya-sharma"
     },
     {
@@ -38,7 +39,7 @@ export function Testimonials() {
       author: "Rahul Mehta",
       role: "Founder & CEO",
       company: "InnovateX",
-      logo: "/placeholder.svg?height=60&width=120",
+      logo: "/IBW WEEK (1).png",
       linkedin: "rahul-mehta"
     },
   ]
@@ -129,9 +130,20 @@ export function Testimonials() {
                 </blockquote>
 
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mr-4">
-                    <span className="text-orange-500 font-bold text-xl">{testimonials[current].author[0]}</span>
-                  </div>
+                  {testimonials[current].image ? (
+                    <div className="w-12 h-12 rounded-full overflow-hidden relative mr-4">
+                      <Image
+                        src={testimonials[current].image}
+                        alt={testimonials[current].author}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mr-4">
+                      <span className="text-orange-500 font-bold text-xl">{testimonials[current].author[0]}</span>
+                    </div>
+                  )}
                   <div>
                     <div className="flex items-center gap-2">
                       <h4 className="text-white font-semibold">{testimonials[current].author}</h4>

@@ -2,6 +2,7 @@
 
 import { Triangle } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,12 +14,24 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Triangle className="h-6 w-6" />
-              <span className="text-xl font-bold">
-                <span className="text-white/40 font-mono mr-1">{"<"}</span>
-                Ampliverse
-                <span className="text-white/40 font-mono ml-1">{"/>"}</span>
-              </span>
+              {/* Show black logo in light mode */}
+              <Image
+                src="/logo_black.png"
+                alt="Ampliverse Logo"
+                width={180}
+                height={60}
+                className="block dark:hidden"
+                priority
+              />
+              {/* Show white logo in dark mode */}
+              <Image
+                src="/logo_white.png"
+                alt="Ampliverse Logo"
+                width={180}
+                height={60}
+                className="hidden dark:block"
+                priority
+              />
             </div>
 
             {/* Add subtle code symbols */}
@@ -29,7 +42,7 @@ export function Footer() {
               {"}"}
             </div>
             <p className="text-white/60 mb-6 max-w-md">
-            We are a global communications advisory, fueling purposeful visibility for tomorrow’s innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results. 
+            We are a global communications advisory, fueling purposeful visibility for tomorrow's innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results. 
             </p>
             <div className="flex space-x-4">
               <a

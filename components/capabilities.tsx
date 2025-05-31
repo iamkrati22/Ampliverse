@@ -140,7 +140,7 @@ export function Capabilities() {
             Services
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-foreground dark:text-white">Purposeful Solutions that Move the Needle</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-foreground dark:text-white">Solutions that Move the Needle</h2>
         </motion.div>
 
         {/* Later in the JSX, update the grid layout and add colored borders */}

@@ -13,39 +13,59 @@ export function OurWork() {
   const projects = [
     {
       id: 1,
-      title: "Tech Startup Media Campaign",
-      subtitle: "Brand Awareness",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "India Khelo Football",
+      subtitle: "Sports & Community Engagement",
+      image: "/IKF -  India Khelo Football.png",
       overview:
-        "Comprehensive media campaign for a B2B tech startup, resulting in coverage across 50+ publications. We developed a strategic narrative that positioned the company as an industry innovator, securing features in top-tier tech publications and driving significant website traffic and lead generation.",
+        "For India Khelo Football—India's first phygital grassroots-to-global football platform—we've driven 200+ media stories nationwide over 3 years, consistently amplifying their trials and talent showcases. With an average reach of 300M+ per activation, IKF now commands recurring features in top Indian media.",
       links: [
-        { title: "TechCrunch Feature", url: "#" },
-        { title: "Forbes Coverage", url: "#" },
+        { title: "Media Coverage", url: "#" },
+        { title: "Case Study", url: "#" },
       ],
+      topStories: [
+        "Spotlighting grassroots football talent across India",
+        "Regular features in top Indian sports media",
+        "300M+ reach per activation",
+        "200+ media stories over 3 years"
+      ]
     },
     {
       id: 2,
-      title: "SaaS Brand Positioning",
-      subtitle: "Market Entry",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "India Blockchain Week",
+      subtitle: "Tech Conference & Event PR",
+      image: "/India Blockchain Week.png",
       overview:
-        "Strategic brand positioning for a SaaS company entering the enterprise market, establishing thought leadership. Our comprehensive approach included messaging framework development, executive visibility programs, and targeted media outreach that resulted in the company being recognized as a category leader.",
+        "For India Blockchain Week 2024 by Hashed Emergent—India's largest Web3 gathering—we led a focused media outreach that secured 300+ stories and 25+ speaker features across 85+ top-tier publications. IBW became the first crypto event to trend across India's leading financial and mainline media during Bitcoin's record-breaking surge.",
       links: [
-        { title: "Case Study", url: "#" },
-        { title: "Media Coverage", url: "#" },
+        { title: "Event Coverage", url: "#" },
+        { title: "Media Kit", url: "#" },
       ],
+      topStories: [
+        "Gadgets 360 by NDTV - India Blockchain Week to Return for Second Edition: All Details",
+        "The Economic Times - Can India become the next global hub for Web3 development?",
+        "The Hindu Business Line - India's Web3 start-ups surge, get $462 million in first 9 months of 2024: Report",
+        "Cointelegraph - India's Web3 dominance fueled by 1K startups, global investments, dev talent",
+        "Moneycontrol - Web3, crypto regulatory proposals take centre stage at India Blockchain Week",
+        "Businessworld - Top Leaders Hail India As Web3 Powerhouse, But Urge Regulatory Clarity"
+      ]
     },
     {
       id: 3,
-      title: "Tech Conference PR",
-      subtitle: "Event Marketing",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "EU-India Innocenter",
+      subtitle: "International Innovation Hub",
+      image: "/EU-India Innocenter.png",
       overview:
-        "End-to-end PR management for a major tech conference, securing speaker opportunities and media coverage. We coordinated press activities, managed media relations, and created compelling content that drove attendance and established the event as a must-attend industry gathering.",
+        "For the EU-India Innocenter, funded by the European Union's Horizon 2020 programme, we drove 450+ stories over 3 years—spotlighting European tech in India. Our strategic media outreach made its flagship Blue Carpet Night a PR success, securing front-page coverage in top national business and technology outlets.",
       links: [
-        { title: "Event Coverage", url: "#" },
-        { title: "Press Release", url: "#" },
+        { title: "Project Overview", url: "#" },
+        { title: "Media Coverage", url: "#" },
       ],
+      topStories: [
+        "450+ media stories over 3 years",
+        "Front-page coverage in national business outlets",
+        "Successful Blue Carpet Night PR campaign",
+        "Spotlighting European technologies in India"
+      ]
     },
   ]
 

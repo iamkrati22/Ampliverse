@@ -14,6 +14,7 @@ interface WorkModalProps {
     overview: string
     links: { title: string; url: string }[]
     subtitle: string
+    topStories?: string[]
   } | null
 }
 
@@ -63,10 +64,11 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
 
             <div className="relative h-64 md:h-80 w-full">
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 bg-cover bg-center bg-[#181824]"
                 style={{ backgroundImage: `url(${project.image})` }}
+                aria-label={project.title}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14] to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14]/70 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="text-orange-400 text-sm mb-1 font-mono">
                   {"// "}
@@ -86,8 +88,30 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                 <p className="text-white/80">{project.overview}</p>
               </div>
 
+              {project.topStories && project.topStories.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                    <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
+                    Top Stories
+                    <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.topStories.map((story, index) => (
+                      <li key={index} className="text-white/80 flex items-start">
+                        <span className="text-orange-500/70 mr-2 font-mono">→</span>
+                        {story}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-white"><span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>Featured In <span className="text-orange-500/70 mr-2 font-mono">{"/>"}</span></h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">
+                  <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
+                  Featured In
+                  <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
+                </h3>
                 <ul className="space-y-2">
                   {project.links.map((link, i) => (
                     <li key={i}>
