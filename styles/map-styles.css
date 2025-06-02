@@ -1,0 +1,10 @@
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
+
+path {
+  fill: #2a354d;
+}

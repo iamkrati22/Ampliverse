@@ -8,30 +8,30 @@ import Link from "next/link"
 const features = [
   {
     id: 1,
-    title: "Strategic Partnership",
+    title: "Collaborative Partnerships",
     description:
-      "We craft meaningful brand expressions and deliver performance-led collaborative models that bridge the agency-brand divide, making us your true partners in progress.",
+      "We don’t just execute deliverables; we co-build sharp brand narratives through modular, performance-led models that bridge the agency-brand divide and make us long-term partners in your growth.",
     icon: <Sparkles className="h-8 w-8 text-white" />,
   },
   {
     id: 2,
-    title: "B2B Technology Specialists",
+    title: "Built for B2B Tech",
     description:
-      "We are the go-to trusted partner for companies in the B2B domain, especially technology, connecting tomorrow's solutions with today's audience.",
+      "We specialize in the B2B domain, with a stronghold in emerging technology. From venture capital to growth-stage startups, we connect tomorrow’s solutions with today’s audiences through insight-led engagement.",
     icon: <Zap className="h-8 w-8 text-white" />,
   },
   {
     id: 3,
-    title: "Performance-Driven Solutions",
+    title: "Performance-Led Communications",
     description:
-      "Our performance-driven digital PR, global media relations and workforce talent solutions amplify credibility and discoverability for our client partners.",
+      "Our performance-driven digital PR, global media relations and workforce talent solutions are the keys that amplify credibility and discoverability for our client partners.",
     icon: <BarChart3 className="h-8 w-8 text-white" />,
   },
   {
     id: 4,
-    title: "Global Reach, Local Impact",
+    title: "Global & Local Media Network",
     description:
-      "With a worldwide network of specialists, we deliver campaigns that resonate locally while maintaining global brand consistency.",
+      "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonance — ensuring your story gets heard, remembered, and acted upon.",
     icon: <Globe className="h-8 w-8 text-white" />,
   },
 ]
@@ -59,10 +59,16 @@ export function WhatMakesUsDifferent() {
         {/* Stepper and Card aligned horizontally and centered */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
           {/* Stepper */}
-          <div className="flex flex-col items-center md:items-end flex-1 max-w-[420px] w-full">
-            <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full max-w-xs mx-auto">
+          <div className="flex flex-col items-center md:items-end flex-1 max-w-[420px] w-full gap-4">
+            <span className="relative w-full mx-auto text-justify italic font-bold">
+              From Trust to Traction
+            </span>
+            <span className="relative w-full mx-auto text-justify">
+              We’re a team of go-getters, <span className="text-orange-500 font-semibold">redefining the attention economy</span> through bespoke strategies that align with business goals and <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">drive real outcomes.</span>
+            </span>
+            <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
               {/* Vertical line */}
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-white/10" style={{zIndex:0}} />
+              <div className="absolute left-4 top-0 bottom-0 w-px h-[30vh] bg-white/10" style={{zIndex:0}} />
               {features.map((feature, idx) => (
                 <div key={feature.id} className="flex items-start relative z-10 group min-h-[70px]">
                   {/* Step circle */}
@@ -92,11 +98,11 @@ export function WhatMakesUsDifferent() {
                     >
                       {feature.title}
                     </div>
-                    {activeFeature === idx && (
+                    {/* {activeFeature === idx && (
                       <div className="mt-2 text-base md:text-lg text-white/80 font-normal max-w-md leading-relaxed">
                         {feature.description}
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               ))}
