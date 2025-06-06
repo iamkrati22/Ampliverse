@@ -10,15 +10,15 @@ export function Impact() {
 
   const stats = [
     {
-      value: 30000,
-      suffix: "+",
+      value: 30,
+      suffix: "K+",
       description: "News stories delivered across leading platforms for client partners.",
       color: "from-blue-500/10 to-blue-600/5",
       borderColor: "border-blue-500/20",
     },
     {
-      value: 800000,
-      suffix: "+",
+      value: 800,
+      suffix: "K+",
       description: "Estimated monthly reach across news portals.",
       color: "from-purple-500/10 to-purple-600/5",
       borderColor: "border-purple-500/20",
@@ -77,7 +77,7 @@ export function Impact() {
             Our Results
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Impact at a glance</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Impact At a Glance</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -106,7 +106,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                 </div>
               )}
 
-              <div>
+              {/* <div>
                 <h3 className="text-xl font-semibold mb-4 text-white">
                   <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
                   Featured In
@@ -126,7 +126,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </motion.div>

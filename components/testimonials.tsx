@@ -25,16 +25,6 @@ export function Testimonials() {
     {
       id: 2,
       quote:
-        "Ampliverse has transformed our brand communication strategy. Their deep understanding of the B2B tech landscape helped us position our solutions effectively to enterprise clients. The media coverage they secured for us has significantly boosted our credibility in the market.",
-      author: "Priya Sharma",
-      role: "CMO",
-      company: "TechSolutions Inc.",
-      logo: "/AGL Logo.png",
-      linkedin: "priya-sharma"
-    },
-    {
-      id: 3,
-      quote:
         "Working with Ampliverse has been a game-changer for our startup. Their strategic approach to PR and communications helped us gain visibility in key publications that matter to our industry. Their team's responsiveness and attention to detail is unmatched.",
       author: "Rahul Mehta",
       role: "Founder & CEO",
@@ -42,6 +32,17 @@ export function Testimonials() {
       logo: "/IBW WEEK (1).png",
       linkedin: "rahul-mehta"
     },
+    {
+      id: 3,
+      quote:
+        "Ampliverse has transformed our brand communication strategy. Their deep understanding of the B2B tech landscape helped us position our solutions effectively to enterprise clients. The media coverage they secured for us has significantly boosted our credibility in the market.",
+      author: "Priya Sharma",
+      role: "CMO",
+      company: "TechSolutions Inc.",
+      logo: "/AGL Logo.png",
+      linkedin: "priya-sharma"
+    },
+    
   ]
 
   useEffect(() => {
@@ -125,7 +126,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <blockquote className="text-base text-white/80 mb-8 relative z-10 overflow-hidden line-clamp-6">
+                <blockquote className="text-justify text-base text-white/80 mb-8 relative z-10 overflow-hidden line-clamp-6">
                   {truncateWords(testimonials[current].quote, 55)}
                 </blockquote>
 
