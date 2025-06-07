@@ -21,7 +21,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"], 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#0a0a14]">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Loader />
       <Hero />
       <WhoWeAre />

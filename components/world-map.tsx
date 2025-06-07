@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import MapChart from "./MapChart"
 
 export function WorldMap() {
   const ref = useRef<HTMLDivElement>(null)
@@ -88,7 +89,7 @@ export function WorldMap() {
           International presence in 15+ countries
         </div>
 
-        {/* World Map SVG Background */}
+        {/* World Map SVG Background
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
           <path
             d="M10,40 Q30,35 50,40 T90,40 M10,50 Q30,55 50,50 T90,50 M10,60 Q30,65 50,60 T90,60"
@@ -105,7 +106,7 @@ export function WorldMap() {
             fill="none"
           />
 
-          {/* Continents - simplified shapes */}
+          {/* Continents - simplified shapes 
           <path
             d="M15,35 Q25,30 30,40 T40,45 Q45,50 35,55 T25,60 Q20,65 15,60 T10,50 Q5,45 15,35"
             className="fill-[#edece8] dark:fill-[#0f0f1a] stroke-[#d1d5db] dark:stroke-[#1a1a2e]"
@@ -119,7 +120,7 @@ export function WorldMap() {
           <path d="M70,45 Q80,40 85,45 T90,55 Q85,60 80,55 T70,45" className="fill-[#edece8] dark:fill-[#0f0f1a] stroke-[#d1d5db] dark:stroke-[#1a1a2e]" strokeWidth="0.2" />
           <path d="M50,65 Q60,60 65,65 T70,75 Q65,80 60,75 T50,65" className="fill-[#edece8] dark:fill-[#0f0f1a] stroke-[#d1d5db] dark:stroke-[#1a1a2e]" strokeWidth="0.2" />
 
-          {/* Location Markers */}
+          {/* Location Markers 
           {locations.map((location, index) => (
             <motion.g
               key={index}
@@ -127,7 +128,7 @@ export function WorldMap() {
               animate={isInView ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * index }}
             >
-              <circle cx={location.x} cy={location.y} r="0.8" fill="#f97316" /> {/* Changed to orange */}
+              <circle cx={location.x} cy={location.y} r="0.8" fill="#f97316" /> {/* Changed to orange 
               <circle
                 cx={location.x}
                 cy={location.y}
@@ -144,7 +145,7 @@ export function WorldMap() {
           ))}
         </svg>
 
-        {/* Location Labels */}
+        {/* Location Labels 
         {locations.map((location, index) => (
           <motion.div
             key={index}
@@ -160,7 +161,8 @@ export function WorldMap() {
           >
             {location.name}
           </motion.div>
-        ))}
+        ))}*/}
+        <MapChart />
       </div>
     </div>
   )

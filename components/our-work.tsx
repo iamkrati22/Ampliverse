@@ -96,7 +96,7 @@ export function OurWork() {
             Portfolio
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Our Work</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Media Corner</h2>
         </motion.div>
 
         <div className="px-4 md:px-8 lg:px-16 xl:px-24 max-w-[2000px] mx-auto">

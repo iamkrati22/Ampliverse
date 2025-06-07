@@ -38,20 +38,20 @@ export function WhoWeAre() {
           {/* Left: Heading and paragraphs */}
           <div>
             <motion.p
-              className="text-lg md:text-2xl font-normal text-white mb-6 max-w-2xl mx-auto md:mx-0"
+              className="text-lg md:text-2xl font-normal text-justify text-white mb-6 max-w-2xl mx-auto md:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <span className="font-bold text-white">Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft <span className="text-orange-500 font-semibold">purposeful brand expression</span> that drives business impact.
+              <span className="font-bold text-white">Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft<span className="text-orange-500 font-semibold"> purposeful brand expression that drives business impact.</span>
             </motion.p>
             <motion.p
-              className="text-lg md:text-2xl font-normal text-white/70 max-w-2xl mx-auto md:mx-0"
+              className="text-lg md:text-2xl font-normal text-justify text-white/70 max-w-2xl mx-auto md:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              We collaborate with our partners to power sharp perspectives that spark meaningful industry conversations and scale stakeholder trust.
+              We collaborate with our partners to power sharp perspectives that <span className="font-semibold text-white/75 underline underline-offset-4 decoration-orange-300/60">spark meaningful industry conversations and scale stakeholder trust.</span>
             </motion.p>
           </div>
           {/* Right: Philosophy Card */}
