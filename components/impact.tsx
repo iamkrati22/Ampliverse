@@ -17,13 +17,6 @@ export function Impact() {
       borderColor: "border-blue-500/20",
     },
     {
-      value: 800,
-      suffix: "K+",
-      description: "Estimated monthly reach across news portals.",
-      color: "from-purple-500/10 to-purple-600/5",
-      borderColor: "border-purple-500/20",
-    },
-    {
       value: 30000,
       suffix: "+",
       description: "News stories delivered across leading platforms for client partners.",
