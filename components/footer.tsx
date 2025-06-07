@@ -121,6 +121,25 @@ export function Footer() {
                   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                 </svg>
               </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-[#1a1a2e] flex items-center justify-center hover:bg-[#2a2a40] transition-colors"
+                aria-label="Telegram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path fillRule="evenodd" clipRule="evenodd" d="M23.1117 4.49449C23.4296 2.94472 21.9074 1.65683 20.4317 2.227L2.3425 9.2161C1.694517 9.85273 1.62187 12.1572 2.22518 12.8975L6.1645 14.7157L8.3849 21.2746C8.13583 21.6153 8.4618 21.8791 8.74917 21.968C9.9216 22.568 9.45658 21.9576 9.7712 21.77L12.5938 18.823L16.6375 21.8531C17.8113 22.7334 19.5019 22.922 19.7967 20.6549L23.1117 4.49449ZM3.633 11.816L21.1525 4.926L17.8375 20.2531L13.1 16.6999C12.719 16.413 12.1448 16.449 11.7929 16.7928L10.5565 18.292L10.928 15.9861L18.271 8.773C18.5614 8.35278 18.5988 7.7916 18.2947 7.39293C17.996 6.99479 17.4389 6.88312 17.039 7.13168L6.95124 12.876L3.633 11.816ZM8.17695 14.4791L8.78333 16.615L9.1614 15.321C9.5253 15.129 9.1498 14.9366 9.29291 14.7928L11.5128 12.573L8.17695 14.4791Z" fill="currentColor" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -153,9 +172,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-white/60">
-                <span className="block">New Delhi, India</span>
-              </li>
+
               <li>
                 <a href="mailto:pr@ampliverse.com" className="text-white/60 hover:text-white transition-colors">
                  pr@ampliverse.in 

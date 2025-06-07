@@ -16,7 +16,7 @@ export function KeyPeople() {
       name: "Ridhima Bhasin",
       role: "Founder",
       image: "/IMG_2506.JPG",
-      bio: "To Ridhima, communication is not a business function — but the driving force that builds bridges, earns trust, and moves missions forward. Over the years, she has led strategic communication efforts across global teams and high-impact initiatives—from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. As the founder of Ampliverse, Ridhima is building an integrated communications advisory that enables its partners with purposeful brand expression and delivers impactful presence across stakeholders. Her vision is to build an ecosystem that bridges the agency-brand divide—rooted in trust, transparency, and collaboration.",
+      bio: "To Ridhima, communication isn’t just a business function — it’s the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
       linkedin: "#",
     },
     {

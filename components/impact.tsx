@@ -10,19 +10,20 @@ export function Impact() {
 
   const stats = [
     {
-      value: 30000,
-      suffix: "+",
-      description: "News stories delivered across leading platforms for client partners.",
-      color: "from-blue-500/10 to-blue-600/5",
-      borderColor: "border-blue-500/20",
-    },
-    {
       value: 800000,
       suffix: "+",
       description: "Estimated monthly reach across news portals.",
       color: "from-purple-500/10 to-purple-600/5",
       borderColor: "border-purple-500/20",
     },
+    {
+      value: 30000,
+      suffix: "+",
+      description: "News stories delivered across leading platforms for client partners.",
+      color: "from-blue-500/10 to-blue-600/5",
+      borderColor: "border-blue-500/20",
+    },
+ 
     {
       value: 100,
       suffix: "+",
@@ -67,43 +68,57 @@ export function Impact() {
       </svg>
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-4 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className="text-xs md:text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Our Results
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Impact at a glance</h2>
+          <h2 className="mt-1 text-2xl md:mt-2 md:text-5xl font-bold text-white">Impact at a glance</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Mobile: flex col, 1/6 height per card; Desktop: grid as before */}
+        <div className="flex flex-col h-[100vh] space-y-2 md:grid md:grid-cols-2 md:lg:grid-cols-3 md:gap-8 md:h-auto">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className={`glass-panel p-8 rounded-lg text-center border border-white/10 relative overflow-hidden group`}
+              className="glass-panel flex-1 min-h-0 p-2 flex flex-col justify-center items-center md:p-8 rounded-lg text-center border border-white/10 relative overflow-hidden group md:h-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
               whileHover={{ y: -10, scale: 1.04 }}
             >
+              {/* Two orange sticks parallel to the triangle's slant */}
+              {/* <div className="absolute top-2 left-2 w-[40%] z-0 opacity-10 select-none pointer-events-none flex flex-col items-start origin-top-left" style={{transform: 'rotate(-45deg)'}}>
+                <span className="block w-full h-0.5 md:h-1 bg-orange-500 rounded" />
+                <span className="block w-full h-0.5 md:h-1 bg-orange-500 rounded mt-0.5" />
+              </div> */}
               <motion.h3
-                className="text-4xl md:text-5xl font-bold mb-4 relative z-10 transition-colors duration-300"
+                className="text-xl md:text-5xl font-bold mb-1 md:mb-4 relative z-10 transition-colors duration-300"
                 whileHover={{ color: '#f97316' }}
                 transition={{ duration: 0.3 }}
                 style={{ color: 'inherit' }}
               >
                 {isInView ? <>
                   <CountUp end={stat.value} separator="," duration={2.5} />
-                  <span className="text-orange-500 text-inherit ml-1">{stat.suffix}</span>
+                  <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                 </> : "0"}
               </motion.h3>
-              <p className="text-white/70 relative z-10">{stat.description}</p>
-              {/* Decorative quarter-circle */}
-              <span className="impact-quarter-circle" />
+              <p className="text-white/70 relative z-10 text-xs md:text-base leading-tight md:leading-normal">{stat.description}</p>
+              {/* Blended half triangle in bottom right */}
+              <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-10 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="triangle-fade" x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#d1d5db" stop-opacity="0.6" />
+                    <stop offset="1" stop-color="#d1d5db" stop-opacity="0.12" />
+                  </linearGradient>
+                </defs>
+                <polygon points="100,100 0,100 100,0" fill="url(#triangle-fade)" />
+              </svg>
             </motion.div>
           ))}
         </div>
