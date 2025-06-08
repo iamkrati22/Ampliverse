@@ -107,32 +107,29 @@ export function KeyPeople() {
               </motion.div>
             ))}
           </div>
-          {/* Mobile/Tablet: Stack vertically */}
-          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-            {people.map((person, idx) => (
-              <motion.div
-                key={person.id}
-                className="relative cursor-pointer group flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                onClick={() => setActivePersonId(person.id)}
-              >
-                <div className="aspect-square w-40 md:w-48 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl">
+          {/* Mobile: Zigzag horizontal avatars + card */}
+          <div className="lg:hidden w-full flex flex-col items-center mb-8">
+            <div className="flex w-full justify-center gap-4 relative" style={{ minHeight: 100 }}>
+              {people.map((person, idx) => (
+                <button
+                  key={person.id}
+                  className={`relative flex-shrink-0 aspect-square w-20 rounded-full overflow-hidden border-4 transition-all duration-300 focus:outline-none ${activePersonId === person.id ? 'border-orange-500 scale-110 shadow-lg z-10' : 'border-white/10 z-0'}`}
+                  onClick={() => setActivePersonId(person.id)}
+                  aria-label={`Show bio for ${person.name}`}
+                  style={{
+                    marginTop: idx % 2 === 0 ? 0 : 24,
+                    marginBottom: idx % 2 === 0 ? 24 : 0,
+                  }}
+                >
                   <Image
                     src={person.image || "/placeholder.svg"}
                     alt={person.name}
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className={`object-cover transition-all duration-500 ${activePersonId === person.id ? '' : 'grayscale'} lg:grayscale group-hover:grayscale-0`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="mt-4 text-center flex flex-col items-center">
-                  <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
-                  <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
-                </div>
-              </motion.div>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Bio Section */}
@@ -160,7 +157,7 @@ export function KeyPeople() {
                 href={activePerson.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-4 right-4 w-9 h-9  rounded-lg flex items-center justify-center group"
+                className="absolute top-4 right-4 w-9 h-9 rounded-lg items-center justify-center group hidden lg:flex"
                 aria-label={`LinkedIn profile of ${activePerson.name}`}
               >
                 <svg
