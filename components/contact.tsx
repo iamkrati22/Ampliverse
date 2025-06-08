@@ -243,8 +243,8 @@ export function Contact() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative">
-            <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
-            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
+            <div className="absolute -top-[1vh] left-[2vw] md:-top-4 md:-left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
+            <div className="absolute -bottom-[1vh] right-[2vw] md:-bottom-4 md:-right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
             <WorldMap />
           </div>
         </motion.div>
