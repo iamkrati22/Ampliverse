@@ -5,11 +5,13 @@ import { motion, useInView } from "framer-motion"
 import { Mail, Phone } from "lucide-react"
 import { WorldMap } from "@/components/world-map"
 import { ContactFormModal } from "@/components/contact-form-modal"
+import { useTheme } from "next-themes"
 
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -54,7 +56,7 @@ export function Contact() {
             Get in Touch
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Request a Proposal</h2>
+          <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Request a Proposal</h2>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -64,7 +66,7 @@ export function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-lg text-white/80 mb-12">
+              <p className={`text-lg mb-12 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 
@@ -112,7 +114,7 @@ export function Contact() {
                 </motion.a>
                 <motion.button
                   onClick={openModal}
-                  className="px-8 py-3 bg-transparent border border-orange-500/30 text-white font-medium rounded-full hover:bg-orange-500/10 transition-colors flex items-center justify-center gap-2"
+                  className={`px-8 py-3 border font-medium rounded-full transition-colors flex items-center justify-center gap-2 ${resolvedTheme === 'light' ? 'bg-white border-orange-500/30 text-orange-500 hover:bg-orange-50' : 'bg-transparent border-orange-500/30 text-white hover:bg-orange-500/10'}`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -143,7 +145,7 @@ export function Contact() {
                 transition={{ type: "spring", damping: 20 }}
                 onClick={(e) => e.stopPropagation()}
               > */}
-            <div className="p-6 bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20">
+            <div className={`${resolvedTheme === 'light' ? 'p-6 bg-white border border-neutral-200 shadow-xl rounded-lg' : 'p-6 bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20'}`}>
               {/* <h2 className="text-2xl font-bold mb-6 text-white">
                 Send us a message
               </h2> */}
@@ -152,7 +154,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-white/70"
+                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
                   >
                     Your Name
                   </label>
@@ -163,7 +165,7 @@ export function Contact() {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
                       required
                     />
                   </div>
@@ -172,7 +174,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-white/70"
+                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
                   >
                     Email Address
                   </label>
@@ -183,7 +185,7 @@ export function Contact() {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
                       required
                     />
                   </div>
@@ -192,7 +194,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-white/70"
+                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
                   >
                     Your Message
                   </label>
@@ -203,7 +205,7 @@ export function Contact() {
                       rows={4}
                       value={formState.message}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
                       required
                     />
                   </div>
@@ -212,7 +214,7 @@ export function Contact() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500/50 transition-colors"
+                    className={`w-full py-3 rounded-md font-semibold transition-colors ${resolvedTheme === 'light' ? 'bg-orange-500 text-white hover:bg-orange-600' : 'bg-orange-500 text-white hover:bg-orange-600'}`}
                   >
                     Send Message
                   </button>

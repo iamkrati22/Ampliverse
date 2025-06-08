@@ -53,7 +53,7 @@ export function KeyPeople() {
     <section
       id="people"
       ref={ref}
-      className="py-24 bg-[#0a0a14] relative overflow-hidden"
+      className={`py-24 relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -145,9 +145,16 @@ export function KeyPeople() {
               transition={{ duration: 0.5 }}
               className={`mt-8 max-w-3xl mx-auto relative rounded-lg border transition-colors duration-300
                 ${resolvedTheme === 'light'
-                  ? 'bg-[#fcfcfa] border-neutral-200 shadow-xl p-8 md:p-10 lg:p-12'
-                  : 'bg-[#393843] border-orange-500/20 backdrop-blur-md p-8 md:p-10 lg:p-12'}`}
+                  ? 'bg-white border-neutral-200 shadow-xl p-8 md:p-10 lg:p-12'
+                  : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl p-8 md:p-10 lg:p-12 backdrop-blur-lg'}`}
             >
+              {/* Layered border overlays for dark mode */}
+              {resolvedTheme === 'dark' && (
+                <>
+                  <div className="pointer-events-none absolute inset-0 border border-white/10 rounded-lg" style={{top:8,left:8,right:8,bottom:8}} />
+                  <div className="pointer-events-none absolute inset-0 border border-white/5 rounded-lg" style={{top:16,left:16,right:16,bottom:16}} />
+                </>
+              )}
               {/* LinkedIn icon in top-right */}
               <a
                 href={activePerson.linkedin}

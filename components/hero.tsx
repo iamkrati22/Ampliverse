@@ -9,6 +9,7 @@ import { Playfair_Display } from "next/font/google";
 import Map, { Marker } from "react-map-gl/maplibre";
 import { DM_Serif_Display } from "next/font/google";
 import "../fonts/font-style.css";
+import { useTheme } from "next-themes";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export function Hero() {
     Array<{ width: number; rotate: number; top: number; left: number }>
   >([]);
   const indicatorOpacity = useTransform(scrollY, [0, 120, 200], [1, 0.3, 0]);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -132,23 +134,22 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className={`max-w-3xl mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic`}
+            className="max-w-3xl mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
             initial={{ opacity: 0 }}
             animate={loaded && titleMoved ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
-            Born from PR, we turn credibility into presence, and presence into
-            momentum — for innovators building{" "}
+            Born from PR, we turn credibility into presence, and presence into momentum — for innovators building 
             <span className="relative inline-block underline-animate-parent">
-              <span className="relative z-10 text-white">
+              <span className={`relative z-10 ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-white'}`}>
                 tomorrow&apos;s solutions
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
                 animate={loaded && titleMoved ? { scaleX: 1 } : {}}
                 transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
-                className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-white/70 to-white/30 rounded-full origin-left underline-animate"
+                className={`absolute left-0 bottom-0 w-full h-[2px] rounded-full origin-left underline-animate ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-gradient-to-r from-white/70 to-white/30'}`}
               ></motion.span>
             </span>
             .

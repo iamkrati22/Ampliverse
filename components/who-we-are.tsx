@@ -15,7 +15,7 @@ export function WhoWeAre() {
       ref={ref}
       className={`relative py-24 w-full transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -47,31 +47,22 @@ export function WhoWeAre() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <span className="font-bold text-white">Ampliverse</span> is an
-              integrated communications advisory enabling organizations
-              worldwide to craft
-              <span className="text-orange-500 font-semibold">
-                {" "}
-                purposeful brand expression that drives business impact.
-              </span>
+              <span className={`font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft <span className={`text-orange-500 font-semibold`}>purposeful brand expression that drives business impact.</span>
             </motion.p>
             <motion.p
-              className="text-center text-lg text-2xl md:text-3xl font-normal text-justify text-white mx-auto md:mx-0"
+              className={`text-center text-lg text-2xl md:text-3xl font-normal text-justify mx-auto md:mx-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              We collaborate with our partners to power sharp perspectives that{" "}
-              <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">
-                spark meaningful industry conversations and scale stakeholder
-                trust.
-              </span>
+              We collaborate with our partners to power sharp perspectives that <span className={`font-semibold underline underline-offset-4 decoration-orange-300/60 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>spark meaningful industry conversations and scale stakeholder trust.</span>
             </motion.p>
           </div>
         </div>
         {/* Right: Philosophy Card */}
         <motion.div
-          className="relative flex flex-col items-start w-full bg-[#181824] dark:bg-[#181824] rounded-2xl p-10 shadow-lg border border-orange-900"
+          className={`relative flex flex-col items-start w-full rounded-2xl p-10 shadow-lg border transition-colors duration-300
+            ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'bg-[#181824] border-orange-900'}`}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -84,16 +75,13 @@ export function WhoWeAre() {
               Our Philosophy
             </span>
           </div>
-          <blockquote className="text-2xl md:text-3xl font-medium leading-snug mb-6 text-white dark:text-white">
+          <blockquote className={`text-2xl md:text-3xl font-medium leading-snug mb-6 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white dark:text-white'}`}>
             Grounded in insight, our advisory blends strategic clarity with
             creative depth, distilling complexity into clear and compelling
             messaging that reaches the last-mile.
           </blockquote>
-          <hr className="w-full border-t border-white/10 mb-3" />
-          <span className="text-base text-white/60 italic flex items-center gap-2">
-            <span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" />{" "}
-            Ampliverse Team
-          </span>
+          <hr className={`w-full border-t mb-3 ${resolvedTheme === 'light' ? 'border-neutral-200' : 'border-white/10'}`} />
+          <span className={`text-base italic flex items-center gap-2 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}><span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team</span>
         </motion.div>
       </div>
     </section>

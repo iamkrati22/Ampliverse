@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { Newspaper, Palette, MessageSquare, Handshake, Calendar, Users, Code } from "lucide-react"
 import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 
 interface ServiceCardProps {
   icon: React.ReactNode
@@ -76,6 +77,7 @@ function SectionUnderline() {
 }
 
 export default function FlipCards() {
+  const { resolvedTheme } = useTheme();
   return (
     <section className="relative py-24 w-full bg-gradient-to-b from-[#f8f7f4] via-white to-[#f8f7f4] dark:from-[#0a0a14] dark:via-[#181824] dark:to-[#0a0a14] bg-noise">
       <div className="space-y-8 max-w-7xl mx-auto px-4">
@@ -95,12 +97,12 @@ export default function FlipCards() {
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.slice(0, 4).map((service, index) => (
-            <ServiceCard key={index} {...service} />
+            <ServiceCard key={index} {...service} resolvedTheme={resolvedTheme} />
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.slice(4, 7).map((service, index) => (
-            <ServiceCard key={index + 4} {...service} />
+            <ServiceCard key={index + 4} {...service} resolvedTheme={resolvedTheme} />
           ))}
         </div>
         <HiddenTailwindUtilities />
@@ -110,32 +112,33 @@ export default function FlipCards() {
   )
 }
 
-function ServiceCard({ icon, color, bgColor, title, description }: ServiceCardProps) {
+function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
   const [isFlipped, setIsFlipped] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div
       className="h-[280px] w-full perspective-1000 cursor-pointer"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      onMouseEnter={() => { setIsFlipped(true); setIsHovered(true); }}
+      onMouseLeave={() => { setIsFlipped(false); setIsHovered(false); }}
     >
       <div
         className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? "rotate-y-180" : ""}`}
       >
         {/* Front of card */}
         <div
-          className="absolute w-full h-full border border-border rounded-xl bg-card flex flex-col items-center justify-center gap-6 backface-hidden"
+          className={`absolute w-full h-full border border-border rounded-xl bg-card flex flex-col items-center justify-center gap-6 backface-hidden transition-all duration-300 ${isHovered ? `bg-gradient-to-br ${bgColor}` : ''}`}
           style={{ zIndex: 2 }}
         >
-          <div className={`${color} mb-2`}>{icon}</div>
+          <div className={`${color} transition-transform duration-300 ${isHovered ? 'scale-110' : ''}`}>{icon}</div>
           <h3 className="text-xl font-semibold text-center text-card-foreground">{title}</h3>
         </div>
         {/* Back of card */}
         <div
-          className="absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden"
-          style={{ transform: "rotateY(180deg)", background: `linear-gradient(135deg, var(--tw-gradient-stops))` }}
+          className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${isHovered ? `bg-gradient-to-br ${bgColor}` : ''}`}
+          style={{ transform: "rotateY(180deg)" }}
         >
-          <div className={`mb-2 ${color}`}>{icon}</div>
+          <div className={`${color} transition-transform duration-300`}>{icon}</div>
           <h3 className="text-xl font-semibold text-center text-card-foreground mb-4">{title}</h3>
           <p className="text-muted-foreground text-center leading-relaxed max-w-xs mx-auto">{description}</p>
         </div>
