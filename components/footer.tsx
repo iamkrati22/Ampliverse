@@ -18,8 +18,8 @@ export function Footer() {
               <Image
                 src="/logo_black.png"
                 alt="Ampliverse Logo"
-                width={180}
-                height={60}
+                width={260}
+                height={80}
                 className="block dark:hidden"
                 priority
               />
@@ -27,8 +27,8 @@ export function Footer() {
               <Image
                 src="/logo_white.png"
                 alt="Ampliverse Logo"
-                width={180}
-                height={60}
+                width={260}
+                height={80}
                 className="hidden dark:block"
                 priority
               />
@@ -42,7 +42,7 @@ export function Footer() {
               {"}"}
             </div>
             <p className="text-white/60 mb-6 max-w-md">
-            We are a global communications advisory, fueling purposeful visibility for tomorrow’s innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results.
+            We are a global communications advisory, fueling purposeful visibility for tomorrow's innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results.
             </p>
             <div className="flex space-x-4">
               <a

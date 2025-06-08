@@ -2,48 +2,35 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Triangle } from "lucide-react"
 
 export function Loader() {
-  const [showFirstText, setShowFirstText] = useState(true)
-  const [showSecondText, setShowSecondText] = useState(false)
+  const [showShaping, setShowShaping] = useState(false)
+  const [showThe, setShowThe] = useState(false)
+  const [showShift, setShowShift] = useState(false)
+  const [showUnderline, setShowUnderline] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Progress bar animation
-    let progressInterval: NodeJS.Timeout | null = null
-    progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          if (progressInterval) clearInterval(progressInterval)
-          return 100
-        }
-        return prev + 2
-      })
-    }, 30)
-
-    // First text appears and fades out
-    const firstTimer = setTimeout(() => {
-      setShowFirstText(false)
-    }, 2000)
-
-    // Second text appears after first text fades out
-    const secondTimer = setTimeout(() => {
-      setShowSecondText(true)
-    }, 2500)
-
-    // Second text fades out and loader completes
-    const finalTimer = setTimeout(() => {
-      setShowSecondText(false)
-      setIsLoading(false)
-    }, 4000)
-
+    setShowShaping(true)
+    const theTimer = setTimeout(() => setShowThe(true), 900)
+    const shiftTimer = setTimeout(() => setShowShift(true), 1800)
+    const underlineTimer = setTimeout(() => setShowUnderline(true), 2700)
+    const fadeOutTimer = setTimeout(() => {
+      setShowShaping(false)
+      setShowThe(false)
+      setShowShift(false)
+      setShowUnderline(false)
+    }, 4200)
+    const logoTimer = setTimeout(() => setShowLogo(true), 5000)
+    const finishTimer = setTimeout(() => setIsLoading(false), 6700)
     return () => {
-      if (progressInterval) clearInterval(progressInterval)
-      clearTimeout(firstTimer)
-      clearTimeout(secondTimer)
-      clearTimeout(finalTimer)
+      clearTimeout(theTimer)
+      clearTimeout(shiftTimer)
+      clearTimeout(underlineTimer)
+      clearTimeout(fadeOutTimer)
+      clearTimeout(logoTimer)
+      clearTimeout(finishTimer)
     }
   }, [])
 
@@ -63,61 +50,67 @@ export function Loader() {
         </svg>
       </div>
       <div className="relative flex flex-col items-center justify-center z-10">
-        {/* Fun animated triangle */}
-        <motion.div
-          className="mb-4"
-        >
-          <Triangle className="h-10 w-10 drop-shadow-lg" style={{ fill: '#f97316', color: '#f97316' }} />
-        </motion.div>
         <AnimatePresence mode="wait">
-          {showFirstText && (
+          {(!showLogo && (showShaping || showThe || showShift)) && (
             <motion.div
-              key="first"
-              initial={{ opacity: 0, y: 20 }}
+              key="text"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl md:text-4xl font-normal mb-4 text-white font-sans"
-              style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="text-3xl md:text-5xl font-semibold mb-2 text-white font-sans flex items-center gap-3 tracking-tight"
+              style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '-0.01em' }}
             >
-              Shaping the shift
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: showShaping ? 1 : 0, x: showShaping ? 0 : -20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="drop-shadow-lg"
+              >Shaping</motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: showThe ? 1 : 0, y: showThe ? 0 : 20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="drop-shadow-lg"
+              >The</motion.span>
+              <motion.span
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: showShift ? 1 : 0, x: showShift ? 0 : 20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="drop-shadow-lg font-semibold"
+              >Shift</motion.span>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence mode="wait">
-          {showSecondText && (
+          {showUnderline && !showLogo && (
             <motion.div
-              key="second"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl md:text-4xl font-normal mb-4 text-white font-sans flex items-center justify-center"
-              style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-            >
-              <span className="text-orange-500 mr-2">//</span>
-              <Triangle className="h-8 w-8 mr-1" style={{ fill: '#f97316', color: '#f97316' }} />
-              MPLIVERSE
-              <span className="text-white/60 ml-1">//</span>
-            </motion.div>
+              key="underline"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.1, ease: "easeInOut" }}
+              className="h-0.5 w-48 rounded-full mx-auto mb-1 origin-left bg-gradient-to-r from-orange-400 via-white/80 to-orange-500 shadow-[0_2px_12px_0_rgba(249,115,22,0.10)]"
+              style={{ boxShadow: '0 2px 12px 0 #f9731611' }}
+            />
           )}
         </AnimatePresence>
-
-        {/* Progress Bar with pulse */}
-        <motion.div
-          className="w-64 h-2 bg-white/10 rounded-full overflow-hidden mt-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <motion.div
-            className="h-full bg-orange-500"
-            style={{ width: `${progress}%` }}
-            animate={{ scaleY: [1, 1.3, 1] }}
-            transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-          />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          {showLogo && (
+            <motion.img
+              key="logo"
+              src="/logo_white.png"
+              alt="Ampliverse Logo"
+              layoutId="ampliverse-logo"
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.4 }}
+              transition={{ opacity: { duration: 1.1, ease: "easeInOut" }, scale: { duration: 1.2, ease: "anticipate" } }}
+              className="w-80 h-80 object-contain drop-shadow-2xl mx-auto"
+              style={{ zIndex: 10 }}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

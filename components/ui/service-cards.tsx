@@ -71,7 +71,7 @@ const services: ServiceCardProps[] = [
   },
 ]
 
-export default function Capabilities() {
+export default function ServiceCards() {
   return (
     <div className="space-y-8">
       {/* First row - 4 cards */}

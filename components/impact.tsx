@@ -113,8 +113,8 @@ export function Impact() {
               <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-10 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="triangle-fade" x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#d1d5db" stop-opacity="0.6" />
-                    <stop offset="1" stop-color="#d1d5db" stop-opacity="0.12" />
+                    <stop stopColor="#d1d5db" stopOpacity="0.6" />
+                    <stop offset="1" stopColor="#d1d5db" stopOpacity="0.12" />
                   </linearGradient>
                 </defs>
                 <polygon points="100,100 0,100 100,0" fill="url(#triangle-fade)" />
