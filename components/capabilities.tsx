@@ -15,11 +15,11 @@ export function Capabilities() {
       icon: <Newspaper className="h-10 w-10" />,
       title: "Media advisory",
       description: "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
-      color: "from-blue-500/20 to-blue-600/10",
+      color: "from-orange-500/20 to-orange-600/10",
       borderColor: "border-blue-500/30",
-      hoverColor: "group-hover:border-blue-400/50",
+      hoverColor: "group-hover:orange-500/10",
       shadowColor: "group-hover:shadow-blue-500/20",
-      logoColor: "#3b82f6", // blue-500
+      logoColor: "#f97316", // blue-500
     },
     {
       icon: <Palette className="h-10 w-10" />,
@@ -78,7 +78,7 @@ export function Capabilities() {
     },
     {
       icon: <Code className="h-10 w-10" />,
-      title: "Workforce Talent Solutions",
+      title: "Talent Solutions",
       description:
         "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
       color: "from-cyan-500/20 to-cyan-600/10",
@@ -140,7 +140,7 @@ export function Capabilities() {
             Services
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-foreground dark:text-white">Solutions that Move the Needle</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-foreground dark:text-white">Our Services</h2>
         </motion.div>
 
         {/* Later in the JSX, update the grid layout and add colored borders */}
@@ -174,7 +174,7 @@ export function Capabilities() {
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-white">{service.title}</h3>
-              <p className="text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
+              <p className="text-justify text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
                 {service.description}
               </p>
             </motion.div>
@@ -212,7 +212,7 @@ export function Capabilities() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-foreground dark:text-white">{service.title}</h3>
-                <p className="text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
+                <p className="text-justify text-muted-foreground dark:text-white/70 group-hover:dark:text-white/90 transition-colors duration-300">
                   {service.description}
                 </p>
               </motion.div>

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { Sparkles, Zap, BarChart3, Globe, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Sparkles, Zap, BarChart3, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -34,15 +34,18 @@ const features = [
       "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonance — ensuring your story gets heard, remembered, and acted upon.",
     icon: <Globe className="h-8 w-8 text-white" />,
   },
-]
+];
 
 export function WhatMakesUsDifferent() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [activeFeature, setActiveFeature] = useState(0)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeFeature, setActiveFeature] = useState(0);
 
   return (
-    <section ref={ref} className="relative py-24 mb-12 w-full bg-[#0a0a14] text-white transition-colors duration-300">
+    <section
+      ref={ref}
+      className="relative py-24 mb-12 w-full bg-[#0a0a14] text-white transition-colors duration-300"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Heading centered above both columns */}
         <div className="w-full flex flex-col items-center mb-16">
@@ -54,7 +57,7 @@ export function WhatMakesUsDifferent() {
           <h2 className="mt-0 text-4xl md:text-5xl font-bold text-white text-center">
             What Makes Us Different
           </h2>
-          <div className="w-16 h-1 bg-white mt-4 rounded" />
+          <div className="w-16 h-1 bg-orange-500 mt-4 rounded" />
         </div>
         {/* Stepper and Card aligned horizontally and centered */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
@@ -64,18 +67,31 @@ export function WhatMakesUsDifferent() {
               From Trust to Traction
             </span>
             <span className="relative w-full mx-auto text-justify">
-              We’re a team of go-getters, <span className="text-orange-500 font-semibold">redefining the attention economy</span> through bespoke strategies that align with business goals and <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">drive real outcomes.</span>
+              We’re a team of go-getters,{" "}
+              <span className="text-orange-500 font-semibold">
+                redefining the attention economy
+              </span>{" "}
+              through bespoke strategies that align with business goals and{" "}
+              <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">
+                drive real outcomes.
+              </span>
             </span>
             <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
               {/* Vertical line */}
-              <div className="absolute left-4 top-0 bottom-0 w-px h-[30vh] bg-white/10" style={{zIndex:0}} />
+              <div
+                className="absolute left-4 top-0 bottom-0 w-px h-[30vh] bg-white/10"
+                style={{ zIndex: 0 }}
+              />
               {features.map((feature, idx) => (
-                <div key={feature.id} className="flex items-start relative z-10 group min-h-[70px]">
+                <div
+                  key={feature.id}
+                  className="flex items-start relative z-10 group min-h-[70px]"
+                >
                   {/* Step circle */}
                   <button
                     onClick={() => setActiveFeature(idx)}
                     className="flex flex-col items-center mr-6 focus:outline-none"
-                    style={{zIndex:2}}
+                    style={{ zIndex: 2 }}
                     aria-label={`Go to ${feature.title}`}
                   >
                     <span
@@ -110,11 +126,20 @@ export function WhatMakesUsDifferent() {
           </div>
           {/* Card */}
           <div className="flex-1 flex flex-col items-center justify-center w-full min-w-[340px] max-w-xl">
-            <div className="relative w-full flex flex-col items-center text-center" style={{minHeight:340}}>
+            <div
+              className="relative w-full flex flex-col items-center text-center"
+              style={{ minHeight: 340 }}
+            >
               {/* Layered white rectangles */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 border border-white/20 rounded-xl" style={{top:8,left:8,right:8,bottom:8}} />
-                <div className="absolute inset-0 border border-white/10 rounded-xl" style={{top:16,left:16,right:16,bottom:16}} />
+                <div
+                  className="absolute inset-0 border border-white/20 rounded-xl"
+                  style={{ top: 8, left: 8, right: 8, bottom: 8 }}
+                />
+                <div
+                  className="absolute inset-0 border border-white/10 rounded-xl"
+                  style={{ top: 16, left: 16, right: 16, bottom: 16 }}
+                />
                 <div className="absolute inset-0 border border-white/5 rounded-xl" />
               </div>
               <div className="relative z-10 flex flex-col items-center justify-center px-8 py-12">
@@ -159,5 +184,5 @@ export function WhatMakesUsDifferent() {
         </div>
       </div>
     </section>
-  )
-} 
+  );
+}

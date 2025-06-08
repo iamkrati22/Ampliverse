@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'LoewNextArabic';
+    src: local('LoewNextArabic'), url(./LoewNextArabic/LoewNextArabicBold/Loew\ Next\ Arabic\ Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'LoewNextArabicMedium';
+    src: local('LoewNextArabicMedium'), url(./LoewNextArabic/LoewNextArabicMedium/Loew\ Next\ Arabic\ Medium.ttf) format('truetype');
+}

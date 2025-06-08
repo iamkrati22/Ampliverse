@@ -25,8 +25,8 @@ export default function Home() {
       <Loader />
       <Hero />
       <WhoWeAre />
-      <WhatMakesUsDifferent />
       <Capabilities />
+      <WhatMakesUsDifferent />
       <Impact />
       <Manifesto />
       <OurWork />
