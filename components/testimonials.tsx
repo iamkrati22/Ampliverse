@@ -25,16 +25,6 @@ export function Testimonials() {
     {
       id: 2,
       quote:
-        "Working with Ampliverse has been a game-changer for our startup. Their strategic approach to PR and communications helped us gain visibility in key publications that matter to our industry. Their team's responsiveness and attention to detail is unmatched.",
-      author: "Rahul Mehta",
-      role: "Founder & CEO",
-      company: "InnovateX",
-      logo: "/IBW WEEK (1).png",
-      linkedin: "rahul-mehta"
-    },
-    {
-      id: 3,
-      quote:
         "Ampliverse has transformed our brand communication strategy. Their deep understanding of the B2B tech landscape helped us position our solutions effectively to enterprise clients. The media coverage they secured for us has significantly boosted our credibility in the market.",
       author: "Priya Sharma",
       role: "CMO",
@@ -42,7 +32,17 @@ export function Testimonials() {
       logo: "/AGL Logo.png",
       linkedin: "priya-sharma"
     },
-    
+    {
+      id: 3,
+      quote:
+        "Working with Ampliverse has been a game-changer for our startup. Their strategic approach to PR and communications helped us gain visibility in key publications that matter to our industry. Their team's responsiveness and attention to detail is unmatched.",
+      author: "Team India Blockchain Week",
+      role: "",
+      company: "InnovateX",
+      logo: "/India Blockchain Week.jpg",
+      image: "/India Blockchain Week.jpg",
+      linkedin: "rahul-mehta"
+    },
   ]
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export function Testimonials() {
             Testimonials
             <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Our Partners' voices</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Our Partners' Voices</h2>
         </motion.div>
 
         <div className="w-full flex flex-col items-center justify-center relative">
@@ -107,7 +107,7 @@ export function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="glass-panel p-8 md:p-12 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.3)] relative flex flex-col justify-between h-[520px] md:h-[440px] lg:h-[400px] w-full"
+                className="glass-panel p-8 md:p-12 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.3)] relative flex flex-col justify-between h-[580px] md:h-[500px] lg:h-[460px] w-full"
                 style={{ maxWidth: '900px' }}
               >
                 {/* Single large quote mark in top right */}
@@ -116,17 +116,18 @@ export function Testimonials() {
                 </div>
 
                 <div className="flex justify-center mb-8 relative z-10">
-                  <div className="h-16 w-32 relative">
+                  <div className="relative flex items-center justify-center w-28 h-28 mx-auto rounded-full bg-white border-4 border-white shadow-lg shadow-orange-900/20 overflow-hidden">
+                    <div className="absolute inset-0 rounded-full border-2 border-orange-500 pointer-events-none"></div>
                     <Image
                       src={testimonials[current].logo || "/placeholder.svg"}
                       alt={testimonials[current].company}
                       fill
-                      className="object-contain"
+                      className="object-contain p-2"
                     />
                   </div>
                 </div>
 
-                <blockquote className="text-justify text-base text-white/80 mb-8 relative z-10 overflow-hidden line-clamp-6">
+                <blockquote className="text-base text-white/80 mb-4 relative z-10 overflow-hidden line-clamp-7">
                   {truncateWords(testimonials[current].quote, 55)}
                 </blockquote>
 

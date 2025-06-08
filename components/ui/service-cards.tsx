@@ -1,24 +1,16 @@
-"use client";
+"use client"
 
-import type React from "react";
+import type React from "react"
 
-import { useState } from "react";
-import {
-  Newspaper,
-  Palette,
-  MessageSquare,
-  Handshake,
-  Calendar,
-  Users,
-  Code,
-} from "lucide-react";
+import { useState } from "react"
+import { Newspaper, Palette, MessageSquare, Handshake, Calendar, Users, Code } from "lucide-react"
 
 interface ServiceCardProps {
-  icon: React.ReactNode;
-  color: string;
-  bgColor: string;
-  title: string;
-  description: string;
+  icon: React.ReactNode
+  color: string
+  bgColor: string
+  title: string
+  description: string
 }
 
 const services: ServiceCardProps[] = [
@@ -27,8 +19,7 @@ const services: ServiceCardProps[] = [
     color: "text-blue-500",
     bgColor: "from-blue-500/20 to-blue-600/10",
     title: "Media advisory",
-    description:
-      "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
+    description: "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
   },
   {
     icon: <Palette size={48} />,
@@ -78,9 +69,9 @@ const services: ServiceCardProps[] = [
     description:
       "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
   },
-];
+]
 
-export default function Capabilities() {
+export default function ServiceCards() {
   return (
     <div className="space-y-8">
       {/* First row - 4 cards */}
@@ -97,30 +88,24 @@ export default function Capabilities() {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-function ServiceCard({
-  icon,
-  color,
-  bgColor,
-  title,
-  description,
-}: ServiceCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+function ServiceCard({ icon, color, bgColor, title, description }: ServiceCardProps) {
+  const [isFlipped, setIsFlipped] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div
       className="h-[280px] w-full perspective-1000 cursor-pointer"
       onClick={() => setIsFlipped(!isFlipped)}
       onMouseEnter={() => {
-        setIsFlipped(true);
-        setIsHovered(true);
+        setIsFlipped(true)
+        setIsHovered(true)
       }}
       onMouseLeave={() => {
-        setIsFlipped(false);
-        setIsHovered(false);
+        setIsFlipped(false)
+        setIsHovered(false)
       }}
     >
       <div
@@ -136,16 +121,8 @@ function ServiceCard({
           }`}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div
-            className={`${color} transition-transform duration-300 ${
-              isHovered ? "scale-110" : ""
-            }`}
-          >
-            {icon}
-          </div>
-          <h3 className="text-xl font-semibold text-center text-card-foreground">
-            {title}
-          </h3>
+          <div className={`${color} transition-transform duration-300 ${isHovered ? "scale-110" : ""}`}>{icon}</div>
+          <h3 className="text-xl font-semibold text-center text-card-foreground">{title}</h3>
         </div>
 
         {/* Back of card */}
@@ -155,14 +132,10 @@ function ServiceCard({
           }`}
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <h3 className="text-xl font-semibold mb-6 text-center text-card-foreground">
-            {title}
-          </h3>
-          <p className="text-muted-foreground text-center leading-relaxed">
-            {description}
-          </p>
+          <h3 className="text-xl font-semibold mb-6 text-center text-card-foreground">{title}</h3>
+          <p className="text-muted-foreground text-center leading-relaxed">{description}</p>
         </div>
       </div>
     </div>
-  );
+  )
 }
