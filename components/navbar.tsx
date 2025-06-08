@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
@@ -22,31 +22,38 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 50);
       // Calculate scroll progress
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = docHeight > 0 ? scrollTop / docHeight : 0
-      setScrollProgress(progress)
-    }
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      setScrollProgress(progress);
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     // Listen for service hover events
     const handleServiceHover = (e: CustomEvent) => {
-      setLogoColor(e.detail.color)
-    }
+      setLogoColor(e.detail.color);
+    };
 
-    window.addEventListener("serviceHover", handleServiceHover as EventListener)
+    window.addEventListener(
+      "serviceHover",
+      handleServiceHover as EventListener
+    );
 
-    const timer = setTimeout(() => setShowLogo(true), 220)
+    const timer = setTimeout(() => setShowLogo(true), 220);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("serviceHover", handleServiceHover as EventListener)
-      clearTimeout(timer)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "serviceHover",
+        handleServiceHover as EventListener
+      );
+      clearTimeout(timer);
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -71,7 +78,11 @@ export function Navbar() {
         transition={{ duration: 0.5, delay: 3.5 }}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center overflow-hidden" style={{ height: '4rem', minHeight: '4rem' }}>
+          <Link
+            href="/"
+            className="flex items-center overflow-hidden"
+            style={{ height: "4rem", minHeight: "4rem" }}
+          >
             <AnimatePresence>
               {showLogo && (
                 <motion.img
@@ -114,10 +125,13 @@ export function Navbar() {
             </Link>
             <ThemeToggle />
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild className="bg-orange-500 text-white hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 relative overflow-hidden group transition-colors">
+              <Button
+                asChild
+                className="bg-orange-500 text-white hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 relative overflow-hidden group transition-colors"
+              >
                 <Link href="#contact">
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                  Book a call
+                  Let's Talk
                 </Link>
               </Button>
             </motion.div>
@@ -185,12 +199,24 @@ export function Navbar() {
                   className="bg-orange-500 text-white hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 w-full mt-4 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Link href="#contact">Book a call</Link>
+                  <Link href="#contact">Let's Talk</Link>
                 </Button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
+      </motion.header>
+      {/* Mobile scroll progress bar */}
+      <div className="md:hidden fixed top-[56px] left-0 w-full z-40 pointer-events-none">
+        <div
+          className="h-0.5 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 dark:from-orange-400 dark:via-orange-500 dark:to-yellow-300 rounded-full transition-all duration-300"
+          style={{
+            width: `${Math.round(scrollProgress * 100)}%`,
+            minWidth: scrollProgress > 0 ? "8%" : 0,
+            boxShadow: "0 1px 6px 0 #f9731622",
+          }}
+        />
+      </div>
         {/* Mobile scroll progress bar at bottom of navbar */}
         <div className="md:hidden absolute left-0 bottom-0 w-full pointer-events-none">
           <div
@@ -200,5 +226,5 @@ export function Navbar() {
         </div>
       </motion.header>
     </>
-  )
+  );
 }

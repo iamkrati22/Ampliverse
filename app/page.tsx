@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+<<<<<<< HEAD
 import { Loader } from "@/components/loader"
 import { Hero } from "@/components/hero"
 import { Manifesto } from "@/components/manifesto"
@@ -17,8 +18,30 @@ import { motion } from "framer-motion"
 import { Playfair_Display } from "next/font/google"
 import FlipCards from "@/components/flip-cards"
 import { useTheme } from "next-themes"
+=======
+import { Loader } from "@/components/loader";
+import { Hero } from "@/components/hero";
+import { Manifesto } from "@/components/manifesto";
+import { Impact } from "@/components/impact";
+import { WhoWeAre } from "@/components/who-we-are";
+import { WhatMakesUsDifferent } from "@/components/what-makes-us-different";
+import Capabilities from "@/components/capabilities";
+import { OurWork } from "@/components/our-work";
+import { KeyPeople } from "@/components/key-people";
+import { Testimonials } from "@/components/testimonials";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
+import { CustomCursor } from "@/components/custom-cursor";
+import { motion } from "framer-motion";
+import { Playfair_Display } from "next/font/google";
+import FlipCards from "@/components/flip-cards";
+>>>>>>> 406752ee02feb5e793b4fc4232d7a735db87f59c
 
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"], style: ["normal", "italic"] })
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
 
 export default function Home() {
   const { resolvedTheme } = useTheme();
@@ -28,9 +51,8 @@ export default function Home() {
       <Loader />
       <Hero />
       <WhoWeAre />
+      <Capabilities />
       <WhatMakesUsDifferent />
-      {/* <Capabilities /> */}
-      <FlipCards />
       <Impact />
       <Manifesto />
       <OurWork />
@@ -39,5 +61,5 @@ export default function Home() {
       <Contact />
       <Footer />
     </main>
-  )
+  );
 }

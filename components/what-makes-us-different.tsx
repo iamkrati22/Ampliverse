@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { Sparkles, Zap, BarChart3, Globe, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Sparkles, Zap, BarChart3, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useTheme } from "next-themes"
 
 const features = [
@@ -35,7 +35,7 @@ const features = [
       "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonance — ensuring your story gets heard, remembered, and acted upon.",
     icon: <Globe className="h-8 w-8 text-white" />,
   },
-]
+];
 
 export function WhatMakesUsDifferent() {
   const ref = useRef(null)
@@ -71,19 +71,33 @@ export function WhatMakesUsDifferent() {
             <span className={`relative w-full mx-auto text-justify italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
               From Trust to Traction
             </span>
-            <span className={`relative w-full mx-auto text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
-              We're a team of go-getters, <span className="text-orange-500 font-semibold">redefining the attention economy</span> through bespoke strategies that align with business goals and <span className={`font-semibold underline underline-offset-4 decoration-orange-300/60 ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-white'}`}>drive real outcomes.</span>
+            <span className="relative w-full mx-auto text-justify">
+              We’re a team of go-getters,{" "}
+              <span className="text-orange-500 font-semibold">
+                redefining the attention economy
+              </span>{" "}
+              through bespoke strategies that align with business goals and{" "}
+              <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">
+                drive real outcomes.
+              </span>
             </span>
             <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
               {/* Vertical line */}
+              <div
+                className="absolute left-4 top-0 bottom-0 w-px h-[30vh] bg-white/10"
+                style={{ zIndex: 0 }}
+              />
               <div className={`absolute left-4 top-0 bottom-0 w-px h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
               {features.map((feature, idx) => (
-                <div key={feature.id} className="flex items-start relative z-10 group min-h-[70px]">
+                <div
+                  key={feature.id}
+                  className="flex items-start relative z-10 group min-h-[70px]"
+                >
                   {/* Step circle */}
                   <button
                     onClick={() => setActiveFeature(idx)}
                     className="flex flex-col items-center mr-6 focus:outline-none"
-                    style={{zIndex:2}}
+                    style={{ zIndex: 2 }}
                     aria-label={`Go to ${feature.title}`}
                   >
                     <span
@@ -116,14 +130,23 @@ export function WhatMakesUsDifferent() {
           </div>
           {/* Card */}
           <div className="flex-1 flex flex-col items-center justify-center w-full min-w-[340px] max-w-xl">
-            <div className="relative w-full flex flex-col items-center text-center" style={{minHeight:340}}>
+            <div
+              className="relative w-full flex flex-col items-center text-center"
+              style={{ minHeight: 340 }}
+            >
               {/* Layered white rectangles for dark mode, single white card for light mode */}
               {resolvedTheme === 'light' ? (
                 <div className="absolute inset-0 pointer-events-none rounded-xl border border-neutral-200 shadow-xl bg-white"></div>
               ) : (
                 <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute inset-0 border border-white/20 rounded-xl" style={{top:8,left:8,right:8,bottom:8}} />
-                  <div className="absolute inset-0 border border-white/10 rounded-xl" style={{top:16,left:16,right:16,bottom:16}} />
+                  <div
+                  className="absolute inset-0 border border-white/20 rounded-xl"
+                  style={{ top: 8, left: 8, right: 8, bottom: 8 }}
+                />
+                  <div
+                  className="absolute inset-0 border border-white/10 rounded-xl"
+                  style={{ top: 16, left: 16, right: 16, bottom: 16 }}
+                />
                   <div className="absolute inset-0 border border-white/5 rounded-xl" />
                 </div>
               )}
@@ -169,5 +192,5 @@ export function WhatMakesUsDifferent() {
         </div>
       </div>
     </section>
-  )
-} 
+  );
+}

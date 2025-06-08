@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
@@ -45,12 +45,16 @@ export function KeyPeople() {
       bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
       linkedin: "#",
     },
-  ]
+  ];
 
-  const activePerson = people[activePersonId - 1]
+  const activePerson = people[activePersonId - 1];
 
   return (
-    <section id="people" ref={ref} className={`py-24 relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
+    <section
+      id="people"
+      ref={ref}
+      className="py-24 bg-[#0a0a14] relative overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -80,7 +84,7 @@ export function KeyPeople() {
               <motion.div
                 key={person.id}
                 className={`relative cursor-pointer group flex flex-col items-center ${
-                  idx % 2 === 0 ? 'lg:-translate-y-8' : 'lg:translate-y-8'
+                  idx % 2 === 0 ? "lg:-translate-y-8" : "lg:translate-y-8"
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -152,7 +156,13 @@ export function KeyPeople() {
                 className="absolute top-4 right-4 w-9 h-9  rounded-lg flex items-center justify-center group"
                 aria-label={`LinkedIn profile of ${activePerson.name}`}
               >
-                <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
                     fill="white"
@@ -164,7 +174,9 @@ export function KeyPeople() {
                 <h3 className={`text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
                   {activePerson.name}
-                  <span className="text-orange-500/60 ml-1 font-mono">{">"}</span>
+                  <span className="text-orange-500/60 ml-1 font-mono">
+                    {">"}
+                  </span>
                 </h3>
               </div>
               <p className={`mb-4 font-mono ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
@@ -187,7 +199,9 @@ export function KeyPeople() {
                 key={idx}
                 onClick={() => setActivePersonId(idx + 1)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  activePersonId === idx + 1 ? "bg-orange-500 w-4" : "bg-white/20"
+                  activePersonId === idx + 1
+                    ? "bg-orange-500 w-4"
+                    : "bg-white/20"
                 }`}
                 aria-label={`View ${people[idx].name}'s bio`}
               />
@@ -196,5 +210,5 @@ export function KeyPeople() {
         </div>
       </div>
     </section>
-  )
+  );
 }
