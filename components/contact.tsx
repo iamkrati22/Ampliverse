@@ -129,27 +129,20 @@ export function Contact() {
                   Connect on Whatsapp
                 </motion.button>
               </div>
-            </motion.div>
-            {/* <ContactFormModal isOpen={isModalOpen} onClose={closeModal} /> */}
-            {/* <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                className="relative w-full max-w-2xl "
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: "spring", damping: 20 }}
-                onClick={(e) => e.stopPropagation()}
-              > */}
-            <div className={`${resolvedTheme === 'light' ? 'p-6 bg-white border border-neutral-200 shadow-xl rounded-lg' : 'p-6 bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20'}`}>
-              {/* <h2 className="text-2xl font-bold mb-6 text-white">
-                Send us a message
-              </h2> */}
 
+              <button
+                onClick={openModal}
+                className="mt-4 mb-10 w-full flex justify-center items-center gap-2 text-base font-normal text-center text-white dark:text-white group border-0 bg-transparent px-0 py-0 block sm:hidden focus:outline-none"
+              >
+                <span className="relative pb-1 border-b border-white/60 group-hover:border-orange-500 transition-colors duration-300">
+                  Send us a message
+                </span>
+                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </motion.div>
+            <div className={`hidden sm:block ${resolvedTheme === 'light' ? 'p-6 bg-white border border-neutral-200 shadow-xl rounded-lg' : 'p-6 bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20'}`}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
@@ -221,22 +214,11 @@ export function Contact() {
                 </div>
               </form>
             </div>
-
-            {/* <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
-                <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
-                <WorldMap />
-              </div>
-            </motion.div> */}
+            <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />
           </div>
         </div>
       </div>
-      <div className="mt-[5%]">
+      <div className="mt-8">
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -246,6 +228,13 @@ export function Contact() {
             <div className="absolute -top-[1vh] left-[2vw] md:-top-4 md:-left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
             <div className="absolute -bottom-[1vh] right-[2vw] md:-bottom-4 md:-right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
             <WorldMap />
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 z-20"
+              style={{
+                background: resolvedTheme === 'light'
+                  ? 'linear-gradient(to bottom, rgba(250,249,246,0) 0%, #faf9f6 100%)'
+                  : 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 100%)'
+              }}
+            />
           </div>
         </motion.div>
       </div>

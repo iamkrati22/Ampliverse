@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer
-      className={`w-full border-t border-border pt-12 pb-8 px-4 mt-16
+      className={`w-full border-t border-border pt-12 pb-8 px-4 mt-4 md:mt-16
         bg-[${LIGHT_BG}] dark:bg-[#0a0a14]
         text-neutral-800 dark:text-white
       `}

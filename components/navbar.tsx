@@ -207,9 +207,9 @@ export function Navbar() {
         </AnimatePresence>
       </motion.header>
       {/* Mobile scroll progress bar at bottom of navbar */}
-      <div className="md:hidden absolute left-0 bottom-0 w-full pointer-events-none">
+      <div className="md:hidden fixed left-0 top-[4rem] w-full z-50 pointer-events-none">
         <div
-          className="h-0.5 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 dark:from-orange-400 dark:via-orange-500 dark:to-yellow-300 rounded-full transition-all duration-300"
+          className="h-0.5 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 rounded-full shadow-md transition-all duration-300"
           style={{ width: `${Math.round(scrollProgress * 100)}%`, minWidth: scrollProgress > 0 ? '8%' : 0, boxShadow: '0 1px 6px 0 #f9731622' }}
         />
       </div>
