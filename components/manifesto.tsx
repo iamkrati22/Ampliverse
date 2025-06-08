@@ -1,13 +1,15 @@
 "use client";
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { useTheme } from "next-themes"
+import { ChevronDown } from "lucide-react"
 
 export function Manifesto() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const { resolvedTheme } = useTheme()
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,61 +84,45 @@ export function Manifesto() {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          >
-            <motion.div
-              variants={itemVariants}
-              className={`glass-panel p-6 rounded-lg border relative overflow-hidden group ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'border-white/10'}`}
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              <h3 className={`text-xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                To our partners
-              </h3>
-              <p className={`${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/70'}`}>
-                We pledge to be proactive collaborators, translating their{" "}
-                <span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>
-                  ambitions into impact with clarity, conviction, and precision.
-                </span>
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className={`glass-panel p-6 rounded-lg border relative overflow-hidden group ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'border-white/10'}`}
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              <h3 className={`text-xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                To the media
-              </h3>
-              <p className={`${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/70'}`}>
-                We ensure our unwavering commitment to integrity and accuracy -
-                delivering information through thoughtful,{" "}
-                <span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>
-                  responsible storytelling that adds value.
-                </span>
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className={`glass-panel p-6 rounded-lg border relative overflow-hidden group ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'border-white/10'}`}
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              <h3 className={`text-xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                To our community
-              </h3>
-              <p className={`${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/70'}`}>
-                We're fostering a vibrant, trusted environment where{" "}
-                <span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>
-                  curiosity thrives, ideas take shape, and growth is nurtured.
-                </span>
-              </p>
-            </motion.div>
-          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: 'To our partners',
+                desc: 'We pledge to be proactive collaborators, translating their ambitions into impact with clarity, conviction, and precision.',
+                highlight: 'ambitions into impact with clarity, conviction, and precision.'
+              },
+              {
+                title: 'To the media',
+                desc: 'We ensure our unwavering commitment to integrity and accuracy - delivering information through thoughtful, responsible storytelling that adds value.',
+                highlight: 'responsible storytelling that adds value.'
+              },
+              {
+                title: 'To our community',
+                desc: 'We\'re fostering a vibrant, trusted environment where curiosity thrives, ideas take shape, and growth is nurtured.',
+                highlight: 'curiosity thrives, ideas take shape, and growth is nurtured.'
+              }
+            ].map((card, idx) => (
+              <motion.div
+                key={card.title}
+                variants={itemVariants}
+                className={`glass-panel p-6 rounded-lg border relative overflow-hidden group ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'border-white/10'} md:min-h-[260px] cursor-pointer transition-all duration-300 ${expandedIdx === idx ? 'shadow-2xl' : ''}`}
+                onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                tabIndex={0}
+                aria-expanded={expandedIdx === idx}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                <h3 className={`flex items-center justify-between text-xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                  {card.title}
+                  <span className="md:hidden ml-2 transition-transform duration-300" style={{transform: expandedIdx === idx ? 'rotate(180deg)' : 'rotate(0deg)'}}>
+                    <ChevronDown className={`w-5 h-5 ${resolvedTheme === 'light' ? 'text-orange-400' : 'text-orange-500'}`} aria-hidden="true" />
+                  </span>
+                </h3>
+                <div className={`transition-all duration-300 overflow-hidden ${expandedIdx === idx || typeof window !== 'undefined' && window.innerWidth >= 768 ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
+                  <p className={`${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/70'}`}>{card.desc.replace(card.highlight, '')}<span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>{card.highlight}</span></p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           <motion.div
             className="text-center mt-16"
