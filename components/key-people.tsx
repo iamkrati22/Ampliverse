@@ -143,7 +143,7 @@ export function KeyPeople() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className={`mt-8 max-w-3xl mx-auto relative rounded-lg border transition-colors duration-300
+              className={`mt-8 mx-auto relative rounded-lg border transition-colors duration-300
                 ${resolvedTheme === 'light'
                   ? 'bg-white border-neutral-200 shadow-xl p-8 md:p-10 lg:p-12'
                   : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl p-8 md:p-10 lg:p-12 backdrop-blur-lg'}`}
@@ -190,7 +190,7 @@ export function KeyPeople() {
                 {"// "}
                 {activePerson.role}
               </p>
-              <p className={`${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
+              <p className={`text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
               <div className="font-mono text-orange-500/40 mt-4">
                 {"</"}
                 {activePerson.name}
