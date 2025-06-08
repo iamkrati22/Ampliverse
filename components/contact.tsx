@@ -5,11 +5,13 @@ import { motion, useInView } from "framer-motion"
 import { Mail, Phone } from "lucide-react"
 import { WorldMap } from "@/components/world-map"
 import { ContactFormModal } from "@/components/contact-form-modal"
+import { useTheme } from "next-themes"
 
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   const openModal = () => {
     setIsModalOpen(true)
@@ -20,7 +22,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-24 bg-[#0a0a14] relative">
+    <section id="contact" ref={ref} className={`py-24 relative transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -28,12 +30,19 @@ export function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Get in Touch
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Request a Proposal</h2>
+          <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Request a Proposal</h2>
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -43,20 +52,20 @@ export function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-lg text-white/80 mb-12">
+              <p className={`text-lg mb-12 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 
               <div className="space-y-6 mb-12">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#1a1a2e] flex items-center justify-center flex-shrink-0 border border-orange-500/20">
-                    <Mail className="h-5 w-5 text-orange-500" />
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
+                    <Mail className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
                   <div className="ml-4">
-                    <p className="text-white/60 text-sm">Email</p>
+                    <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Email</p>
                     <a
                       href="mailto:pr@ampliverse.com"
-                      className="text-white font-medium hover:text-orange-500 transition-colors"
+                      className={`font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       pr@ampliverse.com
                     </a>
@@ -64,14 +73,14 @@ export function Contact() {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#1a1a2e] flex items-center justify-center flex-shrink-0 border border-orange-500/20">
-                    <Phone className="h-5 w-5 text-orange-500" />
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
+                    <Phone className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
                   <div className="ml-4">
-                    <p className="text-white/60 text-sm">Phone</p>
+                    <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Phone</p>
                     <a
                       href="tel:+919717009947"
-                      className="text-white font-medium hover:text-orange-500 transition-colors"
+                      className={`font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       +91 9717009947
                     </a>

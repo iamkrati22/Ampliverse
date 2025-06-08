@@ -5,11 +5,16 @@ import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { WorkModal } from "@/components/work-modal"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { useTheme } from "next-themes"
+
+// Use this variable for all light mode backgrounds (navbar, footer, testimonials, etc.)
+const LIGHT_BG = '#faf9f6';
 
 export function OurWork() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
+  const { resolvedTheme } = useTheme();
 
   const projects = [
     {
@@ -83,7 +88,8 @@ export function OurWork() {
     selectedProject !== null ? projects.find((project) => project.id === selectedProject) || null : null
 
   return (
-    <section id="work" ref={ref} className="py-24 bg-[#0f0f1a] relative overflow-hidden w-full">
+    <section id="work" ref={ref} className={`py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-[#0f0f1a]'}`}
+      style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
       <div className="relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -91,12 +97,19 @@ export function OurWork() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/60'}`}>
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Portfolio
-            <span className="text-orange-500/70 ml-1">{">"}</span>
+            <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Media Corner</h2>
+          <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Media Corner</h2>
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         <div className="px-4 md:px-8 lg:px-16 xl:px-24 max-w-[2000px] mx-auto">
@@ -114,8 +127,14 @@ export function OurWork() {
                       onClick={() => openModal(project.id)}
                       whileHover={{ y: -5 }}
                     >
-                      <div className="absolute inset-0 bg-black/60 z-10"></div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                      {resolvedTheme === 'light' ? (
+                        <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-black/60 z-10"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                        </>
+                      )}
                       <Image
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
@@ -124,11 +143,8 @@ export function OurWork() {
                       />
                       <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
                         <div className="transform transition-transform duration-300 group-hover:translate-y-0">
-                          <p className="text-orange-400 text-sm mb-1 font-mono">
-                            {"// "}
-                            {project.subtitle}
-                          </p>
-                          <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                          <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
+                          <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
                         </div>
                       </div>
                     </motion.div>
@@ -144,15 +160,22 @@ export function OurWork() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group relative h-80 overflow-hidden rounded-lg cursor-pointer border border-white/10 hover:border-orange-500/50 transition-all duration-300 shadow-lg"
+                className={`group relative h-80 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 shadow-lg
+                  ${resolvedTheme === 'light' ? 'bg-white border border-neutral-200' : 'border border-white/10 hover:border-orange-500/50'}`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 onClick={() => openModal(project.id)}
                 whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0 bg-black/60 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                {resolvedTheme === 'light' ? (
+                  <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-black/60 z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                  </>
+                )}
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -161,13 +184,10 @@ export function OurWork() {
                 />
                 <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
                   <div className="transform transition-transform duration-300 group-hover:translate-y-0">
-                    <p className="text-orange-400 text-sm mb-1 font-mono">
-                      {"// "}
-                      {project.subtitle}
-                    </p>
-                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                    <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
+                    <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
                     <div className="overflow-hidden h-0 group-hover:h-auto transition-all duration-300">
-                      <p className="text-white/80 text-sm mb-4 line-clamp-2">{project.overview.substring(0, 100)}...</p>
+                      <p className={`text-sm mb-4 line-clamp-2 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview.substring(0, 100)}...</p>
                       <motion.button
                         className="text-white text-sm font-medium inline-flex items-center bg-orange-500/20 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
                         whileHover={{ scale: 1.05 }}

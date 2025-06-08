@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import { useTheme } from "next-themes"
 
 interface WorkModalProps {
   isOpen: boolean
@@ -20,6 +21,7 @@ interface WorkModalProps {
 
 export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
   const [isMounted, setIsMounted] = useState(false)
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true)
@@ -47,7 +49,11 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-auto bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-white/10"
+            className={`relative w-full max-w-4xl max-h-[90vh] overflow-auto rounded-lg border transition-colors duration-300
+              ${resolvedTheme === 'light'
+                ? 'bg-white border-neutral-200 shadow-2xl'
+                : 'bg-[#0a0a14]/90 border-white/10 backdrop-blur-md'}
+            `}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -56,7 +62,8 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white hover:text-orange-500 transition-colors"
+              className={`absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors
+                ${resolvedTheme === 'light' ? 'bg-neutral-100 text-neutral-700 hover:text-orange-500' : 'bg-black/50 text-white hover:text-orange-500 backdrop-blur-sm'}`}
               aria-label="Close modal"
             >
               <X className="h-6 w-6" />
@@ -65,7 +72,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
             <div className="relative h-64 md:h-80 w-full">
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `linear-gradient(to top, #0a0a14 80%, transparent 100%), url(${project.image})` }}
+                style={{ backgroundImage: `linear-gradient(to top, ${resolvedTheme === 'light' ? 'rgba(255,255,255,0.92)' : '#0a0a14 80%'}, transparent 100%), url(${project.image})` }}
                 aria-label={project.title}
               ></div>
               <div className="absolute bottom-0 left-0 p-6">
@@ -73,30 +80,30 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                   {"// "}
                   {project.subtitle}
                 </p>
-                <h2 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h2>
+                <h2 className={`text-2xl md:text-3xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h2>
               </div>
             </div>
 
             <div className="p-6">
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                <h3 className={`text-xl font-semibold mb-4 flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
                   Overview
                   <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
                 </h3>
-                <p className="text-white/80">{project.overview}</p>
+                <p className={`${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview}</p>
               </div>
 
               {project.topStories && project.topStories.length > 0 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                  <h3 className={`text-xl font-semibold mb-4 flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                     <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
                     Top Stories
                     <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
                   </h3>
                   <ul className="space-y-2">
                     {project.topStories.map((story, index) => (
-                      <li key={index} className="text-white/80 flex items-start">
+                      <li key={index} className={`${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
                         <span className="text-orange-500/70 mr-2 font-mono">→</span>
                         {story}
                       </li>

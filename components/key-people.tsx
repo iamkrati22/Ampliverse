@@ -4,11 +4,13 @@ import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Triangle } from "lucide-react"
+import { useTheme } from "next-themes"
 
 export function KeyPeople() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [activePersonId, setActivePersonId] = useState<number>(1)
+  const { resolvedTheme } = useTheme()
 
   const people = [
     {
@@ -16,7 +18,7 @@ export function KeyPeople() {
       name: "Ridhima Bhasin",
       role: "Founder",
       image: "/IMG_2506.JPG",
-      bio: "To Ridhima, communication isn’t just a business function — it’s the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
+      bio: "To Ridhima, communication isn't just a business function — it's the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
       linkedin: "#",
     },
     {
@@ -48,7 +50,7 @@ export function KeyPeople() {
   const activePerson = people[activePersonId - 1]
 
   return (
-    <section id="people" ref={ref} className="py-24 bg-[#0a0a14] relative overflow-hidden">
+    <section id="people" ref={ref} className={`py-24 relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -56,12 +58,19 @@ export function KeyPeople() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Our Team
-            <span className="text-orange-500/70 ml-1">{">"}</span>
+            <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Key People</h2>
+          <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Key People</h2>
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -88,8 +97,8 @@ export function KeyPeople() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="mt-4 text-center flex flex-col items-center">
-                  <h3 className="text-xl font-semibold text-white">{person.name}</h3>
-                  <p className="text-orange-500/80 font-mono text-sm mt-1">{person.role}</p>
+                  <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
+                  <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -115,8 +124,8 @@ export function KeyPeople() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="mt-4 text-center flex flex-col items-center">
-                  <h3 className="text-xl font-semibold text-white">{person.name}</h3>
-                  <p className="text-orange-500/80 font-mono text-sm mt-1">{person.role}</p>
+                  <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
+                  <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -130,7 +139,10 @@ export function KeyPeople() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="mt-8 bg-[#0f0f1a]/80 backdrop-blur-md p-8 rounded-lg border border-orange-500/20 max-w-3xl mx-auto relative"
+              className={`mt-8 max-w-3xl mx-auto relative rounded-lg border transition-colors duration-300
+                ${resolvedTheme === 'light'
+                  ? 'bg-[#fcfcfa] border-neutral-200 shadow-xl p-8 md:p-10 lg:p-12'
+                  : 'bg-[#393843] border-orange-500/20 backdrop-blur-md p-8 md:p-10 lg:p-12'}`}
             >
               {/* LinkedIn icon in top-right */}
               <a
@@ -149,17 +161,17 @@ export function KeyPeople() {
                 </svg>
               </a>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className={`text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
                   {activePerson.name}
                   <span className="text-orange-500/60 ml-1 font-mono">{">"}</span>
                 </h3>
               </div>
-              <p className="text-white/60 mb-4 font-mono">
+              <p className={`mb-4 font-mono ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
                 {"// "}
                 {activePerson.role}
               </p>
-              <p className="text-white/80">{activePerson.bio}</p>
+              <p className={`${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
               <div className="font-mono text-orange-500/40 mt-4">
                 {"</"}
                 {activePerson.name}

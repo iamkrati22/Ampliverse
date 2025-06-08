@@ -16,12 +16,14 @@ import { CustomCursor } from "@/components/custom-cursor"
 import { motion } from "framer-motion"
 import { Playfair_Display } from "next/font/google"
 import FlipCards from "@/components/flip-cards"
+import { useTheme } from "next-themes"
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"], style: ["normal", "italic"] })
 
 export default function Home() {
+  const { resolvedTheme } = useTheme();
   return (
-    <main className="flex min-h-screen flex-col items-center bg-[#0a0a14]">
+    <main className={`flex min-h-screen flex-col items-center transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
       <CustomCursor />
       <Loader />
       <Hero />

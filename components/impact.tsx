@@ -3,10 +3,15 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import CountUp from "react-countup"
+import { useTheme } from "next-themes"
+
+// Use this variable for all light mode backgrounds (navbar, footer, testimonials, etc.)
+const LIGHT_BG = '#faf9f6';
 
 export function Impact() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const { resolvedTheme } = useTheme();
 
   const stats = [
     {
@@ -55,13 +60,14 @@ export function Impact() {
   ]
 
   return (
-    <section ref={ref} className="py-24 w-full bg-gradient-to-br from-[#0f0f1a] via-[#181824] to-[#0a0a14] relative overflow-hidden">
+    <section ref={ref} className={`py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-gradient-to-br dark:from-[#0f0f1a] dark:via-[#181824] dark:to-[#0a0a14]'}`}
+      style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
       {/* Subtle grid background */}
       <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none select-none z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
             <rect x="0" y="0" width="20" height="20" fill="none" />
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#fff" strokeWidth="0.5" opacity="0.12" />
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke={resolvedTheme === 'light' ? '#e0e0e0' : '#fff'} strokeWidth="0.5" opacity={resolvedTheme === 'light' ? '0.16' : '0.12'} />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
@@ -73,12 +79,19 @@ export function Impact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-xs md:text-sm font-medium tracking-wider text-white/60 uppercase flex items-center justify-center">
+          <span className={`text-xs md:text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
             <span className="text-orange-500/70 mr-1">{"<"}</span>
             Our Results
-            <span className="text-orange-500/70 ml-1">{">"}</span>
+            <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
-          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">Impact At a Glance</h2>
+          <h2 className="mt-2 text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white">Impact At a Glance</h2>
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         {/* Mobile: flex col, 1/6 height per card; Desktop: grid as before */}
@@ -98,7 +111,7 @@ export function Impact() {
                 <span className="block w-full h-0.5 md:h-1 bg-orange-500 rounded mt-0.5" />
               </div> */}
               <motion.h3
-                className="text-xl md:text-5xl font-bold mb-1 md:mb-4 relative z-10 transition-colors duration-300"
+                className="text-xl md:text-5xl font-bold mb-1 md:mb-4 relative z-10 transition-colors duration-300 text-neutral-900 dark:text-white"
                 whileHover={{ color: '#f97316' }}
                 transition={{ duration: 0.3 }}
                 style={{ color: 'inherit' }}
@@ -108,7 +121,7 @@ export function Impact() {
                   <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                 </> : "0"}
               </motion.h3>
-              <p className="text-white/70 relative z-10 text-xs md:text-base leading-tight md:leading-normal">{stat.description}</p>
+              <p className="relative z-10 text-xs md:text-base leading-tight md:leading-normal text-neutral-700 dark:text-white/80">{stat.description}</p>
               {/* Blended half triangle in bottom right */}
               <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-10 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>

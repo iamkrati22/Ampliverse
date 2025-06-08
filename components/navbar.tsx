@@ -6,6 +6,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Triangle, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useTheme } from "next-themes"
+
+// Use this variable for all light mode backgrounds (navbar, footer, testimonials, etc.)
+const LIGHT_BG = '#faf9f6';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -14,6 +18,7 @@ export function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const triangleRef = useRef<SVGSVGElement>(null)
   const [showLogo, setShowLogo] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,14 +52,20 @@ export function Navbar() {
     setMobileMenuOpen(!mobileMenuOpen)
   }
 
+  // Choose logo based on theme
+  const logoSrc = resolvedTheme === "light" ? "/logo_black.png" : "/logo_white.png"
+
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0a0a14]/90 dark:bg-[#0a0a14]/90 backdrop-blur-md py-3 shadow-md shadow-[#1a1a2e]/20"
-            : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300
+          ${scrolled
+            ? "shadow-md shadow-[#1a1a2e]/20"
+            : ""
+          }
+          bg-[${LIGHT_BG}] dark:bg-[#0a0a14]
+        `}
+        style={{ backgroundColor: resolvedTheme === "light" ? LIGHT_BG : "#0a0a14" }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, delay: 3.5 }}
@@ -62,19 +73,18 @@ export function Navbar() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center overflow-hidden" style={{ height: '4rem', minHeight: '4rem' }}>
             <AnimatePresence>
-
               {showLogo && (
                 <motion.img
                   key="navbar-logo"
-                  src="/logo_white.png"
+                  src={logoSrc}
                   alt="Ampliverse Logo"
                   layoutId="ampliverse-logo"
-                  initial={{ opacity: 0, scale: 1.15 }}
+                  initial={{ opacity: 0, scale: 0.4 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  transition={{ duration: 0.6, ease: "anticipate" }}
                   className="w-36 h-36 object-contain drop-shadow-xl"
-                  style={{ zIndex: 20, maxHeight: '4rem', minHeight: '4rem' }}
+                  style={{ zIndex: 20 }}
                 />
               )}
             </AnimatePresence>
@@ -83,21 +93,21 @@ export function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="#expertise"
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group"
+              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
               Discover our expertise
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="#work"
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group"
+              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
               Our Work
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="#people"
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group"
+              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
               Key People
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
@@ -118,11 +128,13 @@ export function Navbar() {
             <Button
               variant="outline"
               size="icon"
-              className="border-white/20 text-white"
+              className="border-neutral-400 text-neutral-800 dark:border-white/20 dark:text-white"
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen
+                ? <X className="h-6 w-6 text-neutral-800 dark:text-white" />
+                : <Menu className="h-6 w-6 text-neutral-800 dark:text-white" />}
             </Button>
           </div>
         </div>
@@ -131,30 +143,39 @@ export function Navbar() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="fixed inset-0 z-30 bg-[#0a0a14] pt-20"
+              className="fixed inset-0 z-30 pt-20 bg-[#fff8f2] dark:bg-[#0a0a14]"
+              style={{ backgroundColor: resolvedTheme === "light" ? "#fff8f2" : "#0a0a14" }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
             >
+              {/* Close button in mobile menu */}
+              <button
+                className="absolute top-6 right-6 text-black dark:text-white text-3xl z-50 md:hidden"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <span>&times;</span>
+              </button>
               <div className="container mx-auto px-4 py-8 flex flex-col space-y-6">
                 <Link
                   href="#expertise"
-                  className="text-lg font-medium py-3 border-b border-white/10 text-white"
+                  className="text-lg font-medium py-3 border-b border-neutral-300 dark:border-white/10 text-neutral-900 dark:text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Discover our expertise
                 </Link>
                 <Link
                   href="#work"
-                  className="text-lg font-medium py-3 border-b border-white/10 text-white"
+                  className="text-lg font-medium py-3 border-b border-neutral-300 dark:border-white/10 text-neutral-900 dark:text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Our Work
                 </Link>
                 <Link
                   href="#people"
-                  className="text-lg font-medium py-3 border-b border-white/10 text-white"
+                  className="text-lg font-medium py-3 border-b border-neutral-300 dark:border-white/10 text-neutral-900 dark:text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Key People
@@ -170,14 +191,14 @@ export function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
+        {/* Mobile scroll progress bar at bottom of navbar */}
+        <div className="md:hidden absolute left-0 bottom-0 w-full pointer-events-none">
+          <div
+            className="h-0.5 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 dark:from-orange-400 dark:via-orange-500 dark:to-yellow-300 rounded-full transition-all duration-300"
+            style={{ width: `${Math.round(scrollProgress * 100)}%`, minWidth: scrollProgress > 0 ? '8%' : 0, boxShadow: '0 1px 6px 0 #f9731622' }}
+          />
+        </div>
       </motion.header>
-      {/* Mobile scroll progress bar */}
-      <div className="md:hidden fixed top-[56px] left-0 w-full z-40 pointer-events-none">
-        <div
-          className="h-0.5 bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 dark:from-orange-400 dark:via-orange-500 dark:to-yellow-300 rounded-full transition-all duration-300"
-          style={{ width: `${Math.round(scrollProgress * 100)}%`, minWidth: scrollProgress > 0 ? '8%' : 0, boxShadow: '0 1px 6px 0 #f9731622' }}
-        />
-      </div>
     </>
   )
 }
