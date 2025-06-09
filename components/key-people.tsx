@@ -53,9 +53,9 @@ export function KeyPeople() {
     <section
       id="people"
       ref={ref}
-      className={`py-24 relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+      className={`py-24 relative overflow-x-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 overflow-x-hidden">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -141,9 +141,10 @@ export function KeyPeople() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
               className={`mt-8 mx-auto relative rounded-lg border transition-colors duration-300
+                w-full max-w-xs sm:max-w-md md:max-w-lg px-4 sm:px-8
                 ${resolvedTheme === 'light'
-                  ? 'bg-white border-neutral-200 shadow-xl p-8 md:p-10 lg:p-12'
-                  : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl p-8 md:p-10 lg:p-12 backdrop-blur-lg'}`}
+                  ? 'bg-white border-neutral-200 shadow-xl py-6 sm:py-8 md:py-10'
+                  : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl py-6 sm:py-8 md:py-10 backdrop-blur-lg'}`}
             >
               {/* Layered border overlays for dark mode */}
               {resolvedTheme === 'dark' && (
@@ -175,7 +176,7 @@ export function KeyPeople() {
                 </svg>
               </a>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className={`text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                <h3 className={`text-lg sm:text-xl md:text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
                   {activePerson.name}
                   <span className="text-orange-500/60 ml-1 font-mono">
@@ -183,12 +184,12 @@ export function KeyPeople() {
                   </span>
                 </h3>
               </div>
-              <p className={`mb-4 font-mono ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
+              <p className={`mb-3 font-mono text-xs sm:text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
                 {"// "}
                 {activePerson.role}
               </p>
-              <p className={`text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
-              <div className="font-mono text-orange-500/40 mt-4">
+              <p className={`text-justify text-sm sm:text-base ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
+              <div className="font-mono text-orange-500/40 mt-3 text-xs sm:text-sm">
                 {"</"}
                 {activePerson.name}
                 {">"}

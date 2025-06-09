@@ -65,7 +65,7 @@ export function Hero() {
       <Navbar />
       <section
         ref={containerRef}
-        className="relative w-full h-screen overflow-hidden bg-[#0a0a14] flex items-center justify-center"
+        className="relative w-full h-screen overflow-hidden overflow-x-hidden bg-[#0a0a14] flex items-center justify-center"
       >
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
@@ -83,7 +83,7 @@ export function Hero() {
 
         {/* Hero Content */}
         <motion.div
-          className="relative z-10 container mx-auto px-4 text-center"
+          className="relative z-10 container mx-auto px-4 text-center overflow-x-hidden"
           style={{ y, opacity }}
         >
           <motion.div

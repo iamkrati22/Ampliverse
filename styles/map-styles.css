@@ -8,3 +8,22 @@ svg {
 path {
   fill: #2a354d;
 }
+
+.rsm-geography path {
+  fill: #a7a3a38a;
+}
+
+html.light .rsm-geography path,
+body.light .rsm-geography path,
+html.light .rsm-geography.rsm-geography path,
+body.light .rsm-geography.rsm-geography path {
+  fill: #f3f4f6 !important;
+  stroke: #a7a3a38a !important;
+  stroke-width: 1;
+}
+
+html.dark .rsm-geography path,
+body.dark .rsm-geography path {
+  fill: #2a354d !important;
+  stroke: none !important;
+}
