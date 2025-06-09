@@ -65,7 +65,7 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300
+        className={`w-[100vw] fixed top-0 left-0 right-0 z-40 transition-all duration-300
           ${scrolled
             ? "shadow-md shadow-[#1a1a2e]/20"
             : ""

@@ -68,9 +68,6 @@ export function WhatMakesUsDifferent() {
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
           {/* Stepper */}
           <div className="flex flex-col items-center md:items-end flex-1 max-w-[420px] w-full gap-4">
-            <span className={`relative w-full mx-auto text-justify italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
-              From Trust to Traction
-            </span>
             <span className="relative w-full mx-auto text-justify">
               We’re a team of go-getters,{" "}
               <span className="text-orange-500 font-semibold">
@@ -83,11 +80,7 @@ export function WhatMakesUsDifferent() {
             </span>
             <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
               {/* Vertical line */}
-              <div
-                className="absolute left-4 top-0 bottom-0 w-px h-[30vh] bg-white/10"
-                style={{ zIndex: 0 }}
-              />
-              <div className={`absolute left-4 top-0 bottom-0 w-px h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
+              <div className={`absolute left-4 top-0 bottom-0 w-px h-[60vh] md:h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
               {features.map((feature, idx) => (
                 <div
                   key={feature.id}
@@ -118,18 +111,18 @@ export function WhatMakesUsDifferent() {
                     >
                       {feature.title}
                     </div>
-                    {/* {activeFeature === idx && (
-                      <div className="mt-2 text-base md:text-lg text-white/80 font-normal max-w-md leading-relaxed">
+                    {activeFeature === idx && (
+                      <div className="md:hidden mt-2 text-base md:text-lg text-white/80 font-normal max-w-md leading-relaxed">
                         {feature.description}
                       </div>
-                    )} */}
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           </div>
           {/* Card */}
-          <div className="flex-1 flex flex-col items-center justify-center w-full min-w-[340px] max-w-xl">
+          <div className="hidden md:flex flex-1 flex-col items-center justify-center w-full min-w-[340px] max-w-xl">
             <div
               className="relative w-full flex flex-col items-center text-center"
               style={{ minHeight: 340 }}
@@ -182,10 +175,40 @@ export function WhatMakesUsDifferent() {
           </div>
         </div>
         {/* Discover our approach link - centered below the two columns */}
-        <div className="w-full flex justify-center mt-8">
+        <div className="w-full flex flex-col gap-4 justify-center align-center mt-8">
+          <span className={`relative mx-auto text-justify md:text-2xl italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
+              From&nbsp;
+              <motion.span
+                  initial={{ backgroundPositionX: 0 }}
+                  animate={{ backgroundPositionX: [0, 100, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #f97316 30%, #fff7e6 50%, #f97316 70%)",
+                    backgroundSize: "200% 100%",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                  }}
+                >Trust</motion.span>
+                &nbsp;to&nbsp;
+                <motion.span
+                  initial={{ backgroundPositionX: 0 }}
+                  animate={{ backgroundPositionX: [0, 100, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #f97316 30%, #fff7e6 50%, #f97316 70%)",
+                    backgroundSize: "200% 100%",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                  }}
+                >Traction</motion.span>
+            </span>
           <Link
             href="#approach"
-            className="inline-flex items-center gap-2 text-white font-medium border-b border-white/60 hover:text-orange-500 hover:border-orange-500 transition-colors text-base pr-1"
+            className="w-fit mx-auto items-center gap-2 text-white font-medium border-b border-white/60 hover:text-orange-500 hover:border-orange-500 transition-colors text-base pr-1"
           >
             Discover our approach <ArrowRight className="h-4 w-4" />
           </Link>
