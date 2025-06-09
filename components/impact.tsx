@@ -105,11 +105,6 @@ export function Impact() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               whileHover={{ y: -10, scale: 1.04 }}
             >
-              {/* Two orange sticks parallel to the triangle's slant */}
-              {/* <div className="absolute top-2 left-2 w-[40%] z-0 opacity-10 select-none pointer-events-none flex flex-col items-start origin-top-left" style={{transform: 'rotate(-45deg)'}}>
-                <span className="block w-full h-0.5 md:h-1 bg-orange-500 rounded" />
-                <span className="block w-full h-0.5 md:h-1 bg-orange-500 rounded mt-0.5" />
-              </div> */}
               <motion.h3
                 className="text-xl md:text-5xl font-bold mb-1 md:mb-4 relative z-10 transition-colors duration-300 text-neutral-900 dark:text-white"
                 whileHover={{ color: '#f97316' }}
@@ -122,15 +117,15 @@ export function Impact() {
                 </> : "0"}
               </motion.h3>
               <p className="relative z-10 text-base md:text-base leading-tight md:leading-normal text-neutral-700 dark:text-white/80">{stat.description}</p>
-              {/* Blended half triangle in bottom right */}
-              <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-10 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+              {/* Blended half triangle in bottom right, visible in both light and dark modes */}
+              <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-20 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
-                  <linearGradient id="triangle-fade" x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#d1d5db" stopOpacity="0.6" />
-                    <stop offset="1" stopColor="#d1d5db" stopOpacity="0.12" />
+                  <linearGradient id={`triangle-fade-${index}`} x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stopColor={resolvedTheme === 'light' ? '#f97316' : '#d1d5db'} stopOpacity="0.18" />
+                    <stop offset="1" stopColor={resolvedTheme === 'light' ? '#f97316' : '#d1d5db'} stopOpacity="0.06" />
                   </linearGradient>
                 </defs>
-                <polygon points="100,100 0,100 100,0" fill="url(#triangle-fade)" />
+                <polygon points="100,100 0,100 100,0" fill={`url(#triangle-fade-${index})`} />
               </svg>
             </motion.div>
           ))}

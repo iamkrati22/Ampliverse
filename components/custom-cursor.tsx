@@ -69,6 +69,9 @@ export function CustomCursor({ color = "white" }: CustomCursorProps) {
 
   if (typeof window === "undefined") return null
 
+  // Hide cursor on mobile (<= 768px)
+  if (typeof window !== 'undefined' && window.innerWidth <= 768) return null
+
   return (
     <>
       <motion.div

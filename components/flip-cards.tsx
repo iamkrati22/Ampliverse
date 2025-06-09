@@ -134,6 +134,7 @@ export default function FlipCards() {
             />
           ))}
         </div>
+        <div className="mt-8" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.slice(4, 7).map((service, index) => (
             <ServiceCard key={index + 4} {...service} resolvedTheme={resolvedTheme}
