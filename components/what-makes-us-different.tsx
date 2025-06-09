@@ -44,8 +44,11 @@ export function WhatMakesUsDifferent() {
   const { resolvedTheme } = useTheme()
 
   return (
-    <section ref={ref} className={`relative py-24 mb-12 w-full transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <section
+      ref={ref}
+      className={`py-24 w-full transition-colors duration-300 overflow-x-hidden ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+    >
+      <div className="container mx-auto px-4">
         {/* Heading centered above both columns */}
         <div className="w-full flex flex-col items-center mb-16">
           <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center mb-2 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
@@ -67,7 +70,7 @@ export function WhatMakesUsDifferent() {
         {/* Stepper and Card aligned horizontally and centered */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
           {/* Stepper */}
-          <div className="flex flex-col items-center md:items-end flex-1 max-w-[420px] w-full gap-4">
+          <div className="flex flex-col items-center md:items-end flex-1 max-w-screen-md w-full gap-4">
             <span className="relative w-full mx-auto text-justify">
               We're a team of go-getters,{" "}
               <span className="text-orange-500 font-semibold">
@@ -80,7 +83,7 @@ export function WhatMakesUsDifferent() {
             </span>
             <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
               {/* Vertical line */}
-              <div className={`absolute left-4 top-0 bottom-0 w-px h-[60vh] md:h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
+              <div className={`absolute left-0 sm:left-4 top-0 bottom-0 w-px h-[60vh] md:h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
               {features.map((feature, idx) => (
                 <div
                   key={feature.id}
@@ -112,7 +115,7 @@ export function WhatMakesUsDifferent() {
                       {feature.title}
                     </div>
                     {activeFeature === idx && (
-                      <div className="md:hidden mt-2 text-base md:text-lg text-white/80 font-normal max-w-md leading-relaxed">
+                      <div className={`md:hidden mt-2 text-base md:text-lg font-normal max-w-md leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
                         {feature.description}
                       </div>
                     )}
@@ -122,7 +125,7 @@ export function WhatMakesUsDifferent() {
             </div>
           </div>
           {/* Card */}
-          <div className="hidden md:flex flex-1 flex-col items-center justify-center w-full min-w-[340px] max-w-xl">
+          <div className="hidden md:flex flex-1 flex-col items-center justify-center w-full min-w-[340px] max-w-screen-md">
             <div
               className="relative w-full flex flex-col items-center text-center"
               style={{ minHeight: 340 }}

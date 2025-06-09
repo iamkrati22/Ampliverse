@@ -90,116 +90,118 @@ export function OurWork() {
   return (
     <section id="work" ref={ref} className={`py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-[#0f0f1a]'}`}
       style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
-      <div className="relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/60'}`}>
-            <span className="text-orange-500/70 mr-1">{"<"}</span>
-            Portfolio
-            <span className="text-orange-500/70 ml-1">{" >"}</span>
-          </span>
-          <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Media Corner</h2>
+      <div className="container mx-auto px-4">
+        <div className="relative z-10">
           <motion.div
-            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            style={{ transformOrigin: 'left' }}
-          />
-        </motion.div>
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/60'}`}>
+              <span className="text-orange-500/70 mr-1">{"<"}</span>
+              Portfolio
+              <span className="text-orange-500/70 ml-1">{" >"}</span>
+            </span>
+            <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Media Corner</h2>
+            <motion.div
+              className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              style={{ transformOrigin: 'left' }}
+            />
+          </motion.div>
 
-        <div className="px-4 md:px-8 lg:px-16 xl:px-24 max-w-[2000px] mx-auto">
-          {/* Mobile carousel */}
-          <div className="block md:hidden">
-            <Carousel opts={{ loop: true }}>
-              <CarouselContent>
-                {projects.map((project, index) => (
-                  <CarouselItem key={project.id}>
-                    <motion.div
-                      className="group relative h-80 overflow-hidden rounded-lg cursor-pointer border border-white/10 hover:border-orange-500/50 transition-all duration-300 shadow-lg"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.1 * index }}
-                      onClick={() => openModal(project.id)}
-                      whileHover={{ y: -5 }}
-                    >
-                      {resolvedTheme === 'light' ? (
-                        <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
-                      ) : (
-                        <>
-                          <div className="absolute inset-0 bg-black/60 z-10"></div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
-                        </>
-                      )}
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
-                        <div className="transform transition-transform duration-300 group-hover:translate-y-0">
-                          <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
-                          <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 z-30" />
-              <CarouselNext className="right-2 top-1/2 -translate-y-1/2 z-30" />
-            </Carousel>
-          </div>
-          {/* Desktop grid */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className={`group relative h-80 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 shadow-lg
-                  ${resolvedTheme === 'light' ? 'bg-white border border-neutral-200' : 'border border-white/10 hover:border-orange-500/50'}`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                onClick={() => openModal(project.id)}
-                whileHover={{ y: -5 }}
-              >
-                {resolvedTheme === 'light' ? (
-                  <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-black/60 z-10"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
-                  </>
-                )}
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
-                  <div className="transform transition-transform duration-300 group-hover:translate-y-0">
-                    <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
-                    <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
-                    <div className="overflow-hidden h-0 group-hover:h-auto transition-all duration-300">
-                      <p className={`text-sm mb-4 line-clamp-2 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview.substring(0, 100)}...</p>
-                      <motion.button
-                        className="text-white text-sm font-medium inline-flex items-center bg-orange-500/20 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+          <div className="px-4 md:px-8 lg:px-16 xl:px-24 max-w-screen-2xl mx-auto">
+            {/* Mobile carousel */}
+            <div className="block md:hidden">
+              <Carousel opts={{ loop: true }}>
+                <CarouselContent>
+                  {projects.map((project, index) => (
+                    <CarouselItem key={project.id}>
+                      <motion.div
+                        className="group relative h-80 overflow-hidden rounded-lg cursor-pointer border border-white/10 hover:border-orange-500/50 transition-all duration-300 shadow-lg"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.1 * index }}
+                        onClick={() => openModal(project.id)}
+                        whileHover={{ y: -5 }}
                       >
-                        Read More <span className="ml-1">→</span>
-                      </motion.button>
+                        {resolvedTheme === 'light' ? (
+                          <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 bg-black/60 z-10"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                          </>
+                        )}
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
+                          <div className="transform transition-transform duration-300 group-hover:translate-y-0">
+                            <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
+                            <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 z-30" />
+                <CarouselNext className="right-2 top-1/2 -translate-y-1/2 z-30" />
+              </Carousel>
+            </div>
+            {/* Desktop grid */}
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className={`group relative h-80 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 shadow-lg
+                    ${resolvedTheme === 'light' ? 'bg-white border border-neutral-200' : 'border border-white/10 hover:border-orange-500/50'}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  onClick={() => openModal(project.id)}
+                  whileHover={{ y: -5 }}
+                >
+                  {resolvedTheme === 'light' ? (
+                    <div className="absolute inset-0 z-10 rounded-lg" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.96) 70%, rgba(255,255,255,0.0) 100%)'}}></div>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-black/60 z-10"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 z-20 pointer-events-none"></div>
+                    </>
+                  )}
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
+                    <div className="transform transition-transform duration-300 group-hover:translate-y-0">
+                      <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
+                      <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
+                      <div className="overflow-hidden h-0 group-hover:h-auto transition-all duration-300">
+                        <p className={`text-sm mb-4 line-clamp-2 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview.substring(0, 100)}...</p>
+                        <motion.button
+                          className="text-white text-sm font-medium inline-flex items-center bg-orange-500/20 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Read More <span className="ml-1">→</span>
+                        </motion.button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

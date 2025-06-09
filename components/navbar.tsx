@@ -213,6 +213,10 @@ export function Navbar() {
           style={{ width: `${Math.round(scrollProgress * 100)}%`, minWidth: scrollProgress > 0 ? '8%' : 0, boxShadow: '0 1px 6px 0 #f9731622' }}
         />
       </div>
+      {/* Orange line under navbar, constrained to container width */}
+      <div className="container mx-auto px-4">
+        <div className="w-full max-w-full mx-auto h-1 bg-orange-500" />
+      </div>
     </>
   );
 }

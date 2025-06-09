@@ -95,7 +95,7 @@ export function Impact() {
         </motion.div>
 
         {/* Mobile: flex col, 1/6 height per card; Desktop: grid as before */}
-        <div className="flex flex-col h-[100vh] space-y-2 md:grid md:grid-cols-2 md:lg:grid-cols-3 md:gap-8 md:h-auto">
+        <div className="flex flex-col space-y-2 md:grid md:grid-cols-2 md:lg:grid-cols-3 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}

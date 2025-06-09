@@ -99,7 +99,7 @@ export function Hero() {
             </div>
             <motion.h2
               style={{ fontFamily: "LoewNextArabic" }}
-              className={`text-4xl md:text-5xl lg:text-6xl text-white/90 font-normal mt-4 leading-tight`}
+              className={`text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl text-white/90 font-normal mt-4 leading-tight`}
               initial={{ opacity: 0, y: 20 }}
               animate={loaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -134,7 +134,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="max-w-3xl mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
+            className="mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
             initial={{ opacity: 0 }}
             animate={loaded && titleMoved ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}

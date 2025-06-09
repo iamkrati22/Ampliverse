@@ -100,7 +100,7 @@ export function Testimonials() {
         </motion.div>
 
         <div className="w-full flex flex-col items-center justify-center relative">
-          <div className="max-w-5xl w-full mx-auto relative flex items-center justify-center">
+          <div className="max-w-screen-2xl w-full mx-auto relative flex items-center justify-center">
             <button
               onClick={prev}
               className="absolute left-0 top-1/2 -translate-y-1/2 bg-neutral-200 dark:bg-[#1a1a2e] rounded-full p-2 shadow-md text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10"
