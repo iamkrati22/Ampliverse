@@ -34,9 +34,10 @@ export default function Home() {
       <WhoWeAre />
       
       {/* <Capabilities /> */}
-      <WhatMakesUsDifferent />
+     
       <FlipCards />
       <Impact />
+      <WhatMakesUsDifferent />
       <Manifesto />
       <OurWork />
       <KeyPeople />

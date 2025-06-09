@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Sparkles, Zap, BarChart3, Globe, ArrowRight } from "lucide-react";
+import { Sparkles, Zap, BarChart3, Globe, ArrowRight, ArrowDown, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes"
 
@@ -67,111 +67,149 @@ export function WhatMakesUsDifferent() {
             style={{ transformOrigin: 'left' }}
           />
         </div>
-        {/* Stepper and Card aligned horizontally and centered */}
+        {/* Manifesto-style expandable cards for mobile, stepper+card for desktop */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
-          {/* Stepper */}
-          <div className="flex flex-col items-center md:items-end flex-1 max-w-screen-md w-full gap-4">
-            <span className="relative w-full mx-auto text-justify">
-              We're a team of go-getters,{" "}
-              <span className="text-orange-500 font-semibold">
-                redefining the attention economy
-              </span>{" "}
-              through bespoke strategies that align with business goals and{" "}
-              <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">
-                drive real outcomes.
-              </span>
-            </span>
-            <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
-              {/* Vertical line */}
-              <div className={`absolute left-0 sm:left-4 top-0 bottom-0 w-px h-[60vh] md:h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
-              {features.map((feature, idx) => (
-                <div
-                  key={feature.id}
-                  className="flex items-start relative z-10 group min-h-[70px]"
+          {/* Mobile: Manifesto cards */}
+          <div className="flex flex-col gap-4 w-full md:hidden items-center">
+            {features.map((feature, idx) => (
+              <div
+                key={feature.id}
+                className={`rounded-2xl border transition-colors duration-300 shadow-lg px-5 py-4 mx-auto ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'bg-[#181824] border-white/10'}`}
+                style={{ position: 'relative', zIndex: 1, maxWidth: '24rem', width: '100%' }}
+              >
+                <button
+                  className="w-full flex items-center justify-between focus:outline-none"
+                  onClick={() => setActiveFeature(idx === activeFeature ? -1 : idx)}
+                  aria-expanded={activeFeature === idx}
+                  aria-controls={`feature-desc-${idx}`}
                 >
-                  {/* Step circle */}
-                  <button
-                    onClick={() => setActiveFeature(idx)}
-                    className="flex flex-col items-center mr-6 focus:outline-none"
-                    style={{ zIndex: 2 }}
-                    aria-label={`Go to ${feature.title}`}
-                  >
-                    <span
-                      className={`w-7 h-7 rounded-full border-2 flex items-center justify-center mb-1 transition-all duration-300
-                        ${activeFeature === idx
-                          ? (resolvedTheme === 'light' ? 'border-orange-500 bg-white' : 'border-orange-500 bg-[#0a0a14]')
-                          : (resolvedTheme === 'light' ? 'border-neutral-300 bg-white' : 'border-white/25 bg-[#0a0a14]')}
-                      `}
-                    >
-                      {activeFeature === idx && (
-                        <span className={`block w-3 h-3 rounded-full ${resolvedTheme === 'light' ? 'bg-orange-500' : 'bg-white'}`} />
-                      )}
+                  <span className="flex items-center gap-3 text-left">
+                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-orange-500/10">
+                      {feature.icon}
                     </span>
-                  </button>
-                  <div className="flex-1 pb-6">
-                    <div
-                      className={`text-xl md:text-xl font-bold transition-colors duration-300 ${activeFeature === idx ? (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white') : (resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60')}`}
-                    >
-                      {feature.title}
-                    </div>
-                    {activeFeature === idx && (
-                      <div className={`md:hidden mt-2 text-base md:text-lg font-normal max-w-md leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
-                        {feature.description}
-                      </div>
-                    )}
+                    <span className={`font-bold text-lg ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{feature.title}</span>
+                  </span>
+                  <span className={`transition-transform duration-300 ${activeFeature === idx ? 'text-orange-500' : 'text-neutral-400'}`}>
+                    {activeFeature === idx ? <ArrowUp className="w-6 h-6" /> : <ArrowDown className="w-6 h-6" />}
+                  </span>
+                </button>
+                {activeFeature === idx && (
+                  <div
+                    id={`feature-desc-${idx}`}
+                    className={`mt-4 text-base leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+                  >
+                    {feature.description}
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+              </div>
+            ))}
           </div>
-          {/* Card */}
-          <div className="hidden md:flex flex-1 flex-col items-center justify-center w-full min-w-[340px] max-w-screen-md">
-            <div
-              className="relative w-full flex flex-col items-center text-center"
-              style={{ minHeight: 340 }}
-            >
-              {/* Layered white rectangles for dark mode, single white card for light mode */}
-              {resolvedTheme === 'light' ? (
-                <div className="absolute inset-0 pointer-events-none rounded-xl border border-neutral-200 shadow-xl bg-white"></div>
-              ) : (
-                <div className="absolute inset-0 pointer-events-none">
-                  <div
-                  className="absolute inset-0 border border-white/20 rounded-xl"
-                  style={{ top: 8, left: 8, right: 8, bottom: 8 }}
-                />
-                  <div
-                  className="absolute inset-0 border border-white/10 rounded-xl"
-                  style={{ top: 16, left: 16, right: 16, bottom: 16 }}
-                />
-                  <div className="absolute inset-0 border border-white/5 rounded-xl" />
-                </div>
-              )}
-              <div className="relative z-10 flex flex-col items-center justify-center px-8 py-12">
-                {/* Icon in thin white square */}
-                <div className={`mb-8 flex items-center justify-center w-16 h-16 rounded-md border ${resolvedTheme === 'light' ? 'border-neutral-200 bg-white' : 'border-white/30'}`}>
-                  {features[activeFeature].icon}
-                </div>
-                <h3 className={`text-xl md:text-2xl font-bold mb-4 leading-tight ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                  {features[activeFeature].title}
-                </h3>
-                <p className={`mb-8 leading-relaxed text-base md:text-lg max-w-xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
-                  {features[activeFeature].description}
-                </p>
-                {/* Step indicator and progress bar */}
-                <span className="text-sm text-white/60 mb-2 tracking-wide">
-                  {`${activeFeature + 1} / ${features.length}`}
+          {/* Desktop: Stepper and Card */}
+          <div className="hidden md:flex flex-row items-center justify-center gap-24 w-full">
+            {/* Stepper (unchanged) */}
+            <div className="flex flex-col items-center md:items-end flex-1 max-w-screen-md w-full gap-4">
+              <span className="relative w-full mx-auto text-justify">
+                We're a team of go-getters,{" "}
+                <span className="text-orange-500 font-semibold">
+                  redefining the attention economy
+                </span>{" "}
+                through bespoke strategies that align with business goals and{" "}
+                <span className="font-semibold text-white underline underline-offset-4 decoration-orange-300/60">
+                  drive real outcomes.
                 </span>
-                <div className="flex gap-2 w-full justify-center">
-                  {features.map((_, idx) => (
-                    <span
-                      key={idx}
-                      className={`h-1 rounded transition-all duration-300 ${
-                        idx === activeFeature
-                          ? (resolvedTheme === 'light' ? 'bg-neutral-900 w-8' : 'bg-white w-8')
-                          : (resolvedTheme === 'light' ? 'bg-neutral-300 w-4' : 'bg-white/20 w-4')
-                      }`}
-                    />
-                  ))}
+              </span>
+              <div className="relative flex flex-col gap-0 pt-4 pb-4 w-full mx-auto">
+                {/* Vertical line */}
+                <div className={`absolute left-0 sm:left-4 top-0 bottom-0 w-px h-[60vh] md:h-[30vh] ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-white/10'}`} style={{zIndex:0}} />
+                {features.map((feature, idx) => (
+                  <div
+                    key={feature.id}
+                    className="flex items-start relative z-10 group min-h-[70px]"
+                  >
+                    {/* Step circle */}
+                    <button
+                      onClick={() => setActiveFeature(idx)}
+                      className="flex flex-col items-center mr-6 focus:outline-none"
+                      style={{ zIndex: 2 }}
+                      aria-label={`Go to ${feature.title}`}
+                    >
+                      <span
+                        className={`w-7 h-7 rounded-full border-2 flex items-center justify-center mb-1 transition-all duration-300
+                          ${activeFeature === idx
+                            ? (resolvedTheme === 'light' ? 'border-orange-500 bg-white' : 'border-orange-500 bg-[#0a0a14]')
+                            : (resolvedTheme === 'light' ? 'border-neutral-300 bg-white' : 'border-white/25 bg-[#0a0a14]')}
+                        `}
+                      >
+                        {activeFeature === idx && (
+                          <span className={`block w-3 h-3 rounded-full ${resolvedTheme === 'light' ? 'bg-orange-500' : 'bg-white'}`} />
+                        )}
+                      </span>
+                    </button>
+                    <div className="flex-1 pb-6">
+                      <div
+                        className={`text-xl md:text-xl font-bold transition-colors duration-300 ${activeFeature === idx ? (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white') : (resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60')}`}
+                      >
+                        {feature.title}
+                      </div>
+                      {activeFeature === idx && (
+                        <div className={`md:hidden mt-2 text-base md:text-lg font-normal max-w-md leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
+                          {feature.description}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Card (unchanged) */}
+            <div className="flex flex-1 flex-col items-center justify-center w-full min-w-[340px] max-w-screen-md">
+              <div
+                className="relative w-full flex flex-col items-center text-center"
+                style={{ minHeight: 340 }}
+              >
+                {/* Layered white rectangles for dark mode, single white card for light mode */}
+                {resolvedTheme === 'light' ? (
+                  <div className="absolute inset-0 pointer-events-none rounded-xl border border-neutral-200 shadow-xl bg-white"></div>
+                ) : (
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div
+                    className="absolute inset-0 border border-white/20 rounded-xl"
+                    style={{ top: 8, left: 8, right: 8, bottom: 8 }}
+                  />
+                    <div
+                    className="absolute inset-0 border border-white/10 rounded-xl"
+                    style={{ top: 16, left: 16, right: 16, bottom: 16 }}
+                  />
+                    <div className="absolute inset-0 border border-white/5 rounded-xl" />
+                  </div>
+                )}
+                <div className="relative z-10 flex flex-col items-center justify-center px-8 py-12">
+                  {/* Icon in thin white square */}
+                  <div className={`mb-8 flex items-center justify-center w-16 h-16 rounded-md border ${resolvedTheme === 'light' ? 'border-neutral-200 bg-white' : 'border-white/30'}`}>
+                    {(features[activeFeature] || features[0]).icon}
+                  </div>
+                  <h3 className={`text-xl md:text-2xl font-bold mb-4 leading-tight ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                    {(features[activeFeature] || features[0]).title}
+                  </h3>
+                  <p className={`mb-8 leading-relaxed text-base md:text-lg max-w-xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
+                    {(features[activeFeature] || features[0]).description}
+                  </p>
+                  {/* Step indicator and progress bar */}
+                  <span className="text-sm text-white/60 mb-2 tracking-wide">
+                    {`${(activeFeature >= 0 ? activeFeature + 1 : 1)} / ${features.length}`}
+                  </span>
+                  <div className="flex gap-2 w-full justify-center">
+                    {features.map((_, idx) => (
+                      <span
+                        key={idx}
+                        className={`h-1 rounded transition-all duration-300 ${
+                          idx === (activeFeature >= 0 ? activeFeature : 0)
+                            ? (resolvedTheme === 'light' ? 'bg-neutral-900 w-8' : 'bg-white w-8')
+                            : (resolvedTheme === 'light' ? 'bg-neutral-300 w-4' : 'bg-white/20 w-4')
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

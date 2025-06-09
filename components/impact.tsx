@@ -94,41 +94,46 @@ export function Impact() {
           />
         </motion.div>
 
-        {/* Mobile: flex col, 1/6 height per card; Desktop: grid as before */}
-        <div className="flex flex-col space-y-2 md:grid md:grid-cols-2 md:lg:grid-cols-3 md:gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="glass-panel flex-1 min-h-0 p-2 flex flex-col justify-center items-center md:p-8 rounded-lg text-center border border-white/10 relative overflow-hidden group md:h-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-              whileHover={{ y: -10, scale: 1.04 }}
-            >
-              <motion.h3
-                className="text-xl md:text-5xl font-bold mb-1 md:mb-4 relative z-10 transition-colors duration-300 text-neutral-900 dark:text-white"
-                whileHover={{ color: '#f97316' }}
-                transition={{ duration: 0.3 }}
-                style={{ color: 'inherit' }}
+        {/* Responsive grid: 2x2 on mobile, 3x2 on md+ */}
+        <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-white/10 dark:divide-white/10 bg-transparent">
+          {stats.slice(0, 6).map((stat, index) => {
+            // For 2x2 grid on mobile, 3x2 on desktop
+            // Remove right border for last col, bottom border for last row
+            const isLastColMobile = (index + 1) % 2 === 0;
+            const isLastRowMobile = index >= 2;
+            const isLastColDesktop = (index + 1) % 3 === 0;
+            const isLastRowDesktop = index >= 3;
+            return (
+              <motion.div
+                key={index}
+                className={
+                  [
+                    "flex flex-col items-center justify-center py-8 px-2 md:p-8 text-center bg-transparent",
+                    // Remove right border for last col (mobile and desktop)
+                    isLastColMobile ? "border-r-0" : "",
+                    isLastColDesktop && "md:border-r-0",
+                    // Remove bottom border for last row (mobile and desktop)
+                    isLastRowMobile ? "border-b-0" : "",
+                    isLastRowDesktop && "md:border-b-0"
+                  ].join(" ")
+                }
+                style={{ border: "none" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
               >
-                {isInView ? <>
-                  <CountUp end={stat.value} separator="," duration={2.5} />
-                  <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
-                </> : "0"}
-              </motion.h3>
-              <p className="relative z-10 text-base md:text-base leading-tight md:leading-normal text-neutral-700 dark:text-white/80">{stat.description}</p>
-              {/* Blended half triangle in bottom right, visible in both light and dark modes */}
-              <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-20 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id={`triangle-fade-${index}`} x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop stopColor={resolvedTheme === 'light' ? '#f97316' : '#d1d5db'} stopOpacity="0.18" />
-                    <stop offset="1" stopColor={resolvedTheme === 'light' ? '#f97316' : '#d1d5db'} stopOpacity="0.06" />
-                  </linearGradient>
-                </defs>
-                <polygon points="100,100 0,100 100,0" fill={`url(#triangle-fade-${index})`} />
-              </svg>
-            </motion.div>
-          ))}
+                <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white dark:text-white mb-1 md:mb-2">
+                  {isInView ? <>
+                    <CountUp end={stat.value} separator="," duration={2.5} />
+                    <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
+                  </> : "0"}
+                </span>
+                <span className="block text-xs xs:text-sm sm:text-base md:text-base text-neutral-400 dark:text-white/70 font-normal leading-tight md:leading-normal">
+                  {stat.description}
+                </span>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
