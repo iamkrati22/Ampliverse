@@ -149,10 +149,11 @@ export function KeyPeople(): React.ReactElement {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className={`w-full max-w-xs sm:max-w-sm md:max-w-md mt-8 mx-auto relative rounded-lg border transition-colors duration-300 px-4 sm:px-8
+              className={`w-full mx-auto p-10 md:p-12 mt-8 relative rounded-lg border transition-colors duration-300
                 ${resolvedTheme === 'light'
-                  ? 'bg-white border-neutral-200 shadow-xl py-6 sm:py-8 md:py-10'
-                  : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl py-6 sm:py-8 md:py-10 backdrop-blur-lg'}`}
+                  ? 'bg-white border-neutral-200 shadow-xl'
+                  : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl backdrop-blur-lg'}`}
+              style={{ maxWidth: '900px' }}
             >
               {/* Layered border overlays for dark mode */}
               {resolvedTheme === 'dark' && (
