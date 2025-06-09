@@ -198,7 +198,7 @@ export function KeyPeople(): React.ReactElement {
                 {"// "}
                 {activePerson.role}
               </p>
-              <p className={`text-justify text-sm sm:text-base ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
+              <p className={`text-justify text-base sm:text-base ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
               <div className="font-mono text-orange-500/40 mt-3 text-xs sm:text-sm">
                 {"</"}
                 {activePerson.name}

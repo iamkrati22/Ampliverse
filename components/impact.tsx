@@ -121,7 +121,7 @@ export function Impact() {
                   <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                 </> : "0"}
               </motion.h3>
-              <p className="relative z-10 text-xs md:text-base leading-tight md:leading-normal text-neutral-700 dark:text-white/80">{stat.description}</p>
+              <p className="relative z-10 text-base md:text-base leading-tight md:leading-normal text-neutral-700 dark:text-white/80">{stat.description}</p>
               {/* Blended half triangle in bottom right */}
               <svg className="absolute bottom-0 right-0 w-16 h-16 md:w-28 md:h-28 opacity-10 pointer-events-none select-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>

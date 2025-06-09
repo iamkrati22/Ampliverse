@@ -64,7 +64,7 @@ export function Manifesto() {
           >
             <div className="w-2 md:w-1 bg-orange-500 flex-shrink-0 rounded-full"></div>
             <p
-              className={`text-lg leading-[1.75] text-justify max-w-6xl mx-auto ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+              className={`text-base leading-[1.75] text-justify max-w-6xl mx-auto ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
               style={{ textAlign: "justify" }}
             >
               At Ampliverse, we shape how tomorrow's innovators{" "}

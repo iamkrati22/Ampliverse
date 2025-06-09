@@ -145,7 +145,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <blockquote className={`text-lg mb-6 relative z-10 overflow-hidden line-clamp-7
+                <blockquote className={`text-base mb-6 relative z-10 overflow-hidden line-clamp-7
                   ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                 >
                   {truncateWords(testimonials[current].quote, 55)}

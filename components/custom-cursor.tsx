@@ -13,6 +13,7 @@ export function CustomCursor({ color = "white" }: CustomCursorProps) {
   const [clicked, setClicked] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [hovering, setHovering] = useState(false)
+  const [cursorColor, setCursorColor] = useState(color)
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
@@ -38,12 +39,18 @@ export function CustomCursor({ color = "white" }: CustomCursorProps) {
       }
     }
 
+    const handleServiceHover = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      setCursorColor(customEvent.detail.color || color);
+    };
+
     window.addEventListener("mousemove", updatePosition)
     window.addEventListener("mousedown", handleMouseDown)
     window.addEventListener("mouseup", handleMouseUp)
     window.addEventListener("mouseenter", handleMouseEnter)
     window.addEventListener("mouseleave", handleMouseLeave)
     window.addEventListener("mouseover", handleHoverStart)
+    window.addEventListener("serviceHover", handleServiceHover)
 
     document.documentElement.style.cursor = "none"
 
@@ -54,10 +61,11 @@ export function CustomCursor({ color = "white" }: CustomCursorProps) {
       window.removeEventListener("mouseenter", handleMouseEnter)
       window.removeEventListener("mouseleave", handleMouseLeave)
       window.removeEventListener("mouseover", handleHoverStart)
+      window.removeEventListener("serviceHover", handleServiceHover)
 
       document.documentElement.style.cursor = "auto"
     }
-  }, [])
+  }, [color])
 
   if (typeof window === "undefined") return null
 
@@ -78,7 +86,7 @@ export function CustomCursor({ color = "white" }: CustomCursorProps) {
           stiffness: 400,
         }}
       >
-        <Triangle className="h-8 w-8 text-white" style={{ color }} />
+        <Triangle className="h-8 w-8 text-white" style={{ color: cursorColor }} />
       </motion.div>
 
       <motion.div

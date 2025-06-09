@@ -69,7 +69,7 @@ export function WhatMakesUsDifferent() {
           {/* Stepper */}
           <div className="flex flex-col items-center md:items-end flex-1 max-w-[420px] w-full gap-4">
             <span className="relative w-full mx-auto text-justify">
-              We’re a team of go-getters,{" "}
+              We're a team of go-getters,{" "}
               <span className="text-orange-500 font-semibold">
                 redefining the attention economy
               </span>{" "}
@@ -107,7 +107,7 @@ export function WhatMakesUsDifferent() {
                   </button>
                   <div className="flex-1 pb-6">
                     <div
-                      className={`text-lg md:text-xl font-bold transition-colors duration-300 ${activeFeature === idx ? (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white') : (resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60')}`}
+                      className={`text-xl md:text-xl font-bold transition-colors duration-300 ${activeFeature === idx ? (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white') : (resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60')}`}
                     >
                       {feature.title}
                     </div>
@@ -176,7 +176,7 @@ export function WhatMakesUsDifferent() {
         </div>
         {/* Discover our approach link - centered below the two columns */}
         <div className="w-full flex flex-col gap-4 justify-center align-center mt-8">
-          <span className={`relative mx-auto text-justify md:text-2xl italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
+          <span className={`relative mx-auto text-justify text-xl md:text-2xl italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
               From&nbsp;
               <motion.span
                   initial={{ backgroundPositionX: 0 }}

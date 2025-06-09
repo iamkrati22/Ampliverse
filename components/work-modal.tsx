@@ -80,7 +80,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                   {"// "}
                   {project.subtitle}
                 </p>
-                <h2 className={`text-2xl md:text-3xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h2>
+                <h2 className={`text-4xl md:text-3xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h2>
               </div>
             </div>
 

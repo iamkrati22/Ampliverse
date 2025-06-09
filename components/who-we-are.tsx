@@ -42,7 +42,7 @@ export function WhoWeAre() {
           {/* Left: Heading and paragraphs */}
           <div className="w-full">
             <motion.p
-              className={`text-center text-lg text-2xl md:text-3xl font-normal text-justify mb-6 mx-auto md:mx-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
+              className={`text-center text-base md:text-lg font-normal text-justify mb-6 mx-auto md:mx-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -50,7 +50,7 @@ export function WhoWeAre() {
               <span className={`font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft <span className={`text-orange-500 font-semibold`}>purposeful brand expression that drives business impact.</span>
             </motion.p>
             <motion.p
-              className={`text-center text-lg text-2xl md:text-3xl font-normal text-justify mx-auto md:mx-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
+              className={`text-center text-base md:text-lg font-normal text-justify mx-auto md:mx-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
