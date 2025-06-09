@@ -99,7 +99,7 @@ export function Hero() {
             </div>
             <motion.h2
               style={{ fontFamily: "LoewNextArabic" }}
-              className={`text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl text-white/90 font-normal mt-4 leading-tight`}
+              className={`text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-white/90 font-normal mt-4 leading-tight`}
               initial={{ opacity: 0, y: 20 }}
               animate={loaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -140,10 +140,10 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.2 }}
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
-            Born from PR, we turn credibility into presence, and presence into momentum — for innovators building 
+            Born from PR, we turn credibility into presence, and presence into momentum — for innovators building  
             <span className="relative inline-block underline-animate-parent">
               <span className={`relative z-10 ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-white'}`}>
-                tomorrow&apos;s solutions
+                 &nbsp;tomorrow&apos;s solutions
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}

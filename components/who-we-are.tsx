@@ -15,7 +15,12 @@ export function WhoWeAre() {
       ref={ref}
       className={`relative py-24 w-full transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}
     >
-      <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
+        className="container mx-auto px-4"
+      >
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -38,53 +43,60 @@ export function WhoWeAre() {
             style={{ transformOrigin: "left" }}
           />
         </motion.div>
-        <div className="flex flex-col gap-16 items-center w-full mb-12">
-          {/* Left: Heading and paragraphs */}
-          <div className="w-full">
-            <motion.p
-              className={`text-center text-base md:text-lg font-normal mb-6 mx-auto ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              <span className={`font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Ampliverse</span> is an integrated communications advisory enabling organizations worldwide to craft <span className={`text-orange-500 font-semibold`}>purposeful brand expression that drives business impact.</span>
-            </motion.p>
-            <motion.p
-              className={`text-center text-base md:text-lg font-normal mx-auto ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.4 }}
-            >
-              We collaborate with our partners to power sharp perspectives that <span className={`font-semibold underline underline-offset-4 decoration-orange-300/60 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>spark meaningful industry conversations and scale stakeholder trust.</span>
-            </motion.p>
-          </div>
+        {/* Premium Minimal Intro */}
+        <div className="w-full">
+          <motion.p
+            className={`text-center text-3xl md:text-4xl font-light leading-snug max-w-4xl mx-auto mb-3 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+          >
+            Ampliverse is an integrated communications advisory enabling organizations worldwide to craft <span className={`text-orange-500 font-medium`}>purposeful brand expression that drives business impact.</span>
+          </motion.p>
+          <motion.p
+            className={`text-center text-2xl md:text-3xl font-light leading-snug max-w-4xl mx-auto mb-8 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
+          >
+            We collaborate with our partners to power sharp perspectives that <span className={`font-medium underline underline-offset-4 decoration-orange-300/60 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>spark meaningful industry conversations and scale stakeholder trust.</span>
+          </motion.p>
         </div>
-        {/* Right: Philosophy Card */}
+        {/* Subtle Divider */}
         <motion.div
-          className={`relative flex flex-col items-center w-full mx-auto p-10 md:p-12 rounded-2xl shadow-lg border transition-colors duration-300
-            ${resolvedTheme === 'light' ? 'bg-white border-neutral-200' : 'bg-[#181824] border-orange-900'}`}
-          style={{ maxWidth: '900px' }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex items-center justify-center my-6"
+          initial={{ opacity: 0, x: 60 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.7, ease: 'easeOut' }}
         >
-          {/* Orange dot in top-right */}
-          <span className="absolute top-4 right-4 w-3 h-3 rounded-full bg-orange-500"></span>
-          <div className="flex items-center mb-4">
-            <Sparkles className="h-6 w-6 text-orange-500 mr-2" />
-            <span className="uppercase text-sm font-bold text-orange-500 tracking-wider">
-              Our Philosophy
-            </span>
+          <span className={`block h-px w-16 ${resolvedTheme === 'light' ? 'bg-neutral-300' : 'bg-white/10'}`}></span>
+          <span className="mx-3 text-orange-500 flex items-center justify-center">
+            <span className="w-2 h-2 rounded-full bg-orange-500 block"></span>
+          </span>
+          <span className={`block h-px w-16 ${resolvedTheme === 'light' ? 'bg-neutral-300' : 'bg-white/10'}`}></span>
+        </motion.div>
+        {/* Glassy Card */}
+        <motion.div
+          className={`relative flex flex-col items-center w-full mx-auto rounded-2xl shadow-xl border transition-colors duration-300
+            ${resolvedTheme === 'light' ? 'bg-white/90 border-neutral-200' : 'border-white/10 backdrop-blur-md bg-white/5 dark:bg-[#181824]/40'} mt-8`}
+          style={{ maxWidth: '700px' }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 1, ease: 'easeOut' }}
+        >
+          {/* Subtle orange dot in top-right */}
+          <span className="absolute top-4 right-4 w-2 h-2 rounded-full bg-orange-500/80"></span>
+          <div className="flex items-center mb-2 mt-8">
+            <Sparkles className="h-4 w-4 text-orange-500 mr-2" />
+            <span className="uppercase text-xs font-semibold tracking-widest text-orange-500/90">Our Approach</span>
           </div>
-          <blockquote className={`text-2xl md:text-3xl font-medium leading-snug mb-6 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white dark:text-white'}`}>
-            Grounded in insight, our advisory blends strategic clarity with
-            creative depth, distilling complexity into clear and compelling
-            messaging that reaches the last-mile.
+          <blockquote className={`text-center text-2xl md:text-3xl font-light leading-snug mb-8 max-w-2xl mx-auto px-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}> 
+            Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.
           </blockquote>
           <hr className={`w-full border-t mb-3 ${resolvedTheme === 'light' ? 'border-neutral-200' : 'border-white/10'}`} />
-          <span className={`text-base italic flex items-center gap-2 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}><span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team</span>
+          <span className={`text-base italic flex items-center gap-2 mb-6 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/50'}`}><span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team</span>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
