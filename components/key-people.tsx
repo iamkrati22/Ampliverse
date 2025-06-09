@@ -1,12 +1,21 @@
 "use client";
 
-import { useState, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Triangle } from "lucide-react"
 import { useTheme } from "next-themes"
 
-export function KeyPeople() {
+interface Person {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  linkedin: string;
+}
+
+export function KeyPeople(): React.ReactElement {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [activePersonId, setActivePersonId] = useState<number>(1)
@@ -140,15 +149,12 @@ export function KeyPeople() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-<<<<<<< HEAD
-              className={`mt-8 mx-auto relative rounded-lg border transition-colors duration-300
-                w-full max-w-xs sm:max-w-md md:max-w-lg px-4 sm:px-8
-=======
               className={`max-w-4xl w-full mt-8 mx-auto relative rounded-lg border transition-colors duration-300
->>>>>>> 7f23eaa6d0b1c22abadd2adeb6290c0db2be1782
+                w-full max-w-xs sm:max-w-md md:max-w-lg px-4 sm:px-8
                 ${resolvedTheme === 'light'
                   ? 'bg-white border-neutral-200 shadow-xl py-6 sm:py-8 md:py-10'
                   : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl py-6 sm:py-8 md:py-10 backdrop-blur-lg'}`}
+              style={{ maxWidth: '900px' }}
             >
               {/* Layered border overlays for dark mode */}
               {resolvedTheme === 'dark' && (
