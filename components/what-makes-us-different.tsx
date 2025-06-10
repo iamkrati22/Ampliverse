@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Sparkles, Zap, BarChart3, Globe, ArrowRight, ArrowDown, ArrowUp } from "lucide-react";
+import { Sparkles, Zap, BarChart3, Globe, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes"
 
@@ -90,7 +90,7 @@ export function WhatMakesUsDifferent() {
                     <span className={`font-bold text-lg ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{feature.title}</span>
                   </span>
                   <span className={`transition-transform duration-300 ${activeFeature === idx ? 'text-orange-500' : 'text-neutral-400'}`}>
-                    {activeFeature === idx ? <ArrowUp className="w-6 h-6" /> : <ArrowDown className="w-6 h-6" />}
+                    {activeFeature === idx ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
                   </span>
                 </button>
                 {activeFeature === idx && (
