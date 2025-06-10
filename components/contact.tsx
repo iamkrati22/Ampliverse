@@ -67,7 +67,7 @@ export function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className={`text-lg mb-12 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
+              <p className={`text-3xl md:text-4xl mb-12 font-light leading-snug max-w-4xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 

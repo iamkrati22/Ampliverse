@@ -150,8 +150,15 @@ export function Impact() {
                     <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                   </> : "0"}
                 </span>
-                <span className={`block text-xs xs:text-sm sm:text-base md:text-base font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
-                  {stat.description}
+                <span className={`block text-base xs:text-lg sm:text-xl md:text-2xl font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
+                  {(() => {
+                    // Highlight the first or second word in each description
+                    const words = stat.description.split(' ');
+                    if (words.length > 2) {
+                      return <>{words.slice(0, 2).join(' ')} <span className="font-bold text-orange-500 dark:text-orange-400">{words[2]}</span> {words.slice(3).join(' ')}</>;
+                    }
+                    return stat.description;
+                  })()}
                 </span>
               </motion.div>
             );

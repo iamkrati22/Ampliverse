@@ -51,7 +51,7 @@ export function Footer() {
             <div className="absolute bottom-20 left-10 text-neutral-300 dark:text-white/5 text-6xl font-mono -rotate-12 hidden md:block">
               {"}"}
             </div>
-            <p className="text-neutral-700 dark:text-white/60 mb-6 max-w-md">
+            <p className="text-neutral-700 dark:text-white/60 mb-6 max-w-md text-justify">
             We are a global communications advisory, fueling purposeful visibility for tomorrow's innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results.
             </p>
             <div className="flex space-x-4">

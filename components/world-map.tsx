@@ -23,11 +23,11 @@ export function WorldMap() {
         </div>
         {/* Gradient overlay at bottom for blending/fade out */}
         <div
-          className="absolute bottom-0 left-0 w-full h-24 pointer-events-none z-20"
+          className="absolute bottom-0 left-0 w-full h-16 md:h-10 pointer-events-none z-20"
           style={{
             background: resolvedTheme === 'light'
-              ? 'linear-gradient(to bottom, rgba(248,247,244,0) 0%, #f8f7f4 40%, #f8f7f4 100%)'
-              : 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 40%, #0a0a14 100%)'
+              ? 'linear-gradient(to bottom, rgba(248,247,244,0) 0%, #faf9f6 80%, #faf9f6 100%)'
+              : 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 80%, #0a0a14 100%)'
           }}
         />
       </div>
