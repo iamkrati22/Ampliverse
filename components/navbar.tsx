@@ -94,7 +94,7 @@ export function Navbar() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.6, ease: "anticipate" }}
-                  className="w-36 h-36 object-contain drop-shadow-xl"
+                  className="w-44 h-44 object-contain drop-shadow-xl"
                   style={{ zIndex: 20 }}
                 />
               )}
@@ -104,21 +104,21 @@ export function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="#expertise"
-              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
+              className="text-base font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
-              Discover our expertise
+              Our Expertise
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="#work"
-              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
+              className="text-base font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
               Our Work
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="#people"
-              className="text-sm font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
+              className="text-base font-medium transition-colors relative group text-neutral-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500"
             >
               Key People
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>

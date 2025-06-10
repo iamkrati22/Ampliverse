@@ -90,7 +90,7 @@ export function Loader() {
               animate={{ scaleX: 1, opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.1, ease: "easeInOut" }}
-              className="h-0.5 w-48 rounded-full mx-auto mb-1 origin-left bg-gradient-to-r from-orange-400 via-white/80 to-orange-500 shadow-[0_2px_12px_0_rgba(249,115,22,0.10)]"
+              className="h-0.5 w-48 rounded-full mx-auto mb-1 origin-left bg-orange-500 shadow-[0_2px_12px_0_rgba(249,115,22,0.10)]"
               style={{ boxShadow: '0 2px 12px 0 #f9731611' }}
             />
           )}

@@ -12,7 +12,6 @@ import { KeyPeople } from "@/components/key-people";
 import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-import { CustomCursor } from "@/components/custom-cursor";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import FlipCards from "@/components/flip-cards";
@@ -28,7 +27,6 @@ export default function Home() {
   const { resolvedTheme } = useTheme();
   return (
     <main className={`flex min-h-screen flex-col items-center transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
-      <CustomCursor />
       <Loader />
       <Hero />
       <WhoWeAre />

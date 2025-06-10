@@ -67,7 +67,7 @@ export function Impact() {
         <defs>
           <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
             <rect x="0" y="0" width="20" height="20" fill="none" />
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke={resolvedTheme === 'light' ? '#e0e0e0' : '#fff'} strokeWidth="0.5" opacity={resolvedTheme === 'light' ? '0.16' : '0.12'} />
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#888888" strokeWidth="1" opacity="0.32" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
@@ -95,7 +95,7 @@ export function Impact() {
         </motion.div>
 
         {/* Responsive grid: 2x2 on mobile, 3x2 on md+ */}
-        <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-white/10 dark:divide-white/10 bg-transparent">
+        <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-white/10 dark:divide-white/10 bg-transparent gap-y-8 md:gap-y-12">
           {stats.slice(0, 6).map((stat, index) => {
             // For 2x2 grid on mobile, 3x2 on desktop
             // Remove right border for last col, bottom border for last row
@@ -106,29 +106,51 @@ export function Impact() {
             return (
               <motion.div
                 key={index}
-                className={
-                  [
-                    "flex flex-col items-center justify-center py-8 px-2 md:p-8 text-center bg-transparent",
-                    // Remove right border for last col (mobile and desktop)
-                    isLastColMobile ? "border-r-0" : "",
-                    isLastColDesktop && "md:border-r-0",
-                    // Remove bottom border for last row (mobile and desktop)
-                    isLastRowMobile ? "border-b-0" : "",
-                    isLastRowDesktop && "md:border-b-0"
-                  ].join(" ")
-                }
+                className={[
+                  "flex flex-col items-center justify-center py-8 px-2 md:p-8 text-center bg-transparent",
+                  isLastColMobile ? "border-r-0" : "",
+                  isLastColDesktop && "md:border-r-0",
+                  isLastRowMobile ? "border-b-0" : "",
+                  isLastRowDesktop && "md:border-b-0",
+                  // Card style for desktop only
+                  "md:relative md:rounded-2xl md:shadow-xl md:backdrop-blur-md md:border md:mx-2 md:bg-white/70 md:dark:bg-[#181824]/80 md:dark:border-white/10 md:border-neutral-200"
+                ].join(" ")}
                 style={{ border: "none" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
               >
-                <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white dark:text-white mb-1 md:mb-2">
+                {/* Diagonal (/) backdrop above the triangle */}
+                <div className="hidden md:block absolute bottom-0 right-0 w-32 h-32 z-10 pointer-events-none">
+                  <svg width="100%" height="100%" viewBox="0 0 100 100" className="w-full h-full">
+                    <defs>
+                      <linearGradient id={`diagonal-gradient-${index}`} x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor={resolvedTheme === 'light' ? '#cbd5e1' : '#23272f'} stopOpacity="0.16" />
+                        <stop offset="100%" stopColor={resolvedTheme === 'light' ? '#64748b' : '#334155'} stopOpacity="0.28" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points="40,100 100,0 100,100 0,100" fill={`url(#diagonal-gradient-${index})`} />
+                  </svg>
+                </div>
+                {/* Triangle backdrop */}
+                <div className="hidden md:block absolute bottom-0 right-0 w-24 h-24 z-0 pointer-events-none">
+                  <svg width="100%" height="100%" viewBox="0 0 100 100" className="w-full h-full">
+                    <defs>
+                      <linearGradient id={`triangle-gradient-${index}`} x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor={resolvedTheme === 'light' ? '#cbd5e1' : '#23272f'} stopOpacity="0.10" />
+                        <stop offset="100%" stopColor={resolvedTheme === 'light' ? '#64748b' : '#334155'} stopOpacity="0.22" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points="0,100 100,0 100,100" fill={`url(#triangle-gradient-${index})`} />
+                  </svg>
+                </div>
+                <span className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-2 z-10 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   {isInView ? <>
                     <CountUp end={stat.value} separator="," duration={2.5} />
                     <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                   </> : "0"}
                 </span>
-                <span className="block text-xs xs:text-sm sm:text-base md:text-base text-neutral-400 dark:text-white/70 font-normal leading-tight md:leading-normal">
+                <span className={`block text-xs xs:text-sm sm:text-base md:text-base font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
                   {stat.description}
                 </span>
               </motion.div>

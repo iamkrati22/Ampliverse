@@ -72,7 +72,7 @@ export function KeyPeople(): React.ReactElement {
       id: 5,
       name: "Aarav Mehta",
       role: "Communications Strategist",
-      image: "/AaravMehta.jpg",
+      image: "/placeholder-user.jpg",
       bio: "Aarav brings a decade of experience in strategic communications, working with both startups and Fortune 500 companies. His expertise lies in crafting compelling narratives that drive engagement and foster trust. Aarav is passionate about leveraging storytelling to bridge cultural and business divides.",
       linkedin: "#",
     },
@@ -111,32 +111,41 @@ export function KeyPeople(): React.ReactElement {
         <div className="w-full mx-auto">
           {/* Zigzag Row Layout */}
           <div className="hidden lg:flex justify-center gap-12 mb-12">
-            {people.map((person, idx) => (
-              <motion.div
-                key={person.id}
-                className={`relative cursor-pointer group flex flex-col items-center ${
-                  idx % 2 === 0 ? "lg:-translate-y-8" : "lg:translate-y-8"
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                onClick={() => setActivePersonId(person.id)}
-              >
-                <div className="aspect-square w-40 md:w-48 lg:w-52 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl">
-                  <Image
-                    src={person.image || "/placeholder.svg"}
-                    alt={person.name}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="mt-4 text-center flex flex-col items-center">
-                  <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
-                  <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
-                </div>
-              </motion.div>
-            ))}
+            {people.map((person, idx) => {
+              // W pattern: [up, down, up, down, up]
+              // e.g. [-translate-y-10, translate-y-10, -translate-y-16, translate-y-10, -translate-y-10]
+              const wPattern = [
+                "lg:-translate-y-20", // 1st (left) - up (more)
+                "lg:translate-y-20",  // 2nd - down (more)
+                "lg:-translate-y-32", // 3rd (center) - up most
+                "lg:translate-y-20",  // 4th - down (more)
+                "lg:-translate-y-20"  // 5th (right) - up (more)
+              ];
+              return (
+                <motion.div
+                  key={person.id}
+                  className={`relative cursor-pointer group flex flex-col items-center ${wPattern[idx]}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  onClick={() => setActivePersonId(person.id)}
+                >
+                  <div className="aspect-square w-32 md:w-36 lg:w-40 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl">
+                    <Image
+                      src={person.image || "/placeholder.svg"}
+                      alt={person.name}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="mt-4 text-center flex flex-col items-center">
+                    <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
+                    <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
           {/* Mobile: Carousel for Key People */}
           <div className="lg:hidden w-full flex flex-col items-center mb-8">

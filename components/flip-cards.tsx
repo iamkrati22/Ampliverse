@@ -78,40 +78,8 @@ function SectionUnderline() {
 
 export default function FlipCards() {
   const { resolvedTheme } = useTheme();
-  const [cursor, setCursor] = useState({ visible: false, x: 0, y: 0, color: "#f97316" });
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!cursor.visible) return;
-    const move = (e: MouseEvent) => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      setCursor((c) => ({ ...c, x: e.clientX - rect.left, y: e.clientY - rect.top }));
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [cursor.visible]);
-
   return (
-    <section ref={sectionRef} className="relative py-24 w-full bg-gradient-to-b from-[#f8f7f4] via-white to-[#f8f7f4] dark:from-[#0a0a14] dark:via-[#181824] dark:to-[#0a0a14] bg-noise">
-      {/* Custom colored cursor */}
-      {cursor.visible && (
-        <div
-          style={{
-            position: "absolute",
-            left: cursor.x - 16,
-            top: cursor.y - 16,
-            width: 32,
-            height: 32,
-            pointerEvents: "none",
-            borderRadius: "50%",
-            background: cursor.color,
-            opacity: 0.25,
-            zIndex: 50,
-            transition: "background 0.2s"
-          }}
-        />
-      )}
+    <section className="relative py-24 w-full bg-gradient-to-b from-[#f8f7f4] via-white to-[#f8f7f4] dark:from-[#0a0a14] dark:via-[#181824] dark:to-[#0a0a14] bg-noise">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -129,17 +97,13 @@ export default function FlipCards() {
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.slice(0, 4).map((service, index) => (
-            <ServiceCard key={index} {...service} resolvedTheme={resolvedTheme}
-              setCursor={setCursor}
-            />
+            <ServiceCard key={index} {...service} resolvedTheme={resolvedTheme} />
           ))}
         </div>
         <div className="mt-8" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.slice(4, 7).map((service, index) => (
-            <ServiceCard key={index + 4} {...service} resolvedTheme={resolvedTheme}
-              setCursor={setCursor}
-            />
+            <ServiceCard key={index + 4} {...service} resolvedTheme={resolvedTheme} />
           ))}
         </div>
         <HiddenTailwindUtilities />
@@ -149,33 +113,17 @@ export default function FlipCards() {
   )
 }
 
-function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme, setCursor }: ServiceCardProps & { resolvedTheme: string | undefined, setCursor?: any }) {
+function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-
-  // Map Tailwind color class to hex
-  const colorMap: Record<string, string> = {
-    "text-blue-500": "#3b82f6",
-    "text-purple-500": "#a21caf",
-    "text-green-500": "#22c55e",
-    "text-yellow-500": "#eab308",
-    "text-red-500": "#ef4444",
-    "text-pink-500": "#ec4899",
-    "text-cyan-500": "#06b6d4",
-  };
-  const cursorColor = colorMap[color] || "#f97316";
 
   function handleMouseEnter() {
     setIsFlipped(true);
     setIsHovered(true);
-    // Dispatch event for global cursor
-    window.dispatchEvent(new CustomEvent("serviceHover", { detail: { color: cursorColor } }));
   }
   function handleMouseLeave() {
     setIsFlipped(false);
     setIsHovered(false);
-    // Reset cursor color
-    window.dispatchEvent(new CustomEvent("serviceHover", { detail: { color: undefined } }));
   }
 
   return (
@@ -198,11 +146,9 @@ function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme, 
         {/* Back of card */}
         <div
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${isHovered ? `bg-gradient-to-br ${bgColor}` : ''}`}
-          style={{ transform: "rotateY(180deg)" }}
+          style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <div className={`${color} transition-transform duration-300`}>{icon}</div>
-          <h3 className="text-xl font-semibold text-center text-card-foreground mb-4">{title}</h3>
-          <p className="text-muted-foreground text-center leading-relaxed max-w-xs mx-auto">{description}</p>
+          <p className="text-xl md:text-2xl text-center text-muted-foreground font-medium leading-relaxed">{description}</p>
         </div>
       </div>
     </div>

@@ -134,7 +134,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="mx-auto text-base md:text-lg mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
+            className="mx-auto text-lg md:text-2xl mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
             initial={{ opacity: 0 }}
             animate={loaded && titleMoved ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
