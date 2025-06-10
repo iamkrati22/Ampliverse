@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 interface WorkModalProps {
   isOpen: boolean
@@ -70,9 +71,20 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
             </button>
 
             <div className="relative h-64 md:h-80 w-full">
+              <Image
+                src={project.image || "/placeholder.svg"}
+                alt={project.title}
+                fill
+                className="object-cover rounded-t-lg"
+                priority
+              />
               <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `linear-gradient(to top, ${resolvedTheme === 'light' ? 'rgba(255,255,255,0.92)' : '#0a0a14 80%'}, transparent 100%), url(${project.image})` }}
+                className="absolute inset-0 rounded-t-lg pointer-events-none"
+                style={{
+                  background: resolvedTheme === 'light'
+                    ? 'rgba(30,30,30,0.65)'
+                    : 'rgba(10,10,20,0.82)'
+                }}
                 aria-label={project.title}
               ></div>
               <div className="absolute bottom-0 left-0 p-6">
@@ -85,15 +97,6 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
             </div>
 
             <div className="p-6">
-              <div className="mb-8">
-                <h3 className={`text-xl font-semibold mb-4 flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                  <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
-                  Overview
-                  <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
-                </h3>
-                <p className={`${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview}</p>
-              </div>
-
               {project.topStories && project.topStories.length > 0 && (
                 <div className="mb-8">
                   <h3 className={`text-xl font-semibold mb-4 flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>

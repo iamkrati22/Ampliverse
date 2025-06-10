@@ -146,6 +146,19 @@ export function OurWork() {
                           <div className="transform transition-transform duration-300 group-hover:translate-y-0">
                             <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
                             <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
+                            {/* Show a preview of top stories */}
+                            <ul className="mb-4">
+                              {project.topStories.slice(0, 2).map((story, i) => (
+                                <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story}</li>
+                              ))}
+                            </ul>
+                            <motion.button
+                              className="text-white text-sm font-medium inline-flex items-center bg-orange-500 px-3 py-1 rounded-full hover:bg-orange-600 transition-colors"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              Read More <span className="ml-1">→</span>
+                            </motion.button>
                           </div>
                         </div>
                       </motion.div>
@@ -187,16 +200,19 @@ export function OurWork() {
                     <div className="transform transition-transform duration-300 group-hover:translate-y-0">
                       <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
                       <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
-                      <div className="overflow-hidden h-0 group-hover:h-auto transition-all duration-300">
-                        <p className={`text-sm mb-4 line-clamp-2 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'}`}>{project.overview.substring(0, 100)}...</p>
-                        <motion.button
-                          className="text-white text-sm font-medium inline-flex items-center bg-orange-500/20 backdrop-blur-sm px-3 py-1 rounded-full hover:bg-orange-500/40 transition-colors"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Read More <span className="ml-1">→</span>
-                        </motion.button>
-                      </div>
+                      {/* Show a preview of top stories */}
+                      <ul className="mb-4">
+                        {project.topStories.slice(0, 2).map((story, i) => (
+                          <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story}</li>
+                        ))}
+                      </ul>
+                      <motion.button
+                        className="text-white text-sm font-medium inline-flex items-center bg-orange-500 px-3 py-1 rounded-full hover:bg-orange-600 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Read More <span className="ml-1">→</span>
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>
