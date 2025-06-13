@@ -25,7 +25,7 @@ export function Testimonials() {
       company: "India Khelo Football",
       logo: "/IKF Logo.png",
       image: "/Hitesh Joshi Photo.jpg",
-      linkedin: "hitesh-joshi"
+      linkedin: "https://www.linkedin.com/in/hitesh-joshi-47649a43"
     },
     {
       id: 2,
@@ -38,15 +38,16 @@ export function Testimonials() {
       linkedin: "priya-sharma"
     },
     {
+      
       id: 3,
       quote:
-        "Working with Ampliverse has been a game-changer for our startup. Their strategic approach to PR and communications helped us gain visibility in key publications that matter to our industry. Their team's responsiveness and attention to detail is unmatched.",
+        "We worked with Ampliverse for India Blockchain Week 2024 to support our PR and media efforts. They helped us with press releases, and media coordination, both in the lead-up to the event and during the post-event phase. The team ensured timely execution on key deliverables and contributed to amplifying IBW’s visibility across relevant crypto and business audiences.",
       author: "Team India Blockchain Week",
       role: "",
       company: "InnovateX",
       logo: "/India Blockchain Week.jpg",
       image: "/India Blockchain Week.jpg",
-      linkedin: "rahul-mehta"
+      linkedin: "https://www.linkedin.com/company/ibwofficial"
     },
   ]
 
@@ -171,7 +172,7 @@ export function Testimonials() {
                     <div className="flex items-center gap-2">
                       <h4 className={`font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{testimonials[current].author}</h4>
                       <a 
-                        href={`https://www.linkedin.com/in/${testimonials[current].linkedin}`}
+                        href={testimonials[current].linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`transition-colors ${resolvedTheme === 'light' ? 'text-neutral-400 hover:text-neutral-700' : 'dark:text-white/40 dark:hover:text-white/60'}`}

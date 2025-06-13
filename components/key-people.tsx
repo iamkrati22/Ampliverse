@@ -54,16 +54,24 @@ export function KeyPeople(): React.ReactElement {
     },
     {
       id: 3,
+      name: "Priyank Kaushik",
+      role: "Head Consultant\nMedia Production",
+      image: "/Priyank Kaushik .jpg",
+      bio: "With over 12 years of expertise in crafting compelling visual stories, from corporate films to creative content, Priyank collaborates seamlessly with clients to bring ideas to life with innovation and precision. Skilled in end-to-end production, he thrives at the intersection of technical mastery and creative vision. Passionate about pushing the limits of possibilities, he believes the best stories emerge when craft meets purpose.",
+      linkedin: "#",
+    },
+    {
+      id: 4,
       name: "Sristhi Verma",
-      role: "Business Strategy Consultant",
+      role: "Business Strategy\nConsultant",
       image: "/Srishti Verma.png",
       bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors,  Sristhi  brings deep cross-sector expertise and a relentless drive for impact. She optimizes green tech operations while engaging in community development initiatives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
       linkedin: "#",
     },
     {
-      id: 4,
+      id: 5,
       name: "Emily Boral",
-      role: "Head Consultant Brand & Strategy",
+      role: `Head Consultant Brand\n& Strategy`,
       image: "/Ejmily Boral.jpg",
       bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
       linkedin: "#",
@@ -124,7 +132,7 @@ export function KeyPeople(): React.ReactElement {
               return (
                 <motion.div
                   key={person.id}
-                  className={`relative cursor-pointer group flex flex-col items-center ${wPattern[idx]}`}
+                  className={`${person.id%2 != 0 ? 'mb-[10vh]' : 'mt-[10vh]'} relative cursor-pointer group flex flex-col items-center ${wPattern[idx]}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -135,13 +143,13 @@ export function KeyPeople(): React.ReactElement {
                       src={person.image || "/placeholder.svg"}
                       alt={person.name}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ${person.id === 3 ? "object-top" : ""}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="mt-4 text-center flex flex-col items-center">
                     <h3 className={`text-xl font-semibold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
-                    <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
+                    <p className={`font-mono text-sm mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`} style={{whiteSpace: 'pre-line'}}>{person.role}</p>
                   </div>
                 </motion.div>
               );
@@ -198,7 +206,7 @@ export function KeyPeople(): React.ReactElement {
                               src={person.image || "/placeholder.svg"}
                               alt={person.name}
                               fill
-                              className="object-cover"
+                              className={`object-cover ${person.id === 3 ? "object-top" : ""}`}
                             />
                           </div>
                           <h3 className={`text-lg sm:text-xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
