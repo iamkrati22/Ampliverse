@@ -90,11 +90,27 @@ export function WhoWeAre() {
             <Sparkles className="h-4 w-4 text-orange-500 mr-2" />
             <span className="uppercase text-xs font-semibold tracking-widest text-orange-500/90">Our Approach</span>
           </div>
-          <blockquote className={`text-center text-2xl md:text-3xl font-light leading-snug mb-8 max-w-2xl mx-auto px-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}> 
+          <blockquote className="text-center text-2xl md:text-4xl font-light leading-snug max-w-3xl mx-auto mb-4 mt-2 px-2 md:px-0 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}">
             Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.
           </blockquote>
           <hr className={`w-full border-t mb-3 ${resolvedTheme === 'light' ? 'border-neutral-200' : 'border-white/10'}`} />
           <span className={`text-base italic flex items-center gap-2 mb-6 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/50'}`}><span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team</span>
+        </motion.div>
+        {/* Discover Our Approach underlined link (moved below card) */}
+        <motion.div
+          className="flex justify-center mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 1.2, ease: 'easeOut' }}
+        >
+          <a
+            href="#manifesto"
+            className={`group inline-flex items-center text-lg md:text-xl font-semibold hover:text-orange-500 transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
+            aria-label="Discover Our Approach"
+          >
+            <span className="underline underline-offset-8 decoration-2 decoration-orange-400">Discover Our Approach</span>
+            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
         </motion.div>
       </motion.div>
     </section>

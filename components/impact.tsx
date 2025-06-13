@@ -108,12 +108,12 @@ export function Impact() {
                 key={index}
                 className={[
                   "flex flex-col items-center justify-center py-8 px-2 md:p-8 text-center bg-transparent",
+                  "md:relative md:rounded-2xl md:shadow-xl md:backdrop-blur-md md:border md:mx-2 md:bg-white/70 md:dark:bg-[#181824]/80 md:dark:border-white/10 md:border-neutral-200",
+                  "rounded-xl shadow-md border border-neutral-200 md:shadow-none md:border-0 md:rounded-2xl",
                   isLastColMobile ? "border-r-0" : "",
                   isLastColDesktop && "md:border-r-0",
                   isLastRowMobile ? "border-b-0" : "",
                   isLastRowDesktop && "md:border-b-0",
-                  // Card style for desktop only
-                  "md:relative md:rounded-2xl md:shadow-xl md:backdrop-blur-md md:border md:mx-2 md:bg-white/70 md:dark:bg-[#181824]/80 md:dark:border-white/10 md:border-neutral-200"
                 ].join(" ")}
                 style={{ border: "none" }}
                 initial={{ opacity: 0, y: 30 }}

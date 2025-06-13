@@ -2,73 +2,83 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { Newspaper, Palette, MessageSquare, Handshake, Calendar, Users, Code } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 interface ServiceCardProps {
-  icon: React.ReactNode
-  color: string
-  bgColor: string
-  title: string
-  description: string
+  imageSrc: string;
+  title: string;
+  description: string;
+  lightBg: string;
+  darkBg: string;
+  lightText: string;
+  darkText: string;
 }
 
 const services: ServiceCardProps[] = [
   {
-    icon: <Newspaper size={56} />,
-    color: "text-blue-500",
-    bgColor: "from-blue-500/20 to-blue-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Media advisory",
     description: "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
+    lightBg: "bg-[#f3f6fa]",
+    darkBg: "bg-[#181824]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <Palette size={56} />,
-    color: "text-purple-500",
-    bgColor: "from-purple-500/20 to-purple-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Branding & Communication",
-    description:
-      "Amplifying 'who you are' and 'what you stand for' by crafting a brand identity that resonates and reaches the last mile.",
+    description: "Amplifying 'who you are' and 'what you stand for' by crafting a brand identity that resonates and reaches the last mile.",
+    lightBg: "bg-[#f5f3fa]",
+    darkBg: "bg-[#1a1a2e]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <MessageSquare size={56} />,
-    color: "text-green-500",
-    bgColor: "from-green-500/20 to-green-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Social Media Management",
-    description:
-      "Digital storytelling meets business goals - creative initiatives that lead with insight and land with impact.",
+    description: "Digital storytelling meets business goals - creative initiatives that lead with insight and land with impact.",
+    lightBg: "bg-[#f3faf4]",
+    darkBg: "bg-[#16241a]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <Handshake size={56} />,
-    color: "text-yellow-500",
-    bgColor: "from-yellow-500/20 to-yellow-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Strategic Partnerships",
-    description:
-      "Guiding partners through inflection points with astute collaborations across media, events, speakerships, and sponsorships.",
+    description: "Guiding partners through inflection points with astute collaborations across media, events, speakerships, and sponsorships.",
+    lightBg: "bg-[#faf7f3]",
+    darkBg: "bg-[#241a16]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <Calendar size={56} />,
-    color: "text-red-500",
-    bgColor: "from-red-500/20 to-red-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Event Marketing",
-    description:
-      "Curating immersive event experiences that captivate audiences, amplify celebrations, and etch a lasting recall.",
+    description: "Curating immersive event experiences that captivate audiences, amplify celebrations, and etch a lasting recall.",
+    lightBg: "bg-[#faf3f3]",
+    darkBg: "bg-[#241616]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <Users size={56} />,
-    color: "text-pink-500",
-    bgColor: "from-pink-500/20 to-pink-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Influencer Engagement",
-    description:
-      "Influencer communities are the new marketplaces - we help your organization build a presence where your audience already belongs.",
+    description: "Influencer communities are the new marketplaces - we help your organization build a presence where your audience already belongs.",
+    lightBg: "bg-[#faf3fa]",
+    darkBg: "bg-[#241624]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
   {
-    icon: <Code size={56} />,
-    color: "text-cyan-500",
-    bgColor: "from-cyan-500/20 to-cyan-600/10",
+    imageSrc: "/placeholder.jpg",
     title: "Workforce Talent Solutions",
-    description:
-      "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
+    description: "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
+    lightBg: "bg-[#f3fafb]",
+    darkBg: "bg-[#162324]",
+    lightText: "text-[#0a0a14]",
+    darkText: "text-white",
   },
 ]
 
@@ -113,7 +123,7 @@ export default function FlipCards() {
   )
 }
 
-function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
+function ServiceCard({ imageSrc, title, description, lightBg, darkBg, lightText, darkText, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -126,6 +136,9 @@ function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme }
     setIsHovered(false);
   }
 
+  const cardBg = resolvedTheme === 'light' ? lightBg : darkBg;
+  const cardText = resolvedTheme === 'light' ? lightText : darkText;
+
   return (
     <div
       className="h-[280px] w-full perspective-1000 cursor-pointer"
@@ -137,18 +150,22 @@ function ServiceCard({ icon, color, bgColor, title, description, resolvedTheme }
       >
         {/* Front of card */}
         <div
-          className={`absolute w-full h-full border border-border rounded-xl bg-card flex flex-col items-center justify-center gap-6 backface-hidden transition-all duration-300 ${isHovered ? `bg-gradient-to-br ${bgColor}` : ''}`}
+          className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-start backface-hidden transition-all duration-300 overflow-hidden ${cardBg}`}
           style={{ zIndex: 2 }}
         >
-          <div className={`${color} transition-transform duration-300 ${isHovered ? 'scale-110' : ''}`}>{icon}</div>
-          <h3 className="text-xl font-semibold text-center text-card-foreground">{title}</h3>
+          <div className="w-full h-[60%] relative">
+            <Image src={imageSrc} alt={title} fill className="object-cover w-full h-full" />
+          </div>
+          <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2 ${cardText}`}>
+            <h3 className="text-xl font-semibold text-center">{title}</h3>
+          </div>
         </div>
         {/* Back of card */}
         <div
-          className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${isHovered ? `bg-gradient-to-br ${bgColor}` : ''} ${resolvedTheme === 'light' ? 'bg-orange-50' : 'bg-[#181824]'} ${isFlipped ? 'shadow-2xl' : ''}`}
+          className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-xl md:text-2xl text-center font-semibold leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-800' : 'text-white'}`}>{description}</p>
+          <p className={`text-2xl md:text-3xl text-center font-semibold leading-relaxed ${cardText}`}>{description}</p>
         </div>
       </div>
     </div>

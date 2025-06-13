@@ -8,7 +8,6 @@ import {
 import "../styles/map-styles.css";
 import { useTheme } from "next-themes";
 
-// @ts-expect-error: No types for 'react-simple-maps'
 const markers = [
   // India
   { markerOffset: -15, name: "Punjab", coordinates: [75.5004841, 30.9293211] },
@@ -123,8 +122,8 @@ const MapChart = () => {
   return (
     <ComposableMap style={{ width: "95%", height: "auto" }}>
       <Geographies geography="/map-features.json">
-        {({ geographies }) =>
-          geographies.map((geo) => (
+        {({ geographies }: { geographies: any[] }) =>
+          geographies.map((geo: any) => (
             <Geography
               key={geo.rsmKey}
               geography={geo}
@@ -152,6 +151,17 @@ const MapChart = () => {
               ></path>
             </g>
           </svg>
+          <text
+            y={markerOffset}
+            textAnchor="middle"
+            fontSize="8"
+            fontWeight="400"
+            className="map-label"
+            fill={resolvedTheme === 'light' ? '#9ca3af' : '#a3a3a3'}
+            style={{ pointerEvents: 'none', userSelect: 'none', textShadow: resolvedTheme === 'light' ? '0 1px 2px #fff' : '0 1px 2px #000' }}
+          >
+            {name}
+          </text>
         </Marker>
       ))}
     </ComposableMap>

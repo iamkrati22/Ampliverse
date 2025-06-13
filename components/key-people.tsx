@@ -76,14 +76,6 @@ export function KeyPeople(): React.ReactElement {
       bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
       linkedin: "#",
     },
-    {
-      id: 5,
-      name: "Priyank Kaushik",
-      role: "Head Consultant – Media Production",
-      image: "/placeholder-user.jpg",
-      bio: "With over 12 years of expertise in crafting compelling visual stories, from corporate films to creative content, Priyank collaborates seamlessly with clients to bring ideas to life with innovation and precision. Skilled in end-to-end production, he thrives at the intersection of technical mastery and creative vision. Passionate about pushing the limits of possibilities, he believes the best stories emerge when craft meets purpose.",
-      linkedin: "#",
-    },
   ];
 
   const activePerson = people[activePersonId - 1];
