@@ -76,9 +76,9 @@ export function Hero() {
             playsInline
             className="w-full h-full object-cover opacity-50"
           >
-            <source src="/1654216-hd_1920_1080_30fps.mp4" type="video/mp4" />
+            <source src="/Ampliverse Video Banner-finalcut-c.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/70 to-[#0a0a14]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/55 to-[#0a0a14]/80"></div>
         </div>
 
         {/* Hero Content */}
