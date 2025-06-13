@@ -85,18 +85,34 @@ export function Navbar() {
           >
             <AnimatePresence>
               {showLogo && (
-                <motion.img
-                  key="navbar-logo"
-                  src={logoSrc}
-                  alt="Ampliverse Logo"
-                  layoutId="ampliverse-logo"
-                  initial={{ opacity: 0, scale: 0.4 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.6, ease: "anticipate" }}
-                  className="w-44 h-44 object-contain drop-shadow-xl"
-                  style={{ zIndex: 20 }}
-                />
+                <>
+                  {/* Desktop Logo */}
+                  <motion.img
+                    key="navbar-logo-desktop"
+                    src={logoSrc}
+                    alt="Ampliverse Logo"
+                    layoutId="ampliverse-logo"
+                    initial={{ opacity: 0, scale: 0.4 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.6, ease: "anticipate" }}
+                    className="hidden md:block w-44 h-44 object-contain drop-shadow-xl"
+                    style={{ zIndex: 20 }}
+                  />
+                  {/* Mobile Logo */}
+                  <motion.img
+                    key="navbar-logo-mobile"
+                    src={resolvedTheme === "light" ? "/A Black Orange-Photoroom.png" : "/24-Photoroom.png"}
+                    alt="Ampliverse Logo"
+                    layoutId="ampliverse-logo-mobile"
+                    initial={{ opacity: 0, scale: 0.4 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.6, ease: "anticipate" }}
+                    className="md:hidden w-12 h-18 object-contain drop-shadow-xl"
+                    style={{ zIndex: 20 }}
+                  />
+                </>
               )}
             </AnimatePresence>
           </Link>
