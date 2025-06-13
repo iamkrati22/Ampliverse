@@ -60,7 +60,7 @@ export function Impact() {
   ]
 
   return (
-    <section ref={ref} className={`py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-gradient-to-br dark:from-[#0f0f1a] dark:via-[#181824] dark:to-[#0a0a14]'}`}
+    <section ref={ref} className={`py-12 md:py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-gradient-to-br dark:from-[#0f0f1a] dark:via-[#181824] dark:to-[#0a0a14]'}`}
       style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
       {/* Subtle grid background */}
       <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none select-none z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ export function Impact() {
         </motion.div>
 
         {/* Responsive grid: 2x2 on mobile, 3x2 on md+ */}
-        <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-white/10 dark:divide-white/10 bg-transparent gap-y-8 md:gap-y-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-white/10 dark:divide-white/10 bg-transparent gap-y-8 md:gap-y-12 md:gap-x-4">
           {stats.slice(0, 6).map((stat, index) => {
             // For 2x2 grid on mobile, 3x2 on desktop
             // Remove right border for last col, bottom border for last row
@@ -150,7 +150,7 @@ export function Impact() {
                     <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                   </> : "0"}
                 </span>
-                <span className={`block text-base xs:text-lg sm:text-xl md:text-2xl font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
+                <span className={`block text-base xs:text-lg sm:text-xl md:text-1xl font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
                   {(() => {
                     // Highlight the first or second word in each description
                     const words = stat.description.split(' ');

@@ -79,7 +79,7 @@ export function Testimonials() {
   return (
     <section
       ref={ref}
-      className={`min-h-screen flex flex-col justify-center items-center w-full relative overflow-hidden transition-colors duration-500
+      className={`py-12 md:py-24 min-h-screen flex flex-col justify-center items-center w-full relative overflow-hidden transition-colors duration-500
         bg-[${LIGHT_BG}] dark:bg-[#0a0a14]`}
       style={{ backgroundColor: resolvedTheme === "light" ? LIGHT_BG : "#0a0a14" }}
     >
@@ -125,7 +125,7 @@ export function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className={`p-10 md:p-12 rounded-2xl border relative flex flex-col justify-between h-[580px] md:h-[500px] lg:h-[460px] w-full transition-colors duration-300
+                className={`p-10 md:p-12 rounded-2xl border relative flex flex-col justify-between w-full transition-colors duration-300
                   ${resolvedTheme === 'light'
                     ? 'bg-[#fcfcfa] border-neutral-200 shadow-lg'
                     : 'glass-panel border-white/10 dark:bg-[#181824]/80 shadow-[0_0_30px_rgba(0,0,0,0.3)] backdrop-blur-md'}
@@ -153,7 +153,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <blockquote className={`text-base mb-6 relative z-10 overflow-hidden line-clamp-7
+                <blockquote className={`text-xl mb-6 relative z-10 line-clamp-7
                   ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                 >
                   {truncateWords(testimonials[current].quote, 55)}

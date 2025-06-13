@@ -43,7 +43,7 @@ export function Contact() {
   });
 
   return (
-    <section id="contact" ref={ref} className={`py-24 relative transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
+    <section id="contact" ref={ref} className={`py-12 md:py-24 relative transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -66,14 +66,14 @@ export function Contact() {
           />
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className={`text-3xl md:text-4xl mb-12 font-light leading-snug max-w-4xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
+              <p className={`text-3xl md:text-3xl mb-12 font-light leading-snug max-w-4xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 
@@ -86,7 +86,7 @@ export function Contact() {
                     <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Email</p>
                     <a
                       href="mailto:pr@ampliverse.com"
-                      className={`font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
+                      className={`md:text-xl font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       pr@ampliverse.com
                     </a>
@@ -101,7 +101,7 @@ export function Contact() {
                     <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Phone</p>
                     <a
                       href="tel:+919717009947"
-                      className={`font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
+                      className={`md:text-xl font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       +91 9717009947
                     </a>
@@ -225,7 +225,7 @@ export function Contact() {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}

@@ -88,7 +88,7 @@ export function OurWork() {
     selectedProject !== null ? projects.find((project) => project.id === selectedProject) || null : null
 
   return (
-    <section id="work" ref={ref} className={`py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-[#0f0f1a]'}`}
+    <section id="work" ref={ref} className={`py-12 md:py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-[#0f0f1a]'}`}
       style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
       <div className="container mx-auto px-4">
         <div className="relative z-10">
