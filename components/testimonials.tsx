@@ -41,7 +41,7 @@ export function Testimonials() {
       
       id: 3,
       quote:
-        "We worked with Ampliverse for India Blockchain Week 2024 to support our PR and media efforts. They helped us with press releases, and media coordination, both in the lead-up to the event and during the post-event phase. The team ensured timely execution on key deliverables and contributed to amplifying IBW’s visibility across relevant crypto and business audiences.",
+        "We worked with Ampliverse for India Blockchain Week 2024 to support our PR and media efforts. They helped us with press releases, and media coordination, both in the lead-up to the event and during the post-event phase. The team ensured timely execution on key deliverables and contributed to amplifying IBW's visibility across relevant crypto and business audiences.",
       author: "Team India Blockchain Week",
       role: "",
       company: "InnovateX",
@@ -98,7 +98,13 @@ export function Testimonials() {
             <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
           <h2 className="mt-2 text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white">Our Partners' Voices</h2>
-          <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded" />
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         <div className="w-full flex flex-col items-center justify-center relative">

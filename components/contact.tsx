@@ -57,7 +57,13 @@ export function Contact() {
             <span className="text-orange-500/70 ml-1">{">"}</span>
           </span>
           <h2 className={`mt-2 text-4xl md:text-5xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>Request a Proposal</h2>
-          <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded" />
+          <motion.div
+            className="h-1 w-24 bg-orange-500 mx-auto mt-4 rounded origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{ transformOrigin: 'left' }}
+          />
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
