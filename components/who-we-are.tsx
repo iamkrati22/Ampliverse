@@ -46,7 +46,7 @@ export function WhoWeAre() {
         {/* Premium Minimal Intro */}
         <div className="w-full">
           <motion.p
-            className={`text-center text-3xl md:text-4xl font-light leading-snug max-w-4xl mx-auto mb-3 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}
+            className={`text-left text-3xl md:text-4xl font-light leading-snug max-w-4xl mx-auto mb-3 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
@@ -54,7 +54,7 @@ export function WhoWeAre() {
             Ampliverse is an integrated communications advisory enabling organizations worldwide to craft <span className={`text-orange-500 font-medium`}>purposeful brand expression that drives business impact.</span>
           </motion.p>
           <motion.p
-            className={`text-center text-2xl md:text-3xl font-light leading-snug max-w-4xl mx-auto mb-8 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}
+            className={`text-left text-2xl md:text-3xl font-light leading-snug max-w-4xl mx-auto mb-8 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
@@ -79,7 +79,7 @@ export function WhoWeAre() {
         <motion.div
           className={`relative flex flex-col items-center w-full mx-auto rounded-2xl shadow-xl border transition-colors duration-300
             ${resolvedTheme === 'light' ? 'bg-white/90 border-neutral-200' : 'border-white/10 backdrop-blur-md bg-white/5 dark:bg-[#181824]/40'} mt-8`}
-          style={{ maxWidth: '700px' }}
+          style={{ maxWidth: '900px' }}
           initial={{ opacity: 0, x: 60 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, delay: 1, ease: 'easeOut' }}
