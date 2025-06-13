@@ -57,7 +57,7 @@ export function KeyPeople(): React.ReactElement {
       name: "Sristhi Verma",
       role: "Business Strategy Consultant",
       image: "/Srishti Verma.png",
-      bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors, Sristhi brings deep cross-sector expertise and a relentless drive for impact. While building operational efficiencies across green technology businesses, she also actively contributes to community initiatives, organizing daily blood donation drives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
+      bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors,  Sristhi  brings deep cross-sector expertise and a relentless drive for impact. She optimizes green tech operations while engaging in community development initiatives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
       linkedin: "#",
     },
     {
@@ -70,10 +70,10 @@ export function KeyPeople(): React.ReactElement {
     },
     {
       id: 5,
-      name: "Aarav Mehta",
-      role: "Communications Strategist",
+      name: "Priyank Kaushik",
+      role: "Head Consultant – Media Production",
       image: "/placeholder-user.jpg",
-      bio: "Aarav brings a decade of experience in strategic communications, working with both startups and Fortune 500 companies. His expertise lies in crafting compelling narratives that drive engagement and foster trust. Aarav is passionate about leveraging storytelling to bridge cultural and business divides.",
+      bio: "With over 12 years of expertise in crafting compelling visual stories, from corporate films to creative content, Priyank collaborates seamlessly with clients to bring ideas to life with innovation and precision. Skilled in end-to-end production, he thrives at the intersection of technical mastery and creative vision. Passionate about pushing the limits of possibilities, he believes the best stories emerge when craft meets purpose.",
       linkedin: "#",
     },
   ];
