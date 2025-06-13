@@ -10,7 +10,7 @@ interface ServiceCardProps {
   imageSrc: string;
   title: string;
   description: string;
-  lightBg: string;
+  accent: string;
   darkBg: string;
   lightText: string;
   darkText: string;
@@ -18,64 +18,64 @@ interface ServiceCardProps {
 
 const services: ServiceCardProps[] = [
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Media Advisory 4.jpg",
     title: "Media advisory",
     description: "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
-    lightBg: "bg-[#f3f6fa]",
+    accent: "border-b-4 border-blue-200",
     darkBg: "bg-[#181824]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Branding & Communication.jpg",
     title: "Branding & Communication",
     description: "Amplifying 'who you are' and 'what you stand for' by crafting a brand identity that resonates and reaches the last mile.",
-    lightBg: "bg-[#f5f3fa]",
+    accent: "border-b-4 border-purple-200",
     darkBg: "bg-[#1a1a2e]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Social media managment.jpg",
     title: "Social Media Management",
     description: "Digital storytelling meets business goals - creative initiatives that lead with insight and land with impact.",
-    lightBg: "bg-[#f3faf4]",
+    accent: "border-b-4 border-green-200",
     darkBg: "bg-[#16241a]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Strategic Partnerships 2.jpg",
     title: "Strategic Partnerships",
     description: "Guiding partners through inflection points with astute collaborations across media, events, speakerships, and sponsorships.",
-    lightBg: "bg-[#faf7f3]",
+    accent: "border-b-4 border-yellow-200",
     darkBg: "bg-[#241a16]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Event Marketing.jpg",
     title: "Event Marketing",
     description: "Curating immersive event experiences that captivate audiences, amplify celebrations, and etch a lasting recall.",
-    lightBg: "bg-[#faf3f3]",
+    accent: "border-b-4 border-red-200",
     darkBg: "bg-[#241616]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Influencer Engagement.jpg",
     title: "Influencer Engagement",
     description: "Influencer communities are the new marketplaces - we help your organization build a presence where your audience already belongs.",
-    lightBg: "bg-[#faf3fa]",
+    accent: "border-b-4 border-pink-200",
     darkBg: "bg-[#241624]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
   {
-    imageSrc: "/placeholder.jpg",
+    imageSrc: "/service/Talent Solutions.jpg",
     title: "Workforce Talent Solutions",
     description: "Helping you onboard, train, and manage the right talent, so that your organization scales and succeeds with ease.",
-    lightBg: "bg-[#f3fafb]",
+    accent: "border-b-4 border-cyan-200",
     darkBg: "bg-[#162324]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
@@ -123,7 +123,7 @@ export default function FlipCards() {
   )
 }
 
-function ServiceCard({ imageSrc, title, description, lightBg, darkBg, lightText, darkText, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
+function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, darkText, resolvedTheme }: ServiceCardProps & { resolvedTheme: string | undefined }) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -136,12 +136,11 @@ function ServiceCard({ imageSrc, title, description, lightBg, darkBg, lightText,
     setIsHovered(false);
   }
 
-  const cardBg = resolvedTheme === 'light' ? lightBg : darkBg;
-  const cardText = resolvedTheme === 'light' ? lightText : darkText;
+  const cardBg = resolvedTheme === 'light' ? 'bg-white' : darkBg;
 
   return (
     <div
-      className="h-[280px] w-full perspective-1000 cursor-pointer"
+      className={`h-[280px] w-full perspective-1000 cursor-pointer transition-shadow rounded-xl ${resolvedTheme === 'light' ? accent : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -153,11 +152,12 @@ function ServiceCard({ imageSrc, title, description, lightBg, darkBg, lightText,
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-start backface-hidden transition-all duration-300 overflow-hidden ${cardBg}`}
           style={{ zIndex: 2 }}
         >
-          <div className="w-full h-[60%] relative">
+          <div className="w-full h-[80%] relative">
             <Image src={imageSrc} alt={title} fill className="object-cover w-full h-full" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
           </div>
-          <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2 ${cardText}`}>
-            <h3 className="text-xl font-semibold text-center">{title}</h3>
+          <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2`}>
+            <h3 className={`text-xl font-semibold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
           </div>
         </div>
         {/* Back of card */}
@@ -165,7 +165,7 @@ function ServiceCard({ imageSrc, title, description, lightBg, darkBg, lightText,
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-2xl md:text-3xl text-center font-semibold leading-relaxed ${cardText}`}>{description}</p>
+          <p className={`text-2xl md:text-3xl text-center font-semibold leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
         </div>
       </div>
     </div>
