@@ -84,9 +84,9 @@ export function KeyPeople(): React.ReactElement {
     <section
       id="people"
       ref={ref}
-      className={`py-24 relative overflow-x-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+      className={`md:py-24 relative overflow-x-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
     >
-      <div className="container mx-auto px-4 overflow-x-hidden">
+      <div className="container px-0 mx-auto md:px-4 overflow-x-hidden">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

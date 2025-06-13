@@ -18,7 +18,7 @@ export function WorldMap() {
         <div className="absolute top-4 left-4 z-10 bg-[#f8f7f4]/80 dark:bg-[#0a0a14]/80 backdrop-blur-sm px-3 py-1 rounded-full border border-orange-500/20 text-xs text-muted-foreground dark:text-white/70">
           International presence in 15+ countries
         </div>
-        <div className="map-chart">
+        <div className="map-chart mt-[4vh] mb:mt-0">
         <MapChart />
         </div>
         {/* Gradient overlay at bottom for blending/fade out */}
