@@ -77,10 +77,10 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, delay: 3.5 }}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto px-2 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center overflow-hidden"
+            className="flex items-center overflow-hidden -ml-2"
             style={{ height: "4rem", minHeight: "4rem" }}
           >
             <AnimatePresence>

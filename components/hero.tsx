@@ -79,6 +79,15 @@ export function Hero() {
             <source src="/Ampliverse Video Banner-finalcut-c.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/55 to-[#0a0a14]/80"></div>
+          {/* Fading out effect at the bottom of the video */}
+          {resolvedTheme === 'dark' && (
+            <div
+              className="absolute bottom-0 left-0 w-full h-32 pointer-events-none z-10"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 100%)'
+              }}
+            />
+          )}
         </div>
 
         {/* Hero Content */}
@@ -164,8 +173,6 @@ export function Hero() {
             <motion.a
               href="#expertise"
               className="px-14 py-4 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 transition-colors relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               Explore

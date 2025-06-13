@@ -89,7 +89,7 @@ function SectionUnderline() {
 export default function FlipCards() {
   const { resolvedTheme } = useTheme();
   return (
-    <section className="relative py-24 w-full bg-gradient-to-b from-[#f8f7f4] via-white to-[#f8f7f4] dark:from-[#0a0a14] dark:via-[#181824] dark:to-[#0a0a14] bg-noise">
+    <section id="expertise" className="relative py-24 w-full bg-gradient-to-b from-[#f8f7f4] via-white to-[#f8f7f4] dark:from-[#0a0a14] dark:via-[#181824] dark:to-[#0a0a14] bg-noise scroll-mt-32">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
