@@ -109,7 +109,7 @@ export function Navbar() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.6, ease: "anticipate" }}
-                    className="md:hidden w-16 h-20 object-contain drop-shadow-xl"
+                    className="md:hidden w-17 h-20 object-contain drop-shadow-xl"
                     style={{ zIndex: 20 }}
                   />
                 </>

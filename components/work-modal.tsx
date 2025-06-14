@@ -82,7 +82,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                 className="absolute inset-0 rounded-t-lg pointer-events-none"
                 style={{
                   background: resolvedTheme === 'light'
-                    ? 'linear-gradient(to bottom, rgba(30,30,30,0.25) 0%, rgba(30,30,30,0.65) 60%, rgba(255,255,255,0.85) 100%)'
+                    ? 'linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 100%)'
                     : 'rgba(10,10,20,0.82)',
                   boxShadow: resolvedTheme === 'light' ? '0 8px 32px 0 rgba(0,0,0,0.25)' : undefined
                 }}
@@ -106,7 +106,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                   </h3>
                   <ul className="space-y-2">
                     {project.topStories.map((story, index) => (
-                      <li key={index} className={`md:text-xl ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
+                      <li key={index} className={`text-xl ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
                         <span className="mr-2 font-mono" aria-hidden="true">
                           {/* Triangle SVG */}
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="text-orange-500/70 mt-1"><polygon points="6,0 12,12 0,12" /></svg>
