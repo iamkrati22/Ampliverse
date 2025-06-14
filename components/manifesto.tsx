@@ -64,7 +64,7 @@ export function Manifesto() {
           >
             <div className="w-2 md:w-1 bg-orange-500 flex-shrink-0 rounded-full"></div>
             <p
-              className={`text-base leading-[1.75] md:text-2xl text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+              className={`text-3xl md:text-2xl leading-[1.75] text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
               style={{ textAlign: "justify" }}
             >
               At Ampliverse, we shape how tomorrow's innovators{" "}
@@ -109,13 +109,13 @@ export function Manifesto() {
                 aria-expanded={expandedIdx === idx}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-orange-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                <h3 className={`flex items-center justify-between text-2xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                <h3 className={`flex items-center justify-between text-2xl md:text-2xl font-semibold mb-4 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   {card.title}
                   <span className="md:hidden ml-2 transition-transform duration-300" style={{transform: expandedIdx === idx ? 'rotate(180deg)' : 'rotate(0deg)'}}>
                     <ChevronDown className={`w-5 h-5 ${resolvedTheme === 'light' ? 'text-orange-400' : 'text-orange-500'}`} aria-hidden="true" />
                   </span>
                 </h3>
-                <div className={`text-xl transition-all duration-300 overflow-hidden ${expandedIdx === idx || typeof window !== 'undefined' && window.innerWidth >= 768 ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
+                <div className={`text-xl md:text-xl transition-all duration-300 overflow-hidden ${expandedIdx === idx || typeof window !== 'undefined' && window.innerWidth >= 768 ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
                   <p className={`${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/70'}`}>{card.desc.replace(card.highlight, '')}<span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>{card.highlight}</span></p>
                 </div>
               </motion.div>

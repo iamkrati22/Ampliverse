@@ -106,9 +106,9 @@ export function WhoWeAre() {
           <a
             href="#manifesto"
             className={`group inline-flex items-center text-lg md:text-xl font-semibold hover:text-orange-500 transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}
-            aria-label="Discover Our Approach"
+            aria-label="Our Promise"
           >
-            <span className="underline underline-offset-8 decoration-2 decoration-orange-400">Discover Our Approach</span>
+            <span className="underline underline-offset-8 decoration-2 decoration-orange-400">Our Promise</span>
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </motion.div>

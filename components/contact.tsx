@@ -77,8 +77,8 @@ export function Contact() {
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 
-              <div className="space-y-6 mb-12">
-                <div className="flex items-center">
+              <div className="flex flex-col items-center gap-y-6 mb-8 md:mb-12 md:items-start md:gap-y-0">
+                <div className="flex items-center justify-center md:justify-start">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
                     <Mail className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
@@ -86,14 +86,14 @@ export function Contact() {
                     <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Email</p>
                     <a
                       href="mailto:pr@ampliverse.com"
-                      className={`md:text-xl font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
+                      className={`text-xl md:text-base font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       pr@ampliverse.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-center justify-center md:justify-start">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
                     <Phone className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
@@ -101,7 +101,7 @@ export function Contact() {
                     <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Phone</p>
                     <a
                       href="tel:+919717009947"
-                      className={`md:text-xl font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
+                      className={`text-xl md:text-base font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
                       +91 9717009947
                     </a>
@@ -136,114 +136,30 @@ export function Contact() {
                   Connect on Whatsapp
                 </motion.button>
               </div>
-
-              <button
-                onClick={openModal}
-                className="mt-4 mb-10 w-full flex justify-center items-center gap-2 text-base font-normal text-center text-white dark:text-white group border-0 bg-transparent px-0 py-0 block sm:hidden focus:outline-none"
-              >
-                <span className="relative pb-1 border-b border-white/60 group-hover:border-orange-500 transition-colors duration-300">
-                  Send us a message
-                </span>
-                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
             </motion.div>
-            <div className={`hidden sm:block ${resolvedTheme === 'light' ? 'p-6 bg-white border border-neutral-200 shadow-xl rounded-lg' : 'p-6 bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20'}`}>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
-                  >
-                    Your Name
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
-                  >
-                    Email Address
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className={`block text-sm font-medium ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/70'}`}
-                  >
-                    Your Message
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formState.message}
-                      onChange={handleChange}
-                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 ${resolvedTheme === 'light' ? 'bg-neutral-100 border-neutral-200 text-neutral-900 focus:ring-orange-500/30 focus:border-orange-500/30' : 'bg-[#1a1a2e] border-[#2a2a40] text-white focus:ring-orange-500/30 focus:border-orange-500/30'}`}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className={`w-full py-3 rounded-md font-semibold transition-colors ${resolvedTheme === 'light' ? 'bg-orange-500 text-white hover:bg-orange-600' : 'bg-orange-500 text-white hover:bg-orange-600'}`}
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
-            </div>
-            <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />
           </div>
         </div>
-      </div>
-      <div className="mt-4 md:mt-8">
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative">
-            <div className="absolute -top-[1vh] left-[2vw] md:-top-4 md:-left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
-            <div className="absolute -bottom-[1vh] right-[2vw] md:-bottom-4 md:-right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
-            <WorldMap />
-            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 z-20"
-              style={{
-                background: resolvedTheme === 'light'
-                  ? 'linear-gradient(to bottom, rgba(250,249,246,0) 0%, #faf9f6 100%)'
-                  : 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 100%)'
-              }}
-            />
-          </div>
-        </motion.div>
+        <div className="mt-4 md:mt-8">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative">
+              <div className="absolute -top-[1vh] left-[2vw] md:-top-4 md:-left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/30"></div>
+              <div className="absolute -bottom-[1vh] right-[2vw] md:-bottom-4 md:-right-4 w-8 h-8 border-b-2 border-r-2 border-orange-500/30"></div>
+              <WorldMap />
+              <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 z-20"
+                style={{
+                  background: resolvedTheme === 'light'
+                    ? 'linear-gradient(to bottom, rgba(250,249,246,0) 0%, #faf9f6 100%)'
+                    : 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, #0a0a14 100%)'
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
+        <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </section>
   );

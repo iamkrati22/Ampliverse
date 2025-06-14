@@ -201,9 +201,13 @@ export function KeyPeople(): React.ReactElement {
                               className={`object-cover ${person.id === 3 ? "object-top" : ""}`}
                             />
                           </div>
-                          <h3 className={`text-lg sm:text-xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{person.name}</h3>
-                          <p className={`font-mono text-xs sm:text-sm ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
-                          <p className={`text-justify text-base sm:text-base mt-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{person.bio}</p>
+                          <h3 className={`text-xl sm:text-xl font-bold flex items-center justify-center gap-1 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                            <span className="text-orange-500/60 font-mono">{"<"}</span>
+                            {person.name}
+                            <span className="text-orange-500/60 font-mono">{">"}</span>
+                          </h3>
+                          <p className={`font-mono text-xl sm:text-xl mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
+                          <p className={`text-justify text-xl sm:text-base mt-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{person.bio}</p>
                           <a
                             href={person.linkedin}
                             target="_blank"

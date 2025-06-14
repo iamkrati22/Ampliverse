@@ -59,7 +59,9 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-2xl bg-[#0a0a14]/90 backdrop-blur-md rounded-lg border border-orange-500/20"
+            className={`relative w-full max-w-2xl rounded-lg border border-orange-500/20 backdrop-blur-md 
+              ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'bg-[#0a0a14]/90' : 'bg-white/90'}
+            `}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -75,11 +77,11 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
             </button>
 
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-6 text-white">Send us a message</h2>
+              <h2 className={`text-2xl font-bold mb-6 ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'text-white' : 'text-neutral-900'}`}>Send us a message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white/70">
+                  <label htmlFor="name" className={`block text-sm font-medium ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'text-white/70' : 'text-neutral-700'}`}>
                     Your Name
                   </label>
                   <div className="mt-1">
@@ -89,14 +91,17 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 focus:ring-orange-500/30 focus:border-orange-500/30 
+                        ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') 
+                          ? 'bg-[#1a1a2e] border-[#2a2a40] text-white' 
+                          : 'bg-white border-neutral-200 text-neutral-900'}`}
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white/70">
+                  <label htmlFor="email" className={`block text-sm font-medium ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'text-white/70' : 'text-neutral-700'}`}>
                     Email Address
                   </label>
                   <div className="mt-1">
@@ -106,14 +111,17 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white h-12"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md h-12 focus:ring-orange-500/30 focus:border-orange-500/30 
+                        ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') 
+                          ? 'bg-[#1a1a2e] border-[#2a2a40] text-white' 
+                          : 'bg-white border-neutral-200 text-neutral-900'}`}
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white/70">
+                  <label htmlFor="message" className={`block text-sm font-medium ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'text-white/70' : 'text-neutral-700'}`}>
                     Your Message
                   </label>
                   <div className="mt-1">
@@ -123,7 +131,10 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                       rows={4}
                       value={formState.message}
                       onChange={handleChange}
-                      className="shadow-sm bg-[#1a1a2e] focus:ring-orange-500/30 focus:border-orange-500/30 block w-full sm:text-sm border-[#2a2a40] rounded-md text-white"
+                      className={`shadow-sm block w-full sm:text-sm rounded-md focus:ring-orange-500/30 focus:border-orange-500/30 
+                        ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') 
+                          ? 'bg-[#1a1a2e] border-[#2a2a40] text-white' 
+                          : 'bg-white border-neutral-200 text-neutral-900'}`}
                       required
                     />
                   </div>

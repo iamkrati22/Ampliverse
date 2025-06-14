@@ -20,7 +20,7 @@ export function Footer() {
       `}
       style={{ backgroundColor: resolvedTheme === "light" ? LIGHT_BG : "#0a0a14", color: resolvedTheme === "light" ? "#232323" : "#fff" }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 text-xl md:text-base">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -204,7 +204,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#1a1a2e] text-center md:flex md:justify-between md:text-left">
+        <div className="pt-8 border-t border-[#1a1a2e] text-center md:flex md:justify-between md:text-left text-base">
           <p className="text-neutral-500 dark:text-white/40 mb-4 md:mb-0">&copy; {currentYear} Ampliverse. All rights reserved.</p>
           <div className="flex justify-center md:justify-end space-x-6">
             <a href="#" className="text-neutral-500 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white transition-colors">

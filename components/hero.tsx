@@ -149,7 +149,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.2 }}
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
-            Born from PR, we turn credibility into presence, and presence into momentum — for innovators building  
+            Born from PR, we turn credibility into presence, and presence into momentum for innovators building  
             <span className="relative inline-block underline-animate-parent">
               <span className={`relative z-10 ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-white'}`}>
                  &nbsp;tomorrow&apos;s solutions

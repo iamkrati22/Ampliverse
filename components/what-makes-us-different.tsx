@@ -66,7 +66,7 @@ export function WhatMakesUsDifferent() {
         <div className="w-full flex flex-col items-center mb-16">
           <span className={`text-sm font-medium tracking-wider uppercase flex items-center justify-center mb-2 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
             <span className="text-orange-500 mr-1">{"<"}</span>
-            Our Difference
+            Our Uniqueness
             <span className="text-orange-500 ml-1">{" >"}</span>
           </span>
           <h2 className={`mt-0 text-4xl md:text-5xl font-bold text-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>

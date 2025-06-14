@@ -28,17 +28,6 @@ export function Testimonials() {
       linkedin: "https://www.linkedin.com/in/hitesh-joshi-47649a43"
     },
     {
-      id: 2,
-      quote:
-        "Ampliverse has transformed our brand communication strategy. Their deep understanding of the B2B tech landscape helped us position our solutions effectively to enterprise clients. The media coverage they secured for us has significantly boosted our credibility in the market.",
-      author: "Priya Sharma",
-      role: "CMO",
-      company: "TechSolutions Inc.",
-      logo: "/AGL Logo.png",
-      linkedin: "priya-sharma"
-    },
-    {
-      
       id: 3,
       quote:
         "We worked with Ampliverse for India Blockchain Week 2024 to support our PR and media efforts. They helped us with press releases, and media coordination, both in the lead-up to the event and during the post-event phase. The team ensured timely execution on key deliverables and contributed to amplifying IBW's visibility across relevant crypto and business audiences.",
@@ -144,12 +133,14 @@ export function Testimonials() {
                     ${resolvedTheme === 'light' ? 'border-white' : 'dark:border-[#232323]'}`}
                   >
                     <div className="absolute inset-0 rounded-full border-2 border-orange-500 pointer-events-none"></div>
-                    <Image
-                      src={testimonials[current].logo || "/placeholder.svg"}
-                      alt={testimonials[current].company}
-                      fill
-                      className="object-contain p-2"
-                    />
+                    <div className="relative w-20 h-20 mx-auto">
+                      <Image
+                        src={testimonials[current].logo || "/placeholder.svg"}
+                        alt={testimonials[current].company}
+                        fill
+                        className="object-contain p-2"
+                      />
+                    </div>
                   </div>
                 </div>
 

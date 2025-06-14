@@ -145,7 +145,7 @@ export function OurWork() {
                         <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
                           <div className="transform transition-transform duration-300 group-hover:translate-y-0">
                             <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
-                            <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
+                            <h3 className={`text-2xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
                             {/* Show a preview of top stories */}
                             <ul className="mb-4">
                               {project.topStories.slice(0, 2).map((story, i) => (
@@ -199,7 +199,7 @@ export function OurWork() {
                   <div className="absolute inset-0 flex flex-col justify-end p-6 z-30">
                     <div className="transform transition-transform duration-300 group-hover:translate-y-0">
                       <p className={`text-sm mb-1 font-mono ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400'}`}>{"// "}{project.subtitle}</p>
-                      <h3 className={`text-xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
+                      <h3 className={`text-2xl font-semibold mb-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{project.title}</h3>
                       {/* Show a preview of top stories */}
                       <ul className="mb-4">
                         {project.topStories.slice(0, 2).map((story, i) => (

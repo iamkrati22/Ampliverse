@@ -96,7 +96,7 @@ export function Navbar() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.6, ease: "anticipate" }}
-                    className="hidden md:block w-44 h-44 object-contain drop-shadow-xl"
+                    className="hidden md:block w-56 h-56 object-contain drop-shadow-xl"
                     style={{ zIndex: 20 }}
                   />
                   {/* Mobile Logo */}
@@ -109,7 +109,7 @@ export function Navbar() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.6, ease: "anticipate" }}
-                    className="md:hidden w-12 h-18 object-contain drop-shadow-xl"
+                    className="md:hidden w-16 h-20 object-contain drop-shadow-xl"
                     style={{ zIndex: 20 }}
                   />
                 </>
@@ -194,7 +194,7 @@ export function Navbar() {
                   className="text-lg font-medium py-3 border-b border-neutral-300 dark:border-white/10 text-neutral-900 dark:text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Discover our expertise
+                  Our Expertise
                 </Link>
                 <Link
                   href="#work"

@@ -103,6 +103,9 @@ export function Impact() {
             const isLastRowMobile = index >= 2;
             const isLastColDesktop = (index + 1) % 3 === 0;
             const isLastRowDesktop = index >= 3;
+            // Highlight logic
+            const highlightNumber = true;
+            const highlightAwards = index === 5;
             return (
               <motion.div
                 key={index}
@@ -144,19 +147,21 @@ export function Impact() {
                     <polygon points="0,100 100,0 100,100" fill={`url(#triangle-gradient-${index})`} />
                   </svg>
                 </div>
-                <span className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-2 z-10 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                <span className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-2 z-10 ${highlightNumber ? 'text-orange-500' : (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white')}`}>
                   {isInView ? <>
                     <CountUp end={stat.value} separator="," duration={2.5} />
-                    <span className="text-orange-500 ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
+                    <span className="ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
                   </> : "0"}
                 </span>
                 <span className={`block text-base xs:text-lg sm:text-xl md:text-1xl font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
                   {(() => {
-                    // Highlight the first or second word in each description
-                    const words = stat.description.split(' ');
-                    if (words.length > 2) {
-                      return <>{words.slice(0, 2).join(' ')} <span className="font-bold text-orange-500 dark:text-orange-400">{words[2]}</span> {words.slice(3).join(' ')}</>;
-                    }
+                    // Custom highlight for each stat
+                    if (index === 0) return <><span className="font-bold text-orange-500 dark:text-orange-400">Monthly reach</span> for partners</>;
+                    if (index === 1) return <><span className="font-bold text-orange-500 dark:text-orange-400">News stories</span> delivered</>;
+                    if (index === 2) return <><span className="font-bold text-orange-500 dark:text-orange-400">Top-tier</span> news coverage</>;
+                    if (index === 3) return <><span className="font-bold text-orange-500 dark:text-orange-400">Geographies</span> with media relations.</>;
+                    if (index === 4) return <><span className="font-bold text-orange-500 dark:text-orange-400">Influencers</span> engaged across sectors</>;
+                    if (index === 5) return <><span className="font-bold text-orange-500 dark:text-orange-400">Awards &amp; speakership</span> features</>;
                     return stat.description;
                   })()}
                 </span>

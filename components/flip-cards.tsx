@@ -99,7 +99,7 @@ export default function FlipCards() {
         >
           <span className="text-sm font-medium tracking-wider text-[#0a0a14]/60 dark:text-white/60 uppercase flex items-center justify-center">
             <span className="text-orange-500/70 mr-1">{"<"}</span>
-            Our Solutions
+            Our Expertise
             <span className="text-orange-500/70 ml-1">{" >"}</span>
           </span>
           <h2 className="mt-2 text-4xl md:text-5xl font-bold text-[#0a0a14] dark:text-white">What We Offer</h2>
@@ -157,7 +157,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
           </div>
           <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2`}>
-            <h3 className={`text-xl font-semibold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
+            <h3 className={`text-2xl font-light md:text-xl md:font-semibold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
           </div>
         </div>
         {/* Back of card */}
@@ -165,7 +165,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-1xl md:text-1xl text-center font-semibold leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
+          <p className={`text-2xl font-light md:text-1xl md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
         </div>
       </div>
     </div>
