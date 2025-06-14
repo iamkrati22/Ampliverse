@@ -52,14 +52,14 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex p-4 bg-black/80 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className={`relative w-full max-w-2xl rounded-lg border border-orange-500/20 backdrop-blur-md 
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl rounded-lg border border-orange-500/20 backdrop-blur-md 
               ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'bg-[#0a0a14]/90' : 'bg-white/90'}
             `}
             initial={{ scale: 0.9, opacity: 0 }}

@@ -138,7 +138,7 @@ export function Testimonials() {
                         src={testimonials[current].logo || "/placeholder.svg"}
                         alt={testimonials[current].company}
                         fill
-                        className="object-contain p-2"
+                        className={`object-contain p-2 ${testimonials[current].company === 'India Khelo Football' ? 'scale-125' : ''}`}
                       />
                     </div>
                   </div>

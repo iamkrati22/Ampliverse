@@ -77,7 +77,7 @@ export function Manifesto() {
               Upholding the highest standards of credibility, we help carve out
               distinction with{" "}
               <span className={`font-semibold underline underline-offset-4 ${resolvedTheme === 'light' ? 'text-orange-500/80 decoration-orange-200' : 'text-white decoration-orange-300/60'}`}>
-                spaces of authority and authenticity
+                spaces of authority and authenticity.
               </span>
             </p>
           </motion.div>

@@ -39,9 +39,9 @@ export function KeyPeople(): React.ReactElement {
     {
       id: 1,
       name: "Ridhima Bhasin",
-      role: "Founder",
+      role: "Founder & CEO",
       image: "/IMG_2506.JPG",
-      bio: "To Ridhima, communication isn't just a business function — it's the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
+      bio: "To Ridhima, communication isn't just a business functio, it's the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
       linkedin: "#",
     },
     {

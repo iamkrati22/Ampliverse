@@ -44,7 +44,7 @@ export function Footer() {
               />
             </div>
 
-            <p className="text-neutral-700 dark:text-white/60 mb-6 max-w-md text-justify">
+            <p className="text-neutral-700 dark:text-white/60 mb-6 max-w-md md:text-justify">
             We are a global communications advisory, fueling purposeful visibility for tomorrow's innovators. We are bridging the gap between purpose and performance through collaborative solutions that transform intent into impact and reach into results.
             </p>
             <div className="flex space-x-4">

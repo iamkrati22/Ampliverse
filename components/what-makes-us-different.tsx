@@ -32,7 +32,7 @@ const features = [
     id: 4,
     title: "Global & Local Media Network",
     description:
-      "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonance — ensuring your story gets heard, remembered, and acted upon.",
+      "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonanceensuring your story gets heard, remembered, and acted upon.",
     icon: <Globe className="h-8 w-8 text-neutral-900 dark:text-white" />,
   },
 ];

@@ -21,8 +21,8 @@ const services: ServiceCardProps[] = [
     imageSrc: "/service/Media Advisory 4.jpg",
     title: "Media advisory",
     description: "Customized and modular PR solutions for purposeful media engagements and crisis resilience.",
-    accent: "border-b-4 border-blue-200",
-    darkBg: "bg-[#181824]",
+    accent: "border-b-4 border-orange-200",
+    darkBg: "bg-[#241a16]",
     lightText: "text-[#0a0a14]",
     darkText: "text-white",
   },
@@ -153,7 +153,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
           style={{ zIndex: 2 }}
         >
           <div className="w-full h-[80%] relative">
-            <Image src={imageSrc} alt={title} fill className="object-cover w-full h-full" />
+            <Image src={imageSrc} alt={title} fill className={`object-cover w-full h-full${title === 'Strategic Partnerships' || title === 'Influencer Engagement' ? ' object-[center_30%]' : ''}`} />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
           </div>
           <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2`}>
@@ -165,7 +165,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-2xl font-light md:text-1xl md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
+          <p className={`text-lg md:text-xl lg:text-xl font-light md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
         </div>
       </div>
     </div>

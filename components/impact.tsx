@@ -39,7 +39,7 @@ export function Impact() {
     {
       value: 15,
       suffix: "+",
-      description: "Geographies with media relations.",
+      description: "Geographies with media relations",
       color: "from-red-500/10 to-red-600/5",
       borderColor: "border-red-500/20",
     },
@@ -147,7 +147,7 @@ export function Impact() {
                     <polygon points="0,100 100,0 100,100" fill={`url(#triangle-gradient-${index})`} />
                   </svg>
                 </div>
-                <span className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-2 z-10 ${highlightNumber ? 'text-orange-500' : (resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white')}`}>
+                <span className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-1 md:mb-2 z-10 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                   {isInView ? <>
                     <CountUp end={stat.value} separator="," duration={2.5} />
                     <span className="ml-1 align-baseline" style={{ fontSize: 'inherit', fontWeight: 'inherit' }}>{stat.suffix}</span>
@@ -159,7 +159,7 @@ export function Impact() {
                     if (index === 0) return <><span className="font-bold text-orange-500 dark:text-orange-400">Monthly reach</span> for partners</>;
                     if (index === 1) return <><span className="font-bold text-orange-500 dark:text-orange-400">News stories</span> delivered</>;
                     if (index === 2) return <><span className="font-bold text-orange-500 dark:text-orange-400">Top-tier</span> news coverage</>;
-                    if (index === 3) return <><span className="font-bold text-orange-500 dark:text-orange-400">Geographies</span> with media relations.</>;
+                    if (index === 3) return <><span className="font-bold text-orange-500 dark:text-orange-400">Geographies</span> with media relations</>;
                     if (index === 4) return <><span className="font-bold text-orange-500 dark:text-orange-400">Influencers</span> engaged across sectors</>;
                     if (index === 5) return <><span className="font-bold text-orange-500 dark:text-orange-400">Awards &amp; speakership</span> features</>;
                     return stat.description;

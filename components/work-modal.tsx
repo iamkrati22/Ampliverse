@@ -82,11 +82,13 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                 className="absolute inset-0 rounded-t-lg pointer-events-none"
                 style={{
                   background: resolvedTheme === 'light'
-                    ? 'rgba(30,30,30,0.65)'
-                    : 'rgba(10,10,20,0.82)'
+                    ? 'linear-gradient(to bottom, rgba(30,30,30,0.25) 0%, rgba(30,30,30,0.65) 60%, rgba(255,255,255,0.85) 100%)'
+                    : 'rgba(10,10,20,0.82)',
+                  boxShadow: resolvedTheme === 'light' ? '0 8px 32px 0 rgba(0,0,0,0.25)' : undefined
                 }}
                 aria-label={project.title}
               ></div>
+              <div className="absolute bottom-0 left-0 w-full h-24 rounded-b-lg pointer-events-none" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.0) 100%)'}} />
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="text-orange-400 text-sm mb-1 font-mono">
                   {"// "}
@@ -100,18 +102,20 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
               {project.topStories && project.topStories.length > 0 && (
                 <div className="mb-8">
                   <h3 className={`text-xl font-semibold mb-4 flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
-                    <span className="text-orange-500/70 mr-2 font-mono">{"<"}</span>
-                    Top Stories
-                    <span className="text-orange-500/70 ml-2 font-mono">{"/>"}</span>
+                    <span className="text-orange-500/70 mr-2 font-mono">{"<Top Stories>"}</span>
                   </h3>
                   <ul className="space-y-2">
                     {project.topStories.map((story, index) => (
                       <li key={index} className={`md:text-xl ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
-                        <span className="text-orange-500/70 mr-2 font-mono">→</span>
+                        <span className="mr-2 font-mono" aria-hidden="true">
+                          {/* Triangle SVG */}
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="text-orange-500/70 mt-1"><polygon points="6,0 12,12 0,12" /></svg>
+                        </span>
                         {story}
                       </li>
                     ))}
                   </ul>
+                  <span className="block mt-4 text-orange-500/70 font-mono">{"</Top Stories>"}</span>
                 </div>
               )}
 

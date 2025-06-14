@@ -6,12 +6,14 @@ import { Mail, Phone } from "lucide-react"
 import { WorldMap } from "@/components/world-map"
 import { ContactFormModal } from "@/components/contact-form-modal"
 import { useTheme } from "next-themes"
+import { useIsMobile } from "@/components/ui/use-mobile"
 
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { resolvedTheme } = useTheme()
+  const isMobile = useIsMobile()
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -78,7 +80,7 @@ export function Contact() {
               </p>
 
               <div className="flex flex-col items-center gap-y-6 mb-8 md:mb-12 md:items-start md:gap-y-0">
-                <div className="flex items-center justify-center md:justify-start">
+                <div className="flex items-center justify-center md:justify-start mb-6">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
                     <Mail className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
@@ -137,6 +139,64 @@ export function Contact() {
                 </motion.button>
               </div>
             </motion.div>
+            {/* Desktop/Web: Show form as section on right */}
+            {!isMobile && (
+              <div className={`p-4 md:p-5 bg-white dark:bg-[#0a0a14]/90 border border-neutral-200 dark:border-orange-500/20 shadow-xl rounded-lg flex flex-col justify-center`}>
+                <h2 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">Send us a message</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-white/70">Your Name</label>
+                    <div className="mt-1">
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formState.name}
+                        onChange={handleChange}
+                        className="shadow-sm block w-full sm:text-sm rounded-md h-10 focus:ring-orange-500/30 focus:border-orange-500/30 bg-white dark:bg-[#1a1a2e] border border-neutral-200 dark:border-[#2a2a40] text-neutral-900 dark:text-white"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-white/70">Email Address</label>
+                    <div className="mt-1">
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                        className="shadow-sm block w-full sm:text-sm rounded-md h-10 focus:ring-orange-500/30 focus:border-orange-500/30 bg-white dark:bg-[#1a1a2e] border border-neutral-200 dark:border-[#2a2a40] text-neutral-900 dark:text-white"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-white/70">Your Message</label>
+                    <div className="mt-1">
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={3}
+                        value={formState.message}
+                        onChange={handleChange}
+                        className="shadow-sm block w-full sm:text-sm rounded-md focus:ring-orange-500/30 focus:border-orange-500/30 bg-white dark:bg-[#1a1a2e] border border-neutral-200 dark:border-[#2a2a40] text-neutral-900 dark:text-white min-h-[80px]"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500/50 transition-colors"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-4 md:mt-8">
@@ -159,7 +219,7 @@ export function Contact() {
             </div>
           </motion.div>
         </div>
-        <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />
+        {isMobile && <ContactFormModal isOpen={isModalOpen} onClose={closeModal} />}
       </div>
     </section>
   );
