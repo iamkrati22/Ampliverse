@@ -37,7 +37,7 @@ export function Loader() {
   if (!isLoading) return null
 
   return (
-    <div className="fixed inset-0 bg-[#0a0a14] z-50 flex items-center justify-center">
+    <div className="w-[100vw] h-[100vh] fixed inset-0 bg-[#0a0a14] z-50 flex items-center justify-center">
       {/* Subtle animated grid background */}
       <div className="absolute inset-0 z-0 animate-loader-grid pointer-events-none" aria-hidden>
         <svg width="100%" height="100%" className="w-full h-full" style={{ opacity: 0.12 }}>
