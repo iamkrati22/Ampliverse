@@ -109,7 +109,7 @@ export function WhoWeAre() {
             aria-label="Our Promise"
           >
             <span className="underline underline-offset-8 decoration-2 decoration-orange-400">Our Promise</span>
-            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
           </a>
         </motion.div>
       </motion.div>

@@ -172,7 +172,7 @@ const MapChart = () => {
             fontSize="8"
             fontWeight="400"
             className="map-label"
-            fill={resolvedTheme === 'light' ? '#9ca3af' : '#a3a3a3'}
+            fill={resolvedTheme === 'light' ? '#505050' : '#a3a3a3'}
             style={{ pointerEvents: 'none', userSelect: 'none', textShadow: resolvedTheme === 'light' ? '0 1px 2px #fff' : '0 1px 2px #000' }}
           >
             {name}

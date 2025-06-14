@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import '../styles/typography.css';
 
+body{
+  overflow-x: hidden;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%; /* pure white */

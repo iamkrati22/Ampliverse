@@ -83,7 +83,7 @@ export function WhatMakesUsDifferent() {
         {/* Manifesto-style expandable cards for mobile, stepper+card for desktop */}
         <div className="w-full flex flex-col items-center justify-center gap-12">
           {/* Centered, large, premium intro line */}
-          <p className={`text-center text-3xl md:text-3xl font-light leading-snug mb-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}>
+          <p className={`text-center leading-[7vh] text-3xl md:text-3xl font-light leading-snug mb-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}>
             We're a team of go-getters, <span className="text-orange-500 font-semibold">redefining the attention economy</span> through bespoke strategies that align with business goals and <span className="font-semibold underline underline-offset-4 decoration-orange-300/60 text-neutral-900 dark:text-white">drive real outcomes.</span>
           </p>
           {/* Desktop: 4 large expandable cards in a single row */}
@@ -143,7 +143,7 @@ export function WhatMakesUsDifferent() {
                     <span className="w-8 h-8 flex items-center justify-center rounded-md bg-orange-500/10">
                       {feature.icon}
                     </span>
-                    <span className={`font-bold text-lg ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{feature.title}</span>
+                    <span className={`font-bold text-2xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>{feature.title}</span>
                   </span>
                   <span className={`transition-transform duration-300 ${activeFeature === idx ? 'text-orange-500' : 'text-neutral-400'}`}> 
                     {activeFeature === idx ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
@@ -152,7 +152,7 @@ export function WhatMakesUsDifferent() {
                 {activeFeature === idx && (
                   <div
                     id={`feature-desc-${idx}`}
-                    className={`mt-4 text-base leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+                    className={`mt-4 text-xl text-base leading-relaxed ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                   >
                     {feature.description}
                   </div>
