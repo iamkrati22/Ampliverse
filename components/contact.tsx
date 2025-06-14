@@ -113,7 +113,8 @@ export function Contact() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a
-                  href="#contact"
+                  target="_blank"
+                  href="https://calendly.com/ridhima-ampliverse/30min"
                   className="px-8 py-3 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 transition-colors text-center relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

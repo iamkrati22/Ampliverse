@@ -24,7 +24,8 @@ export function Testimonials() {
       company: "India Khelo Football",
       logo: "/IKF Logo.png",
       image: "/Hitesh Joshi Photo.jpg",
-      linkedin: "https://www.linkedin.com/in/hitesh-joshi-47649a43"
+      linkedin: "https://www.linkedin.com/in/hitesh-joshi-47649a43/",
+      company_link: 'https://indiakhelofootball.com/'
     },
     {
       id: 3,
@@ -35,7 +36,8 @@ export function Testimonials() {
       company: "InnovateX",
       logo: "/India Blockchain Week.jpg",
       image: "/India Blockchain Week.jpg",
-      linkedin: "https://www.linkedin.com/company/ibwofficial"
+      linkedin: "https://www.linkedin.com/company/ibwofficial",
+      company_link: 'https://indiablockchainweek.com/'
     },
   ]
 
@@ -133,12 +135,14 @@ export function Testimonials() {
                   >
                     <div className="absolute inset-0 rounded-full border-2 border-orange-500 pointer-events-none"></div>
                     <div className="relative w-20 h-20 mx-auto">
+                      <a href={testimonials[current].company_link} target="_blank">
                       <Image
                         src={testimonials[current].logo || "/placeholder.svg"}
                         alt={testimonials[current].company}
                         fill
                         className={`object-contain p-2 ${testimonials[current].company === 'India Khelo Football' ? 'scale-125' : ''}`}
                       />
+                      </a>
                     </div>
                   </div>
                 </div>

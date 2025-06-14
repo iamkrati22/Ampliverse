@@ -70,7 +70,8 @@ export function Footer() {
               </a>
               {/* LinkedIn */}
               <a
-                href="#"
+                target="_blank"
+                href="https://www.linkedin.com/company/ampliverse"
                 className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-[#1a1a2e] flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-[#2a2a40] transition-colors"
               >
                 <svg
@@ -92,7 +93,8 @@ export function Footer() {
               </a>
               {/* Instagram */}
               <a
-                href="#"
+                target="_blank"
+                href="https://www.instagram.com/theampliverse"
                 className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-[#1a1a2e] flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-[#2a2a40] transition-colors"
               >
                 <svg
@@ -114,7 +116,8 @@ export function Footer() {
               </a>
               {/* Twitter */}
               <a
-                href="#"
+                target="_blank"
+                href="https://x.com/Ampliverse_in"
                 className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-[#1a1a2e] flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-[#2a2a40] transition-colors"
               >
                 <svg
@@ -134,7 +137,8 @@ export function Footer() {
               </a>
               {/* Telegram */}
               <a
-                href="#"
+                target="_blank"
+                href="https://t.me/ridhima2010"
                 className="w-10 h-10 rounded-full bg-neutral-200 dark:bg-[#1a1a2e] flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-[#2a2a40] transition-colors"
                 aria-label="Telegram"
               >
@@ -210,7 +214,7 @@ export function Footer() {
             <a href="#" className="text-neutral-500 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-neutral-500 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white transition-colors">
+            <a target="_blank" href="Ampliverse_Terms_of_Service.pdf" className="text-neutral-500 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white transition-colors">
               Terms of Service
             </a>
           </div>

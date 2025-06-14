@@ -32,7 +32,7 @@ export function Manifesto() {
   };
 
   return (
-    <section ref={ref} className={`py-12 md:py-24 md:w-full relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
+    <section id="manifesto" ref={ref} className={`py-12 md:py-24 md:w-full relative overflow-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa] text-neutral-900' : 'bg-[#0a0a14] text-white'}`}>
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-4 md:mb-16"

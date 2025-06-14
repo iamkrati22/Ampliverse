@@ -145,7 +145,7 @@ export function Navbar() {
                 asChild
                 className="bg-orange-500 text-white hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 relative overflow-hidden group transition-colors"
               >
-                <Link href="#contact">
+                <Link target="_blank" href="https://calendly.com/ridhima-ampliverse/30min">
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                   Let's Talk
                 </Link>
@@ -215,7 +215,7 @@ export function Navbar() {
                   className="bg-orange-500 text-white hover:bg-orange-600 dark:bg-white dark:text-[#0a0a14] dark:hover:bg-orange-100 w-full mt-4 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Link href="#contact">Let's Talk</Link>
+                  <Link target="_blank" href="https://calendly.com/ridhima-ampliverse/30min">Let's Talk</Link>
                 </Button>
               </div>
             </motion.div>
