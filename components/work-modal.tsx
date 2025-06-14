@@ -106,7 +106,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                   </h3>
                   <ul className="space-y-2">
                     {project.topStories.map((story, index) => (
-                      <li key={index} className={`${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
+                      <li key={index} className={`md:text-xl ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} flex items-start`}>
                         <span className="text-orange-500/70 mr-2 font-mono">→</span>
                         {story}
                       </li>

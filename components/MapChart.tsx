@@ -10,109 +10,125 @@ import { useTheme } from "next-themes";
 
 const markers = [
   // India
-  { markerOffset: -15, name: "Punjab", coordinates: [75.5004841, 30.9293211] },
-  { markerOffset: 25, name: "Mumbai", coordinates: [72.8692035, 19.054999] },
-  { markerOffset: 25, name: "Delhi", coordinates: [77.1716954, 28.6273928] },
-  { markerOffset: 25, name: "Hyderabad", coordinates: [78.4740613, 17.360589] },
+  { markerOffsetX: 0, markerOffsetY: 0, name: "Punjab", coordinates: [75.5004841, 30.9293211] },
+  { markerOffsetX: -12.5, markerOffsetY: 10, name: "Mumbai", coordinates: [72.8692035, 19.054999] },
+  { markerOffsetX: -6, markerOffsetY: 10, name: "Delhi", coordinates: [77.1716954, 28.6273928] },
+  { markerOffsetX: 22.5, markerOffsetY: 0, name: "Hyderabad", coordinates: [78.4740613, 17.360589] },
   {
-    markerOffset: -15,
+    markerOffsetX: -15,
+    markerOffsetY: 7,
     name: "Bengaluru",
     coordinates: [77.590082, 12.9767936],
   },
-  { markerOffset: -15, name: "Kochi", coordinates: [76.2444378, 9.9679032] },
-  { markerOffset: 25, name: "Nagaland", coordinates: [94.5884911, 26.1630556] },
+  { markerOffsetX: 5, markerOffsetY: 18, name: "Kochi", coordinates: [76.2444378, 9.9679032] },
+  { markerOffsetX: 5, markerOffsetY: 0, name: "Nagaland", coordinates: [94.5884911, 26.1630556] },
   {
-    markerOffset: 25,
+    markerOffsetX: 35,
+    markerOffsetY: 9,
     name: "Ahemdabad",
     coordinates: [72.5800568, 23.0215374],
   },
 
   // USA
   {
-    markerOffset: -15,
+    markerOffsetX: 50,
+    markerOffsetY: 0,
     name: "New York City, NY",
     coordinates: [-74.0060152, 40.7127281],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 0,
+    markerOffsetY: -5,
     name: "San Francisco, CA",
     coordinates: [-122.4193286, 37.7792588],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 10,
+    markerOffsetY: 20,
     name: "Los Angeles, CA",
     coordinates: [-118.242766, 34.0536909],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 30,
+    markerOffsetY: 20,
     name: "Washington D.C.",
     coordinates: [-77.0365427, 38.8950368],
   },
 
   // SEA
   {
-    markerOffset: -15,
+    markerOffsetX: 0,
+    markerOffsetY: -3,
     name: "Singapore",
     coordinates: [103.8194992, 1.357107],
   },
-  { markerOffset: -15, name: "Thailand", coordinates: [100.83273, 14.8971921] },
+  { markerOffsetX: 0, markerOffsetY: 0, name: "Thailand", coordinates: [100.83273, 14.8971921] },
   {
-    markerOffset: -15,
+    markerOffsetX: 5,
+    markerOffsetY: -3,
     name: "Indonesia",
     coordinates: [117.8902853, -2.4833826],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 30,
+    markerOffsetY: 10,
     name: "Vietnam",
     coordinates: [107.9650855, 15.9266657],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 25,
+    markerOffsetY: 10,
     name: "Japan",
     coordinates: [139.2394179, 36.5748441],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 0,
+    markerOffsetY: 0,
     name: "South Korea",
     coordinates: [127.6961188, 36.638392],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 35,
+    markerOffsetY: 10,
     name: "Hong Kong",
     coordinates: [114.1849161, 22.350627],
   },
 
   // MENA
   {
-    markerOffset: -15,
-    name: "United Arab Emirates (UAE)",
+    markerOffsetX: 16,
+    markerOffsetY: 0,
+    name: "UAE",
     coordinates: [54.5, 23.75],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 2.5,
+    markerOffsetY: 20,
     name: "Saudi Arabia",
     coordinates: [44.3222148, 24.217621],
   },
-  { markerOffset: -15, name: "Qatar", coordinates: [51.2295295, 25.3336984] },
-  { markerOffset: -15, name: "Egypt", coordinates: [29.2675469, 26.2540493] },
-  { markerOffset: -15, name: "Israel", coordinates: [34.8594762, 30.8124247] },
+  { markerOffsetX: 5, markerOffsetY: 0, name: "Qatar", coordinates: [51.2295295, 25.3336984] },
+  { markerOffsetX: 5, markerOffsetY: 0, name: "Egypt", coordinates: [29.2675469, 26.2540493] },
+  { markerOffsetX: 5, markerOffsetY: 0, name: "Israel", coordinates: [34.8594762, 30.8124247] },
 
   // Europe
-  { markerOffset: -15, name: "Germany", coordinates: [10.4478313, 51.1638175] },
-  { markerOffset: -15, name: "France", coordinates: [1.8883335, 46.603354] },
+  { markerOffsetX: 30, markerOffsetY: 10, name: "Germany", coordinates: [10.4478313, 51.1638175] },
+  { markerOffsetX: -10, markerOffsetY: 10, name: "France", coordinates: [1.8883335, 46.603354] },
   {
-    markerOffset: -15,
+    markerOffsetX: -28,
+    markerOffsetY: 10,
     name: "United Kingdom",
     coordinates: [-3.2765753, 54.7023545],
   },
   {
-    markerOffset: -15,
+    markerOffsetX: 18,
+    markerOffsetY: 0,
     name: "Netherlands",
     coordinates: [5.6343227, 52.2434979],
   },
-  { markerOffset: -15, name: "Sweden", coordinates: [14.5208584, 59.6749712] },
-  { markerOffset: -15, name: "Spain", coordinates: [-4.8379791, 39.3260685] },
-  { markerOffset: -15, name: "Italy", coordinates: [12.674297, 42.6384261] },
+  { markerOffsetX: 10, markerOffsetY: 0, name: "Sweden", coordinates: [14.5208584, 59.6749712] },
+  { markerOffsetX: -8, markerOffsetY: 10, name: "Spain", coordinates: [-4.8379791, 39.3260685] },
+  { markerOffsetX: 20, markerOffsetY: 12, name: "Italy", coordinates: [12.674297, 42.6384261] },
 ];
 
 const MapChart = () => {
@@ -121,19 +137,17 @@ const MapChart = () => {
   const mapStroke = resolvedTheme === 'light' ? '#a7a3a38a' : undefined;
   return (
     <ComposableMap style={{ width: "95%", height: "auto" }}>
-      <Geographies geography="/map-features.json">
+      <Geographies geography="/map-features.json" style={{marginLeft: '1rem'}} transform="translate(6, 12)" >
         {({ geographies }: { geographies: any[] }) =>
           geographies.map((geo: any) => (
             <Geography
               key={geo.rsmKey}
               geography={geo}
-              className="rsm-geography"
-              style={{ outline: "none" }}
             />
           ))
         }
       </Geographies>
-      {markers.map(({ name, coordinates, markerOffset }) => (
+      {markers.map(({ name, coordinates, markerOffsetY, markerOffsetX }) => (
         <Marker key={name} coordinates={[coordinates[0], coordinates[1]]}>
           <svg
             width="2%"
@@ -152,7 +166,8 @@ const MapChart = () => {
             </g>
           </svg>
           <text
-            y={markerOffset}
+            y={markerOffsetY}
+            x={markerOffsetX}
             textAnchor="middle"
             fontSize="8"
             fontWeight="400"

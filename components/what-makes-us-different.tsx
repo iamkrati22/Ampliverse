@@ -59,7 +59,7 @@ export function WhatMakesUsDifferent() {
   return (
     <section
       ref={ref}
-      className={`py-24 w-full transition-colors duration-300 overflow-x-hidden ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+      className={`py-12 md:py-24 w-full transition-colors duration-300 overflow-x-hidden ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
     >
       <div className="container mx-auto px-4">
         {/* Heading centered above both columns */}
@@ -83,7 +83,7 @@ export function WhatMakesUsDifferent() {
         {/* Manifesto-style expandable cards for mobile, stepper+card for desktop */}
         <div className="w-full flex flex-col items-center justify-center gap-12">
           {/* Centered, large, premium intro line */}
-          <p className={`text-center text-3xl md:text-4xl font-light leading-snug max-w-4xl mx-auto mb-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}>
+          <p className={`text-center text-3xl md:text-3xl font-light leading-snug mb-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}>
             We're a team of go-getters, <span className="text-orange-500 font-semibold">redefining the attention economy</span> through bespoke strategies that align with business goals and <span className="font-semibold underline underline-offset-4 decoration-orange-300/60 text-neutral-900 dark:text-white">drive real outcomes.</span>
           </p>
           {/* Desktop: 4 large expandable cards in a single row */}
@@ -115,7 +115,7 @@ export function WhatMakesUsDifferent() {
                   {expanded && (
                     <div
                       id={`feature-desc-${idx}`}
-                      className={`mt-4 text-lg leading-relaxed w-full transition-all duration-300 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+                      className={`mt-4 md:text-xl leading-relaxed w-full transition-all duration-300 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                       style={{ minHeight: 100 }}
                     >
                       {feature.description}
@@ -162,8 +162,8 @@ export function WhatMakesUsDifferent() {
           </div>
         </div>
         {/* Discover our approach link - centered below the two columns */}
-        <div className="w-full flex flex-col gap-4 justify-center align-center mt-8">
-          <span className={`relative mx-auto text-center text-2xl md:text-4xl italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
+        <div className="w-full flex flex-col gap-4 justify-center align-center mt-16">
+          <span className={`relative mx-auto text-center text-2xl md:text-2xl italic font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : ''}`}>
               From&nbsp;
               <motion.span
                   initial={{ backgroundPositionX: 0 }}

@@ -84,9 +84,9 @@ export function KeyPeople(): React.ReactElement {
     <section
       id="people"
       ref={ref}
-      className={`py-24 relative overflow-x-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+      className={`py-12 md:py-24 relative overflow-x-hidden transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
     >
-      <div className="container mx-auto px-4 overflow-x-hidden">
+      <div className="container px-0 mx-auto md:px-4 overflow-x-hidden">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -254,7 +254,7 @@ export function KeyPeople(): React.ReactElement {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className={`w-full mx-auto p-10 md:p-12 mt-8 relative rounded-lg border transition-colors duration-300
+                className={`w-full mx-auto p-10 md:p-8 mt-8 relative rounded-lg border transition-colors duration-300
                   ${resolvedTheme === 'light'
                     ? 'bg-white border-neutral-200 shadow-xl'
                     : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl backdrop-blur-lg'}`}
@@ -302,7 +302,7 @@ export function KeyPeople(): React.ReactElement {
                   {"// "}
                   {activePerson.role}
                 </p>
-                <p className={`text-justify text-base sm:text-base ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
+                <p className={`text-justify md:text-xl text-base sm:text-base ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{activePerson.bio}</p>
                 <div className="font-mono text-orange-500/40 mt-3 text-xs sm:text-sm">
                   {"</"}
                   {activePerson.name}
