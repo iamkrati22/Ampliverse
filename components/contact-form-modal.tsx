@@ -52,14 +52,14 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/80 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl rounded-lg border border-orange-500/20 backdrop-blur-md 
+            className={`relative w-full max-w-2xl rounded-lg border border-orange-500/20 backdrop-blur-md mx-auto
               ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'bg-[#0a0a14]/90' : 'bg-white/90'}
             `}
             initial={{ scale: 0.9, opacity: 0 }}
@@ -143,7 +143,11 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500/50 transition-colors"
+                    className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium
+                      ${typeof window !== 'undefined' && document.documentElement.classList.contains('dark')
+                        ? 'text-orange-400 bg-transparent hover:bg-orange-500/10'
+                        : 'text-neutral-900 bg-transparent hover:bg-orange-100'}
+                    `}
                   >
                     Send Message
                   </button>

@@ -79,8 +79,8 @@ export function Contact() {
                 You've built something remarkable. Now, let's make sure the world notices it.
               </p>
 
-              <div className="flex flex-col items-center gap-y-6 mb-8 md:mb-12 md:items-start md:gap-y-0">
-                <div className="flex items-center justify-center md:justify-start mb-6">
+              <div className="flex flex-col items-start gap-y-6 mb-8 md:mb-12 md:items-start md:gap-y-0 w-full">
+                <div className="flex items-start justify-start w-full mb-6">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
                     <Mail className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
@@ -95,7 +95,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center md:justify-start">
+                <div className="flex items-start justify-start w-full">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 border ${resolvedTheme === 'light' ? 'bg-orange-500 border-orange-100' : 'bg-[#1a1a2e] border-orange-500/20'}`}>
                     <Phone className={`h-5 w-5 ${resolvedTheme === 'light' ? 'text-white' : 'text-orange-500'}`} />
                   </div>
@@ -137,6 +137,21 @@ export function Contact() {
                   </svg>
                   Connect on Whatsapp
                 </motion.button>
+                {/* Mobile only: Minimal Our Promise style button to open contact modal */}
+                {isMobile && (
+                  <motion.button
+                    onClick={openModal}
+                    className={`group mt-4 w-full flex items-center justify-center text-lg font-semibold py-3 transition-colors
+                      ${resolvedTheme === 'light' ? 'text-orange-500 bg-transparent' : 'text-orange-400 bg-transparent'}
+                    `}
+                    style={{ border: 'none', background: 'none', boxShadow: 'none' }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="underline underline-offset-8 decoration-2 decoration-orange-400">Send Us a Message</span>
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform">&gt;</span>
+                  </motion.button>
+                )}
               </div>
             </motion.div>
             {/* Desktop/Web: Show form as section on right */}

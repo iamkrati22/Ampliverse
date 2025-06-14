@@ -146,7 +146,7 @@ export function Testimonials() {
                 <blockquote className={`text-xl mb-6 relative z-10
                   ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                 >
-                  {truncateWords(testimonials[current].quote, 55)}
+                  {testimonials[current].quote}
                 </blockquote>
 
                 <div className="flex items-center mb-4">
