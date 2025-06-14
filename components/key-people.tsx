@@ -45,7 +45,7 @@ export function KeyPeople(): React.ReactElement {
       linkedin: "#",
     },
     {
-      id: 5,
+      id: 2,
       name: "Emily Boral",
       role: `Head Consultant Brand\n& Strategy`,
       image: "/Ejmily Boral.jpg",
@@ -69,7 +69,7 @@ export function KeyPeople(): React.ReactElement {
       linkedin: "#",
     },
     {
-      id: 2,
+      id: 5,
       name: "Tatiana Kazmina",
       role: "Creative Consultant",
       image: "/Tatiana.jpg",

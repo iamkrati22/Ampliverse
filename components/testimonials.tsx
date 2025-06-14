@@ -18,8 +18,7 @@ export function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      quote:
-        "It was an absolute delight collaborating with Ampliverse India. Their team's professionalism, creativity, and dedication to delivering top-notch results exceeded our expectations. What impressed us the most was their ability to provide exceptional value within our budget. Their strategic approach, meticulous planning, and flawless execution ensured that every rupee was well-spent, yielding impressive returns on our investment. If you're looking for a reliable, innovative, and results-driven PR partner, look no further than Ampliverse India.",
+      quote:"It was an absolute delight collaborating with Ampliverse India. Their team's professionalism, creativity, and dedication to delivering top-notch results exceeded our expectations. What impressed us the most was their ability to provide exceptional value within our budget. Their strategic approach, meticulous planning, and flawless execution ensured that every rupee was well-spent, yielding impressive returns on our investment. If you're looking for a reliable, innovative, and results-driven PR partner, look no further than Ampliverse India",
       author: "Hitesh Joshi",
       role: "Lead - Strategy & Partnerships",
       company: "India Khelo Football",
@@ -144,7 +143,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <blockquote className={`text-xl mb-6 relative z-10 line-clamp-7
+                <blockquote className={`text-xl mb-6 relative z-10
                   ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
                 >
                   {truncateWords(testimonials[current].quote, 55)}
