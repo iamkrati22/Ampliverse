@@ -206,7 +206,7 @@ export function KeyPeople(): React.ReactElement {
                             {person.name}
                           </h3>
                           <p className={`font-mono text-xl sm:text-xl mt-1 ${resolvedTheme === 'light' ? 'text-orange-500/80' : 'text-orange-500/80'}`}>{person.role}</p>
-                          <p className={`text-justify text-xl sm:text-base mt-2 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{person.bio}</p>
+                          <p className={`text-xl sm:text-base mt-2 md:text-justify ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>{person.bio}</p>
                           <a
                             href={person.linkedin}
                             target="_blank"
