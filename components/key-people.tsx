@@ -45,11 +45,11 @@ export function KeyPeople(): React.ReactElement {
       linkedin: "#",
     },
     {
-      id: 2,
-      name: "Tatiana Kazmina",
-      role: "Creative Consultant",
-      image: "/Tatiana.jpg",
-      bio: "With 16+ years of experience across production, marketing, and creative leadership, Tatiana Kazmina has helmed large-scale international projects across sport, media, and other sectors. She helps organizations find their voice through compelling narratives and design. Tatiana firmly believes in the power of storytelling to spark connections, drive impact, and inspire meaningful change.",
+      id: 5,
+      name: "Emily Boral",
+      role: `Head Consultant Brand\n& Strategy`,
+      image: "/Ejmily Boral.jpg",
+      bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
       linkedin: "#",
     },
     {
@@ -69,13 +69,14 @@ export function KeyPeople(): React.ReactElement {
       linkedin: "#",
     },
     {
-      id: 5,
-      name: "Emily Boral",
-      role: `Head Consultant Brand\n& Strategy`,
-      image: "/Ejmily Boral.jpg",
-      bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
+      id: 2,
+      name: "Tatiana Kazmina",
+      role: "Creative Consultant",
+      image: "/Tatiana.jpg",
+      bio: "With 16+ years of experience across production, marketing, and creative leadership, Tatiana Kazmina has helmed large-scale international projects across sport, media, and other sectors. She helps organizations find their voice through compelling narratives and design. Tatiana firmly believes in the power of storytelling to spark connections, drive impact, and inspire meaningful change.",
       linkedin: "#",
     },
+    
   ];
 
   const activePerson = people[activePersonId - 1];

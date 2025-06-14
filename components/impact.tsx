@@ -63,15 +63,17 @@ export function Impact() {
     <section ref={ref} className={`py-12 md:py-24 w-full relative overflow-hidden transition-colors duration-500 ${resolvedTheme === 'light' ? `bg-[${LIGHT_BG}]` : 'dark:bg-gradient-to-br dark:from-[#0f0f1a] dark:via-[#181824] dark:to-[#0a0a14]'}`}
       style={resolvedTheme === 'light' ? { backgroundColor: LIGHT_BG } : {}}>
       {/* Subtle grid background */}
-      <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none select-none z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <rect x="0" y="0" width="20" height="20" fill="none" />
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#888888" strokeWidth="1" opacity="0.32" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
+      {!(resolvedTheme === 'light' && typeof window !== 'undefined' && window.innerWidth < 768) && (
+        <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none select-none z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="20" height="20" fill="none" />
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#888888" strokeWidth="1" opacity="0.32" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      )}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-4 md:mb-16"
