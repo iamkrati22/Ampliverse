@@ -41,8 +41,8 @@ export function KeyPeople(): React.ReactElement {
       name: "Ridhima Bhasin",
       role: "Founder & CEO",
       image: "/IMG_2506.JPG",
-      bio: "To Ridhima, communication isn't just a business functio, it's the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
-      linkedin: "#",
+      bio: "To Ridhima, communication isn't just a business function, it's the force that drives impact. She has led strategic communication for global teams and high-stakes initiatives, from EU-funded innovation programs and diplomatic forums to fast-growing tech ecosystems. She founded Ampliverse to help businesses earn credibility through clarity, creativity, and meaningful collaboration.",
+      linkedin: "https://www.linkedin.com/in/ridhima-bhasin/",
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export function KeyPeople(): React.ReactElement {
       role: `Head Consultant Brand\n& Strategy`,
       image: "/Ejmily Boral.jpg",
       bio: "With over 18 years in media and marketing, she blends strategic insight with creative execution to build brands that resonate and grow. Her work spans inbound marketing, brand positioning, and impactful campaigns across sectors. An entrepreneur and storyteller at heart, she helps businesses drive meaningful engagement and lasting impact through strategy and communication.",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/emily-boral/",
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ export function KeyPeople(): React.ReactElement {
       role: "Business Strategy\nConsultant",
       image: "/Srishti Verma.png",
       bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors,  Sristhi  brings deep cross-sector expertise and a relentless drive for impact. She optimizes green tech operations while engaging in community development initiatives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/sristhi-verma-b196a035/",
     },
     {
       id: 5,
@@ -74,7 +74,7 @@ export function KeyPeople(): React.ReactElement {
       role: "Creative Consultant",
       image: "/Tatiana.jpg",
       bio: "With 16+ years of experience across production, marketing, and creative leadership, Tatiana Kazmina has helmed large-scale international projects across sport, media, and other sectors. She helps organizations find their voice through compelling narratives and design. Tatiana firmly believes in the power of storytelling to spark connections, drive impact, and inspire meaningful change.",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/tatyanakazmina/",
     },
     
   ];
@@ -193,7 +193,7 @@ export function KeyPeople(): React.ReactElement {
                             <div className="pointer-events-none absolute inset-0 border border-white/5 rounded-lg" style={{top:16,left:16,right:16,bottom:16}} />
                           </>
                         )}
-                        <div className="flex flex-col items-center gap-3">
+                        <div className="flex flex-col items-center gap-3 relative">
                           <div className="aspect-square w-32 rounded-full overflow-hidden relative border-4 border-white/10 shadow-xl mb-2">
                             <Image
                               src={person.image || "/placeholder.svg"}
@@ -211,21 +211,12 @@ export function KeyPeople(): React.ReactElement {
                             href={person.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-2 w-8 h-8 rounded-lg flex items-center justify-center group"
+                            className="absolute top-2 right-2 w-10 h-10 flex items-center justify-center bg-transparent hover:text-orange-500 transition-colors mr-2 mt-2"
                             aria-label={`LinkedIn profile of ${person.name}`}
                           >
-                            <svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 32 32"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
-                                fill="white"
-                                className="transition-colors duration-200 group-hover:fill-[#f97316]"
-                              />
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M27 4H5C4.44772 4 4 4.44772 4 5V27C4 27.5523 4.44772 28 5 28H27C27.5523 28 28 27.5523 28 27V5C28 4.44772 27.5523 4 27 4Z" fill="none"/>
+                              <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z" fill="currentColor"/>
                             </svg>
                           </a>
                         </div>
@@ -275,24 +266,15 @@ export function KeyPeople(): React.ReactElement {
                   href={activePerson.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-4 right-4 w-9 h-9 rounded-lg items-center justify-center group hidden lg:flex"
+                  className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center bg-transparent hover:text-orange-500 transition-colors mr-2 mt-2"
                   aria-label={`LinkedIn profile of ${activePerson.name}`}
                 >
-                  <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
-                      fill="white"
-                      className="transition-colors duration-200 group-hover:fill-[#f97316]"
-                    />
+                  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27 4H5C4.44772 4 4 4.44772 4 5V27C4 27.5523 4.44772 28 5 28H27C27.5523 28 28 27.5523 28 27V5C28 4.44772 27.5523 4 27 4Z" fill="none"/>
+                    <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z" fill="currentColor"/>
                   </svg>
                 </a>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1 relative">
                   <h3 className={`text-lg sm:text-xl md:text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
                     <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
                     {activePerson.name}
