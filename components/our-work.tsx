@@ -165,8 +165,8 @@ export function OurWork() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 z-30" />
-                <CarouselNext className="right-2 top-1/2 -translate-y-1/2 z-30" />
+                <CarouselPrevious className="block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-transparent text-white flex items-center justify-center p-0 hover:text-orange-500 transition-colors pl-2" />
+                <CarouselNext className="block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-transparent text-white flex items-center justify-center p-0 hover:text-orange-500 transition-colors pr-2" />
               </Carousel>
             </div>
             {/* Desktop grid */}

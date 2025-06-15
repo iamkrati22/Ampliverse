@@ -157,7 +157,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
           </div>
           <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2`}>
-            <h3 className={`text-2xl font-light md:text-xl md:font-semibold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
+            <h3 className={`text-2xl font-bold md:text-xl md:font-bold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
           </div>
         </div>
         {/* Back of card */}

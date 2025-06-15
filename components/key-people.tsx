@@ -156,20 +156,20 @@ export function KeyPeople(): React.ReactElement {
               {emblaApi && (
                 <>
                   <button
-                    className="block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-black/70 text-white rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors pl-2"
+                    className="block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-transparent text-white flex items-center justify-center p-0 hover:text-orange-500 transition-colors pl-2"
                     onClick={() => emblaApi.scrollPrev()}
                     aria-label="Previous slide"
-                    style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}
+                    style={{}}
                   >
-                    <ChevronLeft className="w-6 h-6" />
+                    <ChevronLeft className="w-8 h-8 font-bold" strokeWidth={3} />
                   </button>
                   <button
-                    className="block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-black/70 text-white rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors pr-2"
+                    className="block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-transparent text-white flex items-center justify-center p-0 hover:text-orange-500 transition-colors pr-2"
                     onClick={() => emblaApi.scrollNext()}
                     aria-label="Next slide"
-                    style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}
+                    style={{}}
                   >
-                    <ChevronRight className="w-6 h-6" />
+                    <ChevronRight className="w-8 h-8 font-bold" strokeWidth={3} />
                   </button>
                 </>
               )}
