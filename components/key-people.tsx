@@ -211,12 +211,15 @@ export function KeyPeople(): React.ReactElement {
                             href={person.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="absolute top-2 right-2 w-10 h-10 flex items-center justify-center bg-transparent hover:text-orange-500 transition-colors mr-2 mt-2"
+                            className={`w-8 h-8 flex items-center justify-center rounded-md ml-1 transition-colors
+                              ${resolvedTheme === 'light' ? 'bg-neutral-200 hover:bg-neutral-300' : 'bg-white/10 hover:bg-orange-500'}
+                            `}
                             aria-label={`LinkedIn profile of ${person.name}`}
                           >
-                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M27 4H5C4.44772 4 4 4.44772 4 5V27C4 27.5523 4.44772 28 5 28H27C27.5523 28 28 27.5523 28 27V5C28 4.44772 27.5523 4 27 4Z" fill="none"/>
-                              <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z" fill="currentColor"/>
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
+                              <rect width="32" height="32" rx="6" fill="none" />
+                              <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
+                              fill="#fff" />
                             </svg>
                           </a>
                         </div>
@@ -261,27 +264,27 @@ export function KeyPeople(): React.ReactElement {
                     <div className="pointer-events-none absolute inset-0 border border-white/5 rounded-lg" style={{top:16,left:16,right:16,bottom:16}} />
                   </>
                 )}
-                {/* LinkedIn icon in top-right */}
-                <a
-                  href={activePerson.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center bg-transparent hover:text-orange-500 transition-colors mr-2 mt-2"
-                  aria-label={`LinkedIn profile of ${activePerson.name}`}
-                >
-                  <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M27 4H5C4.44772 4 4 4.44772 4 5V27C4 27.5523 4.44772 28 5 28H27C27.5523 28 28 27.5523 28 27V5C28 4.44772 27.5523 4 27 4Z" fill="none"/>
-                    <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z" fill="currentColor"/>
-                  </svg>
-                </a>
                 <div className="flex items-center gap-2 mb-1 relative">
-                  <h3 className={`text-lg sm:text-xl md:text-2xl font-bold ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
+                  <h3 className={`text-lg sm:text-xl md:text-2xl font-bold flex items-center ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}> 
                     <span className="text-orange-500/60 mr-1 font-mono">{"<"}</span>
                     {activePerson.name}
-                    <span className="text-orange-500/60 ml-1 font-mono">
-                      {">"}
-                    </span>
+                    <span className="text-orange-500/60 ml-1 font-mono">{">"}</span>
                   </h3>
+                  <a
+                    href={activePerson.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-8 h-8 flex items-center justify-center rounded-md ml-1 transition-colors
+                      ${resolvedTheme === 'light' ? 'bg-neutral-200 hover:bg-neutral-300' : 'bg-white/10 hover:bg-orange-500'}
+                    `}
+                    aria-label={`LinkedIn profile of ${activePerson.name}`}
+                  >
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
+                      <rect width="32" height="32" rx="6" fill="none" />
+                      <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
+                      fill="#fff" />
+                    </svg>
+                  </a>
                 </div>
                 <p className={`mb-3 font-mono text-xs sm:text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>
                   {"// "}
