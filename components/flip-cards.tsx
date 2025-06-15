@@ -165,7 +165,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-lg md:text-xl lg:text-xl font-light md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
+          <p className={`text-lg md:text-xl lg:text-xl font-bold md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
         </div>
       </div>
     </div>

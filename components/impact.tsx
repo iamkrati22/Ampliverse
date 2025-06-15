@@ -158,7 +158,7 @@ export function Impact() {
                 <span className={`block text-base xs:text-lg sm:text-xl md:text-1xl font-normal leading-tight md:leading-normal z-10 ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/70'}`}>
                   {(() => {
                     // Custom highlight for each stat
-                    if (index === 0) return <><span className="font-bold text-orange-500 dark:text-orange-400">Monthly reach</span> for partners</>;
+                    if (index === 0) return <><span className="font-bold text-orange-500 dark:text-orange-400">Monthly reach</span><span className="block md:inline"> for partners</span></>;
                     if (index === 1) return <><span className="font-bold text-orange-500 dark:text-orange-400">News stories</span> delivered</>;
                     if (index === 2) return <><span className="font-bold text-orange-500 dark:text-orange-400">Top-tier</span> news coverage</>;
                     if (index === 3) return <><span className="font-bold text-orange-500 dark:text-orange-400">Geographies</span> with media relations</>;
