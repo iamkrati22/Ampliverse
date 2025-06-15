@@ -18,7 +18,7 @@ export function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      quote:"It was an absolute delight collaborating with Ampliverse India. Their team's professionalism, creativity, and dedication to delivering top-notch results exceeded our expectations. What impressed us the most was their ability to provide exceptional value within our budget. Their strategic approach, meticulous planning, and flawless execution ensured that every rupee was well-spent, yielding impressive returns on our investment. If you're looking for a reliable, innovative, and results-driven PR partner, look no further than Ampliverse India",
+      quote:"It was an absolute delight collaborating with Ampliverse India. Their team's professionalism, creativity, and dedication to delivering top-notch results exceeded our expectations. What impressed us the most was their ability to provide exceptional value within our budget. Their strategic approach, meticulous planning, and flawless execution ensured that every rupee was well-spent, yielding impressive returns on our investment. If you're looking for a reliable, innovative, and results-driven PR partner, look no further than Ampliverse India.",
       author: "Hitesh Joshi",
       role: "Lead - Strategy & Partnerships",
       company: "India Khelo Football",
@@ -101,11 +101,11 @@ export function Testimonials() {
           <div className="max-w-screen-2xl w-full mx-auto relative flex items-center justify-center">
             <button
               onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-neutral-200 dark:bg-[#1a1a2e] rounded-full p-2 shadow-md text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center"
               aria-label="Previous testimonial"
               style={{ transform: 'translateY(-50%)' }}
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-8 w-8 font-bold" strokeWidth={3} />
             </button>
 
             <AnimatePresence mode="wait">
@@ -191,11 +191,11 @@ export function Testimonials() {
 
             <button
               onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-neutral-200 dark:bg-[#1a1a2e] rounded-full p-2 shadow-md text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center"
               aria-label="Next testimonial"
               style={{ transform: 'translateY(-50%)' }}
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-8 w-8 font-bold" strokeWidth={3} />
             </button>
           </div>
 

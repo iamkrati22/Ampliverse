@@ -91,7 +91,7 @@ export function WhoWeAre() {
             <span className="uppercase text-xs font-semibold tracking-widest text-orange-500/90">Our Approach</span>
           </div>
           <blockquote className="text-center text-2xl md:text-3xl font-light leading-snug mb-4 mt-2 px-2 md:px-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}">
-            Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling messaging that reaches the last-mile.
+            Grounded in insight, our advisory blends strategic clarity with creative depth, distilling complexity into clear and compelling <span className={`font-semibold underline underline-offset-4 decoration-orange-400`}>messaging that reaches the last mile</span>.
           </blockquote>
           <hr className={`w-full border-t mb-3 ${resolvedTheme === 'light' ? 'border-neutral-200' : 'border-white/10'}`} />
           <span className={`text-base italic flex items-center gap-2 mb-6 ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/50'}`}><span className="w-8 h-1 bg-orange-500 inline-block rounded mr-2" /> Ampliverse Team</span>

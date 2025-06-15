@@ -157,7 +157,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
           </div>
           <div className={`w-full flex-1 flex flex-col items-center justify-center px-2 pt-2`}>
-            <h3 className={`text-2xl font-light md:text-xl md:font-semibold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
+            <h3 className={`text-2xl font-bold md:text-xl md:font-bold text-center ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{title}</h3>
           </div>
         </div>
         {/* Back of card */}
@@ -165,7 +165,7 @@ function ServiceCard({ imageSrc, title, description, accent, darkBg, lightText, 
           className={`absolute w-full h-full border border-border rounded-xl flex flex-col items-center justify-center px-6 py-8 backface-hidden transition-all duration-300 ${cardBg} ${isFlipped ? 'shadow-2xl' : ''}`}
           style={{ zIndex: 3, transform: 'rotateY(180deg)' }}
         >
-          <p className={`text-lg md:text-xl lg:text-xl font-light md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
+          <p className={`text-lg md:text-xl lg:text-xl font-bold md:font-semibold text-center leading-relaxed ${resolvedTheme === 'dark' ? 'text-white' : 'text-[#0a0a14]'}`}>{description}</p>
         </div>
       </div>
     </div>

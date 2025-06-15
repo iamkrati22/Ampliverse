@@ -32,7 +32,7 @@ const features = [
     id: 4,
     title: "Global & Local Media Network",
     description:
-      "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonanceensuring your story gets heard, remembered, and acted upon.",
+      "With a network across 15+ global geographies, we create media strategies that strike the right balance between global relevance and local resonance ensuring your story gets heard, remembered, and acted upon.",
     icon: <Globe className="h-8 w-8 text-neutral-900 dark:text-white" />,
   },
 ];
@@ -59,7 +59,7 @@ export function WhatMakesUsDifferent() {
   return (
     <section
       ref={ref}
-      className={`py-12 md:py-24 w-full transition-colors duration-300 overflow-x-hidden ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
+      className={`py-12 md:py-24 w-full transition-colors duration-300 overflow-x-hidden bg-[#faf9f6] dark:bg-gradient-to-br dark:from-[#0f0f1a] dark:via-[#181824] dark:to-[#0a0a14] bg-noise`}
     >
       <div className="container mx-auto px-4">
         {/* Heading centered above both columns */}

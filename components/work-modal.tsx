@@ -83,14 +83,14 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                 style={{
                   background: resolvedTheme === 'light'
                     ? 'linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 100%)'
-                    : 'rgba(10,10,20,0.82)',
+                    : 'linear-gradient(to bottom, rgba(10,10,20,0.92) 0%, rgba(10,10,20,0.85) 100%)',
                   boxShadow: resolvedTheme === 'light' ? '0 8px 32px 0 rgba(0,0,0,0.25)' : undefined
                 }}
                 aria-label={project.title}
               ></div>
-              <div className="absolute bottom-0 left-0 w-full h-24 rounded-b-lg pointer-events-none" style={{background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.0) 100%)'}} />
+              <div className="absolute bottom-0 left-0 w-full h-24 rounded-b-lg pointer-events-none" style={{background: resolvedTheme === 'light' ? 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.0) 100%)' : 'linear-gradient(to top, rgba(10,10,20,0.92) 0%, rgba(10,10,20,0.0) 100%)'}} />
               <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-orange-400 text-sm mb-1 font-mono">
+                <p className={`text-orange-400 text-sm mb-1 font-mono`}>
                   {"// "}
                   {project.subtitle}
                 </p>
