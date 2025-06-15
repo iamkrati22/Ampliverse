@@ -62,20 +62,21 @@ export function KeyPeople(): React.ReactElement {
     },
     {
       id: 4,
-      name: "Sristhi Verma",
-      role: "Business Strategy\nConsultant",
-      image: "/Srishti Verma.png",
-      bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors,  Sristhi  brings deep cross-sector expertise and a relentless drive for impact. She optimizes green tech operations while engaging in community development initiatives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
-      linkedin: "https://www.linkedin.com/in/sristhi-verma-b196a035/",
-    },
-    {
-      id: 5,
       name: "Tatiana Kazmina",
       role: "Creative Consultant",
       image: "/Tatiana.jpg",
       bio: "With 16+ years of experience across production, marketing, and creative leadership, Tatiana Kazmina has helmed large-scale international projects across sport, media, and other sectors. She helps organizations find their voice through compelling narratives and design. Tatiana firmly believes in the power of storytelling to spark connections, drive impact, and inspire meaningful change.",
       linkedin: "https://www.linkedin.com/in/tatyanakazmina/",
     },
+    {
+      id: 5,
+      name: "Sristhi Verma",
+      role: "Business Strategy\nConsultant",
+      image: "/Srishti Verma.png",
+      bio: "With a diverse entrepreneurial journey across ITES, wellness, and hospitality sectors,  Sristhi  brings deep cross-sector expertise and a relentless drive for impact. She optimizes green tech operations while engaging in community development initiatives. For her, meaningful impact lies in the simplest of ideas that are designed thoughtfully and scaled smartly.",
+      linkedin: "https://www.linkedin.com/in/sristhi-verma-b196a035/",
+    },
+   
     
   ];
 
