@@ -19,7 +19,7 @@ export function OurWork() {
   const projects = [
     {
       id: 1,
-      title: "Introducing Masses to the Web3 Revolution  ",
+      title: "Introducing Masses to the Web3 Revolution",
       subtitle: "Tech Conference & Event PR",
       image: "/India Blockchain Week.png",
       overview:
@@ -29,12 +29,30 @@ export function OurWork() {
         { title: "Media Kit", url: "#" },
       ],
       topStories: [
-        "Gadgets 360 by NDTV - India Blockchain Week to Return for Second Edition: All Details",
-        "The Economic Times - Can India become the next global hub for Web3 development?",
-        "The Hindu Business Line - India's Web3 start-ups surge, get $462 million in first 9 months of 2024: Report",
-        "Cointelegraph - India's Web3 dominance fueled by 1K startups, global investments, dev talent",
-        "Moneycontrol - Web3, crypto regulatory proposals take centre stage at India Blockchain Week",
-        "Businessworld - Top Leaders Hail India As Web3 Powerhouse, But Urge Regulatory Clarity"
+        {
+          text: "Gadgets 360 by NDTV",
+          url: "https://www.gadgets360.com/cryptocurrency/news/india-blockchain-week-second-edition-hashed-emergent-6811586"
+        },
+        {
+          text: "The Economic Times",
+          url: "https://economictimes.indiatimes.com/opinion/et-commentary/can-india-become-the-next-global-hub-for-web3-development/articleshow/115149867.cms?from=mdr"
+        },
+        {
+          text: "The Hindu Business Line",
+          url: "https://www.thehindubusinessline.com/info-tech/indias-web3-start-ups-surge-get-462-million-in-first-9-months-of-2024-report/article68969503.ece"
+        },
+        {
+          text: "Cointelegraph",
+          url: "https://cointelegraph.com/news/india-web3-startup-ecosystem-2024"
+        },
+        {
+          text: "Moneycontrol",
+          url: "https://www.moneycontrol.com/technology/web3-crypto-regulatory-proposals-take-centre-stage-at-india-blockchain-week-article-12883438.html"
+        },
+        {
+          text: "Businessworld",
+          url: "https://www.businessworld.in/article/top-leaders-hail-india-as-web3-powerhouse-but-urge-regulatory-clarity-541352"
+        },
       ]
     },
     {
@@ -49,10 +67,30 @@ export function OurWork() {
         { title: "Case Study", url: "#" },
       ],
       topStories: [
-        "Spotlighting grassroots football talent across India",
-        "Regular features in top Indian sports media",
-        "300M+ reach per activation",
-        "200+ media stories over 3 years"
+        {
+          text: "ANI",
+          url: "https://www.aninews.in/news/sports/football/india-khelo-football-starts-national-trials-to-enhance-grassroots-of-indian-football-in-100-cities20240723181344/"
+        },
+        {
+          text: "The Hindu",
+          url: "https://www.thehindu.com/sport/football/india-khelo-football-hosts-premier-league-scouts-in-india-via-prosoccer-globals-workshop/article66039903.ece"
+        },
+        {
+          text: "Times Now",
+          url: "https://www.timesnownews.com/sports/football/where-talent-meets-opportunity-ikf-set-to-bridge-the-gap-between-grassroots-professional-football-in-india-article-94652665"
+        },
+        {
+          text: "First Post",
+          url: "https://www.firstpost.com/sports/football-news/india-khelo-football-hosts-premier-league-scouts-in-india-11525211.html"
+        },
+        {
+          text: "SportsKeeda",
+          url: "https://www.sportskeeda.com/indian-football/news-from-ladakh-andaman-india-khelo-football-s-crusade-democratize-grassroots-structure-country"
+        },
+        {
+          text: "SportStar",
+          url: "https://sportstar.thehindu.com/other-sports/indian-sports-news-wrap-october-13-results-highlights-scores-updates/article66005276.ece"
+        },
       ]
     },
    
@@ -68,10 +106,34 @@ export function OurWork() {
         { title: "Media Coverage", url: "#" },
       ],
       topStories: [
-        "450+ media stories over 3 years",
-        "Front-page coverage in national business outlets",
-        "Successful Blue Carpet Night PR campaign",
-        "Spotlighting European technologies in India"
+        {
+          text: "The Times of India",
+          url: "https://timesofindia.indiatimes.com/business/india-business/eu-india-innocentres-8th-cohort-showcases-cutting-edge-technologies-in-bengaluru/articleshow/105239470.cms"
+        },
+        {
+          text: "The Economic Times",
+          url: "https://m.economictimes.com/news/india/eu-india-innocenter-joins-european-and-indian-startup-stakeholders-india-key-for-global-expansion/articleshow/105181111.cms"
+        },
+        {
+          text: "The New Indian Express",
+          url: "https://www.newindianexpress.com/nation/2023/Mar/09/european-startups-enthused-by-indias-sustainability-pusheu-india-innocenter-project-head-2554489.html"
+        },
+        {
+          text: "The Hindu",
+          url: "https://www.thehindu.com/news/cities/bangalore/eu-india-innocenter-extends-market-entry-services-for-indian-start-ups-looking-to-explore-the-european-market/article67517014.ece"
+        },
+        {
+          text: "Entrepreneur India",
+          url: "https://www.entrepreneur.com/en-in/news-and-trends/european-startups-to-display-tech-innovation-in-bengaluru/439183"
+        },
+        {
+          text: "Telangana Today",
+          url: "https://telanganatoday.com/eu-india-innocenter-hosts-8-high-impact-european-tech-startups-at-t-hub"
+        },
+        {
+          text: "Tech Circle",
+          url: "https://www.techcircle.in/2023/05/17/how-this-eu-funded-initiative-is-helping-european-startups-enter-india/"
+        },
       ]
     },
   ]
@@ -149,7 +211,7 @@ export function OurWork() {
                             {/* Show a preview of top stories */}
                             <ul className="mb-4">
                               {project.topStories.slice(0, 2).map((story, i) => (
-                                <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story}</li>
+                                <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story.text}</li>
                               ))}
                             </ul>
                             <motion.button
@@ -165,8 +227,8 @@ export function OurWork() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 z-30" />
-                <CarouselNext className="right-2 top-1/2 -translate-y-1/2 z-30" />
+                <CarouselPrevious className="left-[-7vw] top-1/2 -translate-y-1/2 z-30" />
+                <CarouselNext className="right-[-7vw] top-1/2 -translate-y-1/2 z-30" />
               </Carousel>
             </div>
             {/* Desktop grid */}
@@ -203,7 +265,7 @@ export function OurWork() {
                       {/* Show a preview of top stories */}
                       <ul className="mb-4">
                         {project.topStories.slice(0, 2).map((story, i) => (
-                          <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story}</li>
+                          <li key={i} className={`text-sm leading-snug ${resolvedTheme === 'light' ? 'text-neutral-700' : 'text-white/80'} truncate`}>• {story.text}</li>
                         ))}
                       </ul>
                       <motion.button

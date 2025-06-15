@@ -4,7 +4,7 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -216,7 +216,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <span className="h-4 w-4">&lt;</span>
+      <ChevronLeft className="w-6 h-6" />
       {/* <ArrowLeft className="h-4 w-4" /> */}
       <span className="sr-only">Previous slide</span>
     </Button>
@@ -246,7 +246,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <span className="h-4 w-4">&gt;</span>
+      <ChevronRight className="w-6 h-6" />
       {/* <ArrowRight className="h-4 w-4" /> */}
       <span className="sr-only">Next slide</span>
     </Button>

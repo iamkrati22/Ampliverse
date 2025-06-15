@@ -155,7 +155,7 @@ export function KeyPeople(): React.ReactElement {
               {emblaApi && (
                 <>
                   <button
-                    className="block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-black/70 text-white rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors pl-2"
+                    className={`block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
                     onClick={() => emblaApi.scrollPrev()}
                     aria-label="Previous slide"
                     style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}
@@ -163,7 +163,7 @@ export function KeyPeople(): React.ReactElement {
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
-                    className="block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-black/70 text-white rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors pr-2"
+                    className={`block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}
                     onClick={() => emblaApi.scrollNext()}
                     aria-label="Next slide"
                     style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}

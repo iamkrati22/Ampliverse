@@ -16,7 +16,7 @@ interface WorkModalProps {
     overview: string
     links: { title: string; url: string }[]
     subtitle: string
-    topStories?: string[]
+    topStories?: {text: string, url:string}[]
   } | null
 }
 
@@ -111,7 +111,7 @@ export function WorkModal({ isOpen, onClose, project }: WorkModalProps) {
                           {/* Triangle SVG */}
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" className="text-orange-500/70 mt-1"><polygon points="6,0 12,12 0,12" /></svg>
                         </span>
-                        {story}
+                        <a href={story.url} target="_blank">{story.text}</a>
                       </li>
                     ))}
                   </ul>
