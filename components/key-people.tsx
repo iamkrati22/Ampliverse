@@ -136,7 +136,7 @@ export function KeyPeople(): React.ReactElement {
                       src={person.image || "/placeholder.svg"}
                       alt={person.name}
                       fill
-                      className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-500 ${person.id === 3 ? "object-top" : ""}`}
+                      className={`object-cover${person.id === 3 ? ' object-top' : ''} grayscale group-hover:grayscale-0 transition-all duration-500`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -199,7 +199,7 @@ export function KeyPeople(): React.ReactElement {
                               src={person.image || "/placeholder.svg"}
                               alt={person.name}
                               fill
-                              className={`object-cover ${person.id === 3 ? "object-top" : ""}`}
+                              className={`object-cover${person.id === 3 ? ' object-top' : ''}`}
                             />
                           </div>
                           <h3 className={`text-xl sm:text-xl font-bold flex items-center justify-center gap-1 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
