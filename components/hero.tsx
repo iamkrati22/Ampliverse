@@ -181,7 +181,7 @@ export function Hero() {
         </motion.div>
 
         {/* Scroll Indicator */}
-        {/* <motion.div
+        <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center"
           style={{ opacity: indicatorOpacity }}
           initial={{ opacity: 0 }}
@@ -198,10 +198,10 @@ export function Hero() {
           >
             <ChevronDown className="h-8 w-8 text-white/70" />
           </motion.div>
-          <span className="mt-2 text-base text-white/70 tracking-wide font-medium">
+          {/* <span className="mt-2 text-base text-white/70 tracking-wide font-medium">
             Scroll down to explore
-          </span>
-        </motion.div> */}
+          </span> */}
+        </motion.div>
       </section>
     </>
   );

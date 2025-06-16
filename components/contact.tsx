@@ -76,7 +76,7 @@ export function Contact() {
               transition={{ duration: 0.8 }}
             >
               <p className={`text-3xl md:text-3xl mb-12 font-light leading-snug max-w-4xl ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}>
-                You've built something remarkable. Now, let's make sure the world notices it.
+                You’ve built something remarkable, let’s make sure the world knows.
               </p>
 
               <div className="flex flex-col items-start gap-y-6 mb-8 md:mb-12 md:items-start md:gap-y-0 w-full">

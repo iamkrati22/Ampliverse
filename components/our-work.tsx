@@ -227,8 +227,8 @@ export function OurWork() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-[-7vw] top-1/2 -translate-y-1/2 z-30" />
-                <CarouselNext className="right-[-7vw] top-1/2 -translate-y-1/2 z-30" />
+                <CarouselPrevious className="absolute left-[-7vw] top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center" />
+                <CarouselNext className="absolute right-[-7vw] top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center" />
               </Carousel>
             </div>
             {/* Desktop grid */}

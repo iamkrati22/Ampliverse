@@ -156,20 +156,20 @@ export function KeyPeople(): React.ReactElement {
               {emblaApi && (
                 <>
                   <button
-                    className={`block md:hidden absolute left-0 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]/50' : 'bg-[#0a0a14]/50'}`}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center"
                     onClick={() => emblaApi.scrollPrev()}
                     aria-label="Previous slide"
-                    style={{}}
+                    style={{ transform: 'translateY(-50%)' }}
                   >
-                    <ChevronLeft className="w-6 h-6" />
+                    <ChevronLeft className="w-8 h-8 font-bold" />
                   </button>
                   <button
-                    className={`block md:hidden absolute right-0 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-orange-500/80 transition-colors ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]/50' : 'bg-[#0a0a14]/50'}`}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent p-0 text-neutral-800 dark:text-white hover:text-orange-500 transition-colors z-10 border-0 shadow-none w-12 h-12 flex items-center justify-center"
                     onClick={() => emblaApi.scrollNext()}
                     aria-label="Next slide"
-                    style={{}}
+                    style={{ transform: 'translateY(-50%)' }}
                   >
-                    <ChevronRight className="w-6 h-6" />
+                    <ChevronRight className="w-8 h-8 font-bold" />
                   </button>
                 </>
               )}
@@ -181,7 +181,7 @@ export function KeyPeople(): React.ReactElement {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className={`w-full p-6 sm:p-8 mt-2 relative rounded-lg border transition-colors duration-300 ${
+                        className={`w-full p-10 sm:p-8 mt-2 relative rounded-lg border transition-colors duration-300 ${
                           resolvedTheme === 'light'
                             ? 'bg-white border-neutral-200 shadow-xl'
                             : 'bg-gradient-to-br from-[#23222b]/80 to-[#181824]/90 border border-white/10 shadow-2xl backdrop-blur-lg'
@@ -217,7 +217,7 @@ export function KeyPeople(): React.ReactElement {
                             `}
                             aria-label={`LinkedIn profile of ${person.name}`}
                           >
-                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex align-center">
                               <rect width="32" height="32" rx="6" fill="none" />
                               <path d="M12.667 13.333h3.333v10h-3.333v-10zm1.667-1.667a1.667 1.667 0 1 1 0-3.333 1.667 1.667 0 0 1 0 3.333zm4.167 1.667h3.2v1.367h.047c.445-.843 1.533-1.733 3.153-1.733 3.373 0 4 2.22 4 5.107v5.259h-3.333v-4.667c0-1.113-.02-2.547-1.553-2.547-1.553 0-1.793 1.213-1.793 2.467v4.747h-3.333v-10z"
                               fill="#fff" />
