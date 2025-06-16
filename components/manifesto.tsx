@@ -57,15 +57,13 @@ export function Manifesto() {
 
         <div className="">
           <motion.div
-            className="flex flex-col md:flex-row gap-8 mb-16"
+            className="flex flex-col gap-8 mb-16"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <div className="w-2 md:w-1 bg-orange-500 flex-shrink-0 rounded-full"></div>
             <p
-              className={`text-3xl text-center md:text-3xl md:text-justify leading-[1.75] ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
-              // style={{ textAlign: "justify" }}
+              className={`text-center text-3xl md:text-3xl font-light leading-snug mb-8 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/90'}`}
             >
               At Ampliverse, we shape how tomorrow's innovators{" "}
               <span className={`font-semibold ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-orange-400/80'}`}>
