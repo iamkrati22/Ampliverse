@@ -64,7 +64,7 @@ export function Manifesto() {
           >
             <div className="w-2 md:w-1 bg-orange-500 flex-shrink-0 rounded-full"></div>
             <p
-              className={`text-3xl text-center md:text-justify md:text-2xl leading-[1.75] ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
+              className={`text-3xl text-center md:text-3xl md:text-justify leading-[1.75] ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white/80'}`}
               // style={{ textAlign: "justify" }}
             >
               At Ampliverse, we shape how tomorrow's innovators{" "}
@@ -72,8 +72,6 @@ export function Manifesto() {
                 earn trust, build presence, and scale across purposeful
                 ecosystems.
               </span>{" "}
-              Our solutions are driven by sharp strategic counsel, blending
-              insight, creativity, and agility to navigate complex landscapes.
               Upholding the highest standards of credibility, we help carve out
               distinction with{" "}
               <span className={`font-semibold underline underline-offset-4 ${resolvedTheme === 'light' ? 'text-orange-500/80 decoration-orange-200' : 'text-white decoration-orange-300/60'}`}>
