@@ -140,7 +140,7 @@ export function KeyPeople(): React.ReactElement {
                       src={person.image || "/placeholder.svg"}
                       alt={person.name}
                       fill
-                      className={`object-cover${person.id === 3 ? ' object-top' : ''}${person.id === 1 ? ' scale-125 md:scale-100' : ''} grayscale group-hover:grayscale-0 transition-all duration-500`}
+                      className={`object-cover${person.id === 3 ? ' object-top' : ''}${person.id === 1 ? ' scale-125' : ''} grayscale group-hover:grayscale-0 transition-all duration-500`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -203,7 +203,7 @@ export function KeyPeople(): React.ReactElement {
                               src={person.image || "/placeholder.svg"}
                               alt={person.name}
                               fill
-                              className={`object-cover${person.id === 3 ? ' object-top' : ''}${person.id === 1 ? ' scale-125 md:scale-100' : ''}`}
+                              className={`object-cover${person.id === 3 ? ' object-top' : ''}${person.id === 1 ? ' scale-125' : ''}`}
                             />
                           </div>
                           <h3 className={`text-xl sm:text-xl font-bold flex items-center justify-center gap-1 ${resolvedTheme === 'light' ? 'text-neutral-900' : 'text-white'}`}>
@@ -315,6 +315,14 @@ export function KeyPeople(): React.ReactElement {
           </div>
         </div>
       </div>
+      {/* Subtle gradient band for dark mode */}
+      <div className="absolute bottom-0 left-0 w-full h-16 md:h-24 pointer-events-none" 
+        style={{
+          background: resolvedTheme === 'dark' 
+            ? 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, rgba(24,24,36,0.3) 100%)'
+            : 'none'
+        }}
+      />
     </section>
   );
 }

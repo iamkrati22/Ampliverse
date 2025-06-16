@@ -113,6 +113,14 @@ export function WhoWeAre() {
           </a>
         </motion.div>
       </motion.div>
+      {/* Subtle gradient band for dark mode */}
+      <div className="absolute bottom-0 left-0 w-full h-16 md:h-24 pointer-events-none" 
+        style={{
+          background: resolvedTheme === 'dark' 
+            ? 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, rgba(24,24,36,0.3) 100%)'
+            : 'none'
+        }}
+      />
     </section>
   );
 }

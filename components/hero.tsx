@@ -143,16 +143,16 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="mx-auto text-lg md:text-2xl mb-12 mt-8 transition-all duration-700 text-center font-sans italic text-white/90"
+            className="mx-auto text-lg md:text-2xl mb-12 mt-8 transition-all duration-700 font-sans italic text-white/90 text-center max-w-[900px]"
             initial={{ opacity: 0 }}
             animate={loaded && titleMoved ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
-            Born from PR, we turn credibility into presence, and presence into momentum for innovators building  
-            <span className="relative inline-block underline-animate-parent">
+            Born from PR, we turn credibility into presence, and presence into momentum for innovators building
+            <span className="relative inline-block underline-animate-parent whitespace-nowrap">
               <span className={`relative z-10 ${resolvedTheme === 'light' ? 'text-orange-500' : 'text-white'}`}>
-                 &nbsp;tomorrow&apos;s solutions
+              &nbsp;tomorrow&apos;s solutions
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -160,8 +160,7 @@ export function Hero() {
                 transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
                 className={`absolute left-0 bottom-0 w-full h-[2px] rounded-full origin-left underline-animate ${resolvedTheme === 'light' ? 'bg-orange-200' : 'bg-gradient-to-r from-white/70 to-white/30'}`}
               ></motion.span>
-            </span>
-            .
+            </span>.
           </motion.p>
 
           <motion.div
