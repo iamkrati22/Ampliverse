@@ -118,7 +118,14 @@ export default function FlipCards() {
         </div>
         <HiddenTailwindUtilities />
       </div>
-      <div className="h-8 bg-gradient-to-b from-transparent to-[#f8f7f4] dark:to-[#0a0a14] w-full"></div>
+      {/* Subtle gradient band for dark mode */}
+      <div className="absolute bottom-0 left-0 w-full h-16 md:h-24 pointer-events-none" 
+        style={{
+          background: resolvedTheme === 'dark' 
+            ? 'linear-gradient(to bottom, rgba(10,10,20,0) 0%, rgba(24,24,36,0.3) 100%)'
+            : 'none'
+        }}
+      />
     </section>
   )
 }
