@@ -30,27 +30,27 @@ export function OurWork() {
       ],
       topStories: [
         {
-          text: "Gadgets 360 by NDTV",
+          text: "Gadgets 360 by NDTV - India Blockchain Week to Return for Second Edition: All Details",
           url: "https://www.gadgets360.com/cryptocurrency/news/india-blockchain-week-second-edition-hashed-emergent-6811586"
         },
         {
-          text: "The Economic Times",
+          text: "The Economic Times- Can India become the next global hub for Web3 development?",
           url: "https://economictimes.indiatimes.com/opinion/et-commentary/can-india-become-the-next-global-hub-for-web3-development/articleshow/115149867.cms?from=mdr"
         },
         {
-          text: "The Hindu Business Line",
+          text: "The Hindu Business Line- India’s Web3 start-ups surge, get $462 million in first 9 months of 2024: Report",
           url: "https://www.thehindubusinessline.com/info-tech/indias-web3-start-ups-surge-get-462-million-in-first-9-months-of-2024-report/article68969503.ece"
         },
         {
-          text: "Cointelegraph",
+          text: "Cointelegraph- India’s Web3 dominance fueled by 1K startups, global investments, dev talent",
           url: "https://cointelegraph.com/news/india-web3-startup-ecosystem-2024"
         },
         {
-          text: "Moneycontrol",
+          text: "Moneycontrol- Web3, crypto regulatory proposals take centre stage at India Blockchain Week",
           url: "https://www.moneycontrol.com/technology/web3-crypto-regulatory-proposals-take-centre-stage-at-india-blockchain-week-article-12883438.html"
         },
         {
-          text: "Businessworld",
+          text: "Businessworld- Top Leaders Hail India As Web3 Powerhouse, But Urge Regulatory Clarity",
           url: "https://www.businessworld.in/article/top-leaders-hail-india-as-web3-powerhouse-but-urge-regulatory-clarity-541352"
         },
       ]
@@ -68,27 +68,27 @@ export function OurWork() {
       ],
       topStories: [
         {
-          text: "ANI",
+          text: "ANI- India Khelo Football starts national trials to enhance grassroots of Indian football in 100 cities",
           url: "https://www.aninews.in/news/sports/football/india-khelo-football-starts-national-trials-to-enhance-grassroots-of-indian-football-in-100-cities20240723181344/"
         },
         {
-          text: "The Hindu",
+          text: "The Hindu- India Khelo Football hosts Premier League Scouts in India via ProSoccer Global's Workshop",
           url: "https://www.thehindu.com/sport/football/india-khelo-football-hosts-premier-league-scouts-in-india-via-prosoccer-globals-workshop/article66039903.ece"
         },
         {
-          text: "Times Now",
+          text: "Times Now- Where talent meets opportunity! IKF set to bridge the gap between grassroots & professional football in Indias",
           url: "https://www.timesnownews.com/sports/football/where-talent-meets-opportunity-ikf-set-to-bridge-the-gap-between-grassroots-professional-football-in-india-article-94652665"
         },
         {
-          text: "First Post",
+          text: "First Post- India Khelo Football hosts Premier League Scouts in India",
           url: "https://www.firstpost.com/sports/football-news/india-khelo-football-hosts-premier-league-scouts-in-india-11525211.html"
         },
         {
-          text: "SportsKeeda",
+          text: "SportsKeeda- From Ladakh to Andaman: India Khelo Football's crusade to democratize the grassroots structure in the country",
           url: "https://www.sportskeeda.com/indian-football/news-from-ladakh-andaman-india-khelo-football-s-crusade-democratize-grassroots-structure-country"
         },
         {
-          text: "SportStar",
+          text: "SportStar- Ladakh to host India Khelo Football Season 2 Trials",
           url: "https://sportstar.thehindu.com/other-sports/indian-sports-news-wrap-october-13-results-highlights-scores-updates/article66005276.ece"
         },
       ]
@@ -107,31 +107,31 @@ export function OurWork() {
       ],
       topStories: [
         {
-          text: "The Times of India",
+          text: "The Times of India - EU-India Innocentre’s 8th cohort showcases cutting-edge technologies in Bengaluru",
           url: "https://timesofindia.indiatimes.com/business/india-business/eu-india-innocentres-8th-cohort-showcases-cutting-edge-technologies-in-bengaluru/articleshow/105239470.cms"
         },
         {
-          text: "The Economic Times",
+          text: "The Economic Times - EU-India Innocenter joins European and Indian startup stakeholders, India key for global expansion",
           url: "https://m.economictimes.com/news/india/eu-india-innocenter-joins-european-and-indian-startup-stakeholders-india-key-for-global-expansion/articleshow/105181111.cms"
         },
         {
-          text: "The New Indian Express",
+          text: "The New Indian Express - European startups enthused by India’s sustainability push: EU-India InnoCenter Project Head",
           url: "https://www.newindianexpress.com/nation/2023/Mar/09/european-startups-enthused-by-indias-sustainability-pusheu-india-innocenter-project-head-2554489.html"
         },
         {
-          text: "The Hindu",
+          text: "The Hindu- EU-India Innocenter extends market-entry services for Indian start-ups looking to explore the European market",
           url: "https://www.thehindu.com/news/cities/bangalore/eu-india-innocenter-extends-market-entry-services-for-indian-start-ups-looking-to-explore-the-european-market/article67517014.ece"
         },
         {
-          text: "Entrepreneur India",
+          text: "Entrepreneur India - European Startups to Display Tech Innovation in Bengaluru",
           url: "https://www.entrepreneur.com/en-in/news-and-trends/european-startups-to-display-tech-innovation-in-bengaluru/439183"
         },
         {
-          text: "Telangana Today",
+          text: "Telangana Today- EU-India Innocenter hosts 8 high-impact European tech startups at T-Hub",
           url: "https://telanganatoday.com/eu-india-innocenter-hosts-8-high-impact-european-tech-startups-at-t-hub"
         },
         {
-          text: "Tech Circle",
+          text: "Tech Circle- How this EU-funded initiative is helping European startups enter India",
           url: "https://www.techcircle.in/2023/05/17/how-this-eu-funded-initiative-is-helping-european-startups-enter-india/"
         },
       ]
