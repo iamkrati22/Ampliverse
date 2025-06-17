@@ -7,6 +7,7 @@ import { WorldMap } from "@/components/world-map"
 import { ContactFormModal } from "@/components/contact-form-modal"
 import { useTheme } from "next-themes"
 import { useIsMobile } from "@/components/ui/use-mobile"
+import emailjs from '@emailjs/browser'
 
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null)
@@ -30,12 +31,25 @@ export function Contact() {
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted:", formState);
-    alert("Thank you for your message! We will get back to you soon.");
-    setFormState({ name: "", email: "", message: "" });
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      alert("Thank you for your message! We will get back to you soon.");
+      setFormState({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert("Sorry, there was an error sending your message. Please try again later.");
+    }
   };
 
   const [formState, setFormState] = useState({

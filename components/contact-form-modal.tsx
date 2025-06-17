@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import emailjs from '@emailjs/browser'
 
 interface ContactFormModalProps {
   isOpen: boolean
@@ -18,7 +19,6 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     email: "",
     message: "",
   })
-  const [now, setNow] = useState(null)
 
   useEffect(() => {
     setIsMounted(true)
@@ -37,16 +37,29 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Form submission logic would go here
-    console.log("Form submitted:", formState)
-    alert("Thank you for your message! We will get back to you soon.")
-    setFormState({ name: "", email: "", message: "" })
-    onClose()
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      alert("Thank you for your message! We will get back to you soon.");
+      setFormState({ name: "", email: "", message: "" });
+      onClose();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert("Sorry, there was an error sending your message. Please try again later.");
+    }
   }
 
-  if (!isMounted) return null
+  if (!isMounted) return null;
 
   return (
     <AnimatePresence>
@@ -158,5 +171,5 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
