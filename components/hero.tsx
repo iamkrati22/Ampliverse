@@ -74,10 +74,11 @@ export function Hero() {
             muted
             loop
             playsInline
-            className="w-full h-full object-cover opacity-50"
+            className="hidden md:flex w-full h-full object-cover opacity-50"
           >
             <source src="/Ampliverse Video Banner-finalcut-c.mp4" type="video/mp4" />
           </video>
+          <img src='/Banner Static Photo- Mob Version.png' className="flex md:hidden w-full h-full object-cover opacity-50"/>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-[#0a0a14]/55 to-[#0a0a14]/80"></div>
           {/* Fading out effect at the bottom of the video */}
           {resolvedTheme === 'dark' && (

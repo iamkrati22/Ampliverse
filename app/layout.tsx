@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <link rel="icon" href="/24-Photoroom.png" sizes="any" />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Loader />
           {children}
