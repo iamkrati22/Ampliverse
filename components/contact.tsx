@@ -101,10 +101,10 @@ export function Contact() {
                   <div className="ml-4">
                     <p className={`text-sm ${resolvedTheme === 'light' ? 'text-neutral-500' : 'text-white/60'}`}>Email</p>
                     <a
-                      href="mailto:pr@ampliverse.com"
+                      href="mailto:pr@ampliverse.in"
                       className={`text-xl md:text-base font-medium transition-colors ${resolvedTheme === 'light' ? 'text-neutral-900 hover:text-orange-500' : 'text-white hover:text-orange-500'}`}
                     >
-                      pr@ampliverse.com
+                      pr@ampliverse.in
                     </a>
                   </div>
                 </div>
