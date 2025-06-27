@@ -13,6 +13,7 @@ export function Testimonials() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [current, setCurrent] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
   const { resolvedTheme } = useTheme()
 
   const testimonials = [
@@ -45,11 +46,13 @@ export function Testimonials() {
     if (!isInView) return
 
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length)
+      if (!isHovered) {
+        setCurrent((prev) => (prev + 1) % testimonials.length)
+      }
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isInView, testimonials.length])
+  }, [isInView, isHovered, testimonials.length])
 
   const next = () => {
     setCurrent((prev) => (prev + 1) % testimonials.length)
@@ -97,7 +100,11 @@ export function Testimonials() {
           />
         </motion.div>
 
-        <div className="w-full flex flex-col items-center justify-center relative">
+        <div 
+          className="w-full flex flex-col items-center justify-center relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div className="max-w-screen-2xl w-full mx-auto relative flex items-center justify-center">
             <button
               onClick={prev}
