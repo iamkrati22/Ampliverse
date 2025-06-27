@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <link rel="icon" href="/favicon.png" sizes="160x160" />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Loader />
           {children}
