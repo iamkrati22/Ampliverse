@@ -33,7 +33,7 @@ export default function Home() {
         <meta property="og:title" content="Ampliverse" />
         <meta property="og:description" content="Making what's next, heard today" />
         <meta property="description" content="Making what's next, heard today" />
-        <meta property="og:image" content="https://ampliverse.in/logo_black.png" />
+        <meta property="og:image" content="https://ampliverse.in/24-Photoroom.png" />
       </Head>
       <Loader />
       <Hero />
