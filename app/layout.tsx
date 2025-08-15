@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   publisher: 'Ridhima Basin',
   metadataBase: new URL('https://ampliverse.in/'),
   openGraph: {
-    images: '/24-Photoroom.png',
+    images: "/A%20Black%20Orange-Photoroom.png",
     title: 'Ampliverse',
     description: "Making What's Next, Heard Today",
     url: 'https://ampliverse.in/'
