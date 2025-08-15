@@ -16,7 +16,6 @@ import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import FlipCards from "@/components/flip-cards";
 import { useTheme } from "next-themes";
-import Head from "next/head";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -28,12 +27,6 @@ export default function Home() {
   const { resolvedTheme } = useTheme();
   return (
     <main className={`flex min-h-screen flex-col items-center transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
-      <Head>
-        <meta property="og:url" content="https://ampliverse.in/" />
-        <meta name='title' property="og:title" content="Ampliverosdfse" />
-        <meta name='description' property="og:description" content="Mkdsfjnaking what's next, heard today" />
-        <meta name='image' property="og:image" content="https://ampliverse.in/24-Photoroom.png" />
-      </Head>
       <Loader />
       <Hero />
       <WhoWeAre />

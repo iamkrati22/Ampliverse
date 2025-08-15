@@ -9,6 +9,15 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Ampliverse",
   description: "Making What's Next, Heard Today",
+  creator: '2ybaryl',
+  publisher: 'Ridhima Basin',
+  metadataBase: new URL('https://ampliverse.in/'),
+  openGraph: {
+    images: '/24-Photoroom.png',
+    title: 'Ampliverse',
+    description: "Making What's Next, Heard Today",
+    url: 'https://ampliverse.in/'
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
