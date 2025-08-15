@@ -30,8 +30,8 @@ export default function Home() {
     <main className={`flex min-h-screen flex-col items-center transition-colors duration-300 ${resolvedTheme === 'light' ? 'bg-[#fcfcfa]' : 'bg-[#0a0a14]'}`}>
       <Head>
         <meta property="og:url" content="https://ampliverse.in/" />
-        <meta name='title' property="og:title" content="Ampliverse" />
-        <meta name='description' property="og:description" content="Making what's next, heard today" />
+        <meta name='title' property="og:title" content="Ampliverosdfse" />
+        <meta name='description' property="og:description" content="Mkdsfjnaking what's next, heard today" />
         <meta name='image' property="og:image" content="https://ampliverse.in/24-Photoroom.png" />
       </Head>
       <Loader />
